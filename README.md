@@ -1,16 +1,14 @@
 # sea-battle
 
-## To start you can use ``
+**[Demo]()**
 
+**[Web-Desing]()**
 
-### [Demo]()
-### [Web-Desing]()
+### Getting started
+- To start you can use ``
 
-<br>
-
-## Techmical task
-
-> Create a `sea battle` game
+### Techmical task:
+- Create a `sea battle` game
 
 ### Nuances:
 - The size of the field(s) and the composition of the ships are dynamic (can be set at the start)
