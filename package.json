@@ -1,0 +1,28 @@
+{
+  "name": "sea-battle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "serverstart": "node app.js",
+    "serverwatch": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alkhimenok/sea-battle.git"
+  },
+  "keywords": [],
+  "author": "Kirill Alkhimenok <alkhimenok.kirill.leonidovich@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alkhimenok/sea-battle/issues"
+  },
+  "homepage": "https://github.com/alkhimenok/sea-battle#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  }
+}
