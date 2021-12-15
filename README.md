@@ -4,7 +4,7 @@
 
 **[Web-Desing]()**
 
-### Getting started
+### Getting started:
 - To start you can use ``
 
 ### Techmical task:
