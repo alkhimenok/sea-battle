@@ -4,6 +4,6 @@
 		<%- include('./partials/head') %>
 	</head>
 	<body>
-		<%- include('./partials/nav', { links: ['1', '2', '3'] }) %>
+		<%- include('./partials/nav', { links: [{ textContetn: 'New game', route: '/parameters/size' }, { textContetn: 'Continue game', route: '/play' }, { textContetn:'Stats', route: '/stats' }] }) %>
 	</body>
 </html>

@@ -1,0 +1,19 @@
+.nav {
+  .nav__list {
+    @include flex(center, flex-start, row, wrap);
+    padding: 0;
+    @include removeMR;
+  }
+  .nav__item {
+    list-style: none;
+    margin: 0 10px 0 0;
+  }
+  .nav__link {
+    padding: 10px 30px;
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: $whiteColor;
+    background-color: $primaryColor;
+    border-radius: 5px;
+  }
+}
