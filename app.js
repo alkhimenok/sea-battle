@@ -8,7 +8,7 @@ const PORT = 5000
 app.set('view engine', 'ejs')
 app.set('views', path.resolve(__dirname, 'templates'))
 
-app.use(exporess.static(path.resolve(__dirname, 'templates')))
+app.use(exporess.static(path.resolve(__dirname, 'client', 'src')))
 
 app.use('/', require('./routes/main'))
 app.use('/', require('./routes/stats'))
