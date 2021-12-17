@@ -1,0 +1,42 @@
+.statistics {
+	.statistics__body {
+		@include flex(center, space-between, row, wrap);
+	}
+	.statistics__list {
+		@include removeMB;
+		@media screen and (min-width: $breackpointSMMin) {
+			padding: 20px;
+		}
+		@media screen and (max-width: $breackpointXSMax) {
+			padding: calc(0px + 20 * (100vw / 576));
+		}
+	}
+	.statistics__item {
+		@include flex(center, flex-start);
+		font-size: 4rem;
+		color: $primaryColor;
+		// &._icon-like {
+		// }
+		// &._icon-dislike {
+		// }
+		@media screen and (min-width: $breackpointSMMin) {
+			margin: 0 0 20px 0;
+		}
+		@media screen and (max-width: $breackpointXSMax) {
+			margin: 0 0 calc(0px + 20 * (100vw / 576)) 0;
+		}
+	}
+	.statistics__label {
+		display: inline-block;
+		font-size: 2rem;
+		color: $balckColor;
+		@media screen and (min-width: $breackpointSMMin) {
+			margin: 0 30px;
+		}
+		@media screen and (max-width: $breackpointXSMax) {
+			margin: 0 calc(0px + 30 * (100vw / 576));
+		}
+	}
+	// .statistics__value {
+	// }
+}
