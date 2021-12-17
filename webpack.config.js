@@ -1,5 +1,6 @@
 const path = require('path')
 
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
@@ -36,20 +37,17 @@ module.exports = {
 	mode: getMode(),
 	devtool: getDevtool(),
 	context: path.resolve(__dirname, 'client', 'src'),
-	entry: './index.ts',
+	entry: './index.js',
 	module: {
 		rules: [
 			{
-				test: /\.ts$/,
-				use: 'ts-loader',
-				exclude: /node_modules/,
-			},
-			{
-				test: /\.jpe?g$|\.gif$|\.png$|\.PNG$|\.svg$|\.woff(2)?$|\.ttf$|\.eot$/,
-				loader: 'file-loader',
-				options: {
-					name: '[name].[ext]',
-					outputPath: 'assets',
+				test: /\.m?js$/,
+				exclude: /(node_modules|bower_components)/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['@babel/preset-env'],
+					},
 				},
 			},
 			{
@@ -62,11 +60,6 @@ module.exports = {
 			},
 		],
 	},
-	plugins: [new MiniCssExtractPlugin(), new CleanWebpackPlugin()],
-	resolve: {
-		extensions: ['.ts', '.js'],
-	},
-	output: {
-		path: path.resolve(__dirname, 'client', 'dist'),
-	},
+	plugins: [new MiniCssExtractPlugin(), new CleanWebpackPlugin(), new CopyWebpackPlugin({ patterns: [{ from: 'assets/images' }] })],
+	output: { path: path.resolve(__dirname, 'client', 'dist') },
 }

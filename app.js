@@ -1,21 +1,16 @@
-const exporess = require('express')
 const path = require('path')
+const exporess = require('express')
 
 const app = exporess()
 
-const PORT = 5000
+const PORT = process.env.PORT || 5000
 
 app.set('view engine', 'ejs')
 app.set('views', path.resolve(__dirname, 'templates'))
 
 app.use(exporess.static(path.resolve(__dirname, 'client', 'dist')))
 
-app.use('/', require('./routes/main'))
-app.use('/', require('./routes/stats'))
-app.use('/', require('./routes/play'))
-app.use('/parameters', require('./routes/size'))
-app.use('/parameters', require('./routes/positions'))
-app.use('/parameters', require('./routes/mode'))
+app.use('/', require('./routes/game'))
 
 const start = () => {
 	try {
