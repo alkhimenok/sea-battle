@@ -1,15 +1,16 @@
-<%
-const startLinks = [
+<!-- prettier-ignore -->
+<% 
+const startLinks = [ 
 	{ textContetn: 'Playing with a bot', icon: '_icon-bot' }, 
-	{ textContetn: 'Play with a friend', icon: '_icon-friend' },
-	{ textContetn: 'Statistics', icon: '_icon-statistics' }
+	{ textContetn: 'Play with a friend', icon: '_icon-friend' }, 
+	{ textContetn: 'Statistics', icon: '_icon-statistics' } 
 ]
-const statisticsLinks = [
-	{ textContetn: 'Back', icon: '_icon-prev' }, 
-	// { textContetn: 'Wins', icon: '_icon-like' },
-	// { textContetn: 'Losses', icon: '_icon-dislike' }
+const statisticsLinks = [ 
+	{ textContetn: 'Back', icon: '_icon-prev' }
 ]
+const ships = [{icon: '_icon-shipFour', value: 1}, {icon: '_icon-shipThree', value: 2}, {icon: '_icon-shipTwo', value: 3}, {icon: '_icon-shipOne', value: 4}]
 %>
+<!-- prettier-ignore -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,16 +19,15 @@ const statisticsLinks = [
 	</head>
 	<body>
 		<div class="wrapper">
-			<h1 class="title">
-				sea-battle
-			</h1>
-			<div class="start screen">
-				<div class="start__body body">
-					<%- include('./partials/nav', {links: startLinks}) %>
+			<!-- <h1 class="title">sea-battle</h1> -->
+			<div class="start _screen">
+				<div class="start__body _body">
+					<% if(progress) { %> <% startLinks.unshift({ textContetn: 'continue the game', icon: '_icon-save' }) %> <% } %> <%-
+					include('./partials/nav', {links: startLinks}) %>
 				</div>
 			</div>
-			<div class="statistics screen">
-				<div class="statistics__body body">
+			<div class="statistics _screen">
+				<div class="statistics__body _body">
 					<%- include('./partials/nav', {links: statisticsLinks}) %>
 					<ul class="statistics__list">
 						<li class="statistics__item _icon-like">
@@ -38,6 +38,33 @@ const statisticsLinks = [
 							<spna class="statistics__label">Losses:</spna>
 							<span class="statistics__value">2</span>
 						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="size _screen">
+				<div class="size__body _body">
+					<input class="size__range" type="range" value="10" min="10" max="30" />
+					<div class="size__cover">
+						<span class="size__field-size">10</span>
+						<div class="size__field">
+							<% for(let i = 0; i < 100; i++) {%>
+								<%- `<div class="size__cell"></div>` %>
+							<% } %>
+						</div>
+					</div>
+					<ul class="size__ships">
+						<% ships.forEach(ship => { %>
+							<%-
+								`<li class="size__ship">
+									<span class="size__icon ${ship.icon}"></span>
+									<nav class="size__nav">
+										<span class="size__value">${ship.value}</span>
+										<button class="size__btn">+</button>
+										<button class="size__btn">-</button>
+									</nav>
+								</li>`
+							%>
+						<% }) %>
 					</ul>
 				</div>
 			</div>

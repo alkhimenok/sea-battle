@@ -1,6 +1,6 @@
 <nav class="nav">
 	<ul class="nav__list">
-		<% links.map(link => { %>
+		<% links.forEach(link => { %>
 			<%- `<li class="nav__item"><a href="#" class="nav__link ${link.icon}"><span class="nav__label">${link.textContetn}</span></a></li>` %>
 		<% }) %>
 	</ul>

@@ -1,0 +1,110 @@
+.size {
+	.size__body {
+		position: relative;
+	}
+	.size__range {
+		width: 100%;
+    background-color: red;
+	}
+	.size__cover {
+		@include flex(center, center);
+		display: none;
+		position: absolute;
+		top: 55%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100%;
+		height: 95%;
+		background-color: $transparentSecondaryColor;
+	}
+	.size__field-size {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 6rem;
+		font-family: 'Roboto-Black';
+	}
+	.size__field {
+		@include flex(center, flex-start, row, wrap);
+		background-color: $secondaryColor;
+		@media screen and (min-width: $breackpointSMMin) {
+			width: 300px;
+		}
+		@media screen and (max-width: $breackpointXSMax) {
+			width: calc(0px + 300 * (100vw / 576));
+		}
+	}
+	.size__cell {
+		width: 30px; ////
+		height: 30px; ////
+		border: 1px solid $primaryColor;
+		box-sizing: border-box;
+	}
+	// .size__ships {
+	// }
+	.size__ship {
+		@include flex(center, space-between);
+		@media screen and (min-width: $breackpointSMMin) {
+			padding: 20px 0;
+		}
+		@media screen and (max-width: $breackpointXSMax) {
+			padding: calc(0px + 20 * (100vw / 576)) 0;
+		}
+	}
+	.size__icon {
+		font-size: 4rem;
+    color: $primaryColor;
+		// &._icon-shipFour {
+		// }
+		// &._icon-shipThree {
+		// }
+		// &._icon-shipTwo {
+		// }
+		// &._icon-shipOne {
+		// }
+	}
+	.size__nav {
+		@include flex(center, center);
+		@include removeMR;
+	}
+	.size__value {
+		font-size: 2rem;
+		@media screen and (min-width: $breackpointSMMin) {
+			margin: 0 30px 0 0;
+		}
+		@media screen and (max-width: $breackpointXSMax) {
+			margin: 0 calc(0px + 30 * (100vw / 576)) 0 0;
+		}
+	}
+	.size__btn {
+		@include flex(center, center);
+		font-size: 4rem;
+		color: $primaryColor;
+		background-color: $secondaryColor;
+		border: 2px solid $primaryColor;
+		transition: $delay;
+		user-select: none;
+		@media screen and (hover: hover) {
+			&:hover {
+				border-radius: 50%;
+			}
+		}
+		&:active {
+      color: $secondaryColor;
+			background-color: $primaryColor;
+		}
+		@media screen and (min-width: $breackpointSMMin) {
+			width: 50px;
+			height: 50px;
+			margin: 0 10px 0 0;
+			border-radius: 5px;
+		}
+		@media screen and (max-width: $breackpointXSMax) {
+			width: calc(0px + 50 * (100vw / 576));
+			height: calc(0px + 50 * (100vw / 576));
+			margin: 0 calc(0px + 10 * (100vw / 576)) 0 0;
+			border-radius: calc(0px + 5 * (100vw / 576));
+		}
+	}
+}

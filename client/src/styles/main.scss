@@ -74,9 +74,14 @@ $breackpointXXLMin: $breackpointXLMax + 1; // 1401px
 @import './components/statistics';
 // statistics ----- //
 
+// ----- size //
+@import './components/size'; 
+// size ----- //
+
 html {
 	font-family: 'Roboto-Regular';
 	font-size: 10px;
+	color: $balckColor;
 	@media screen and (max-width: $breackpointXSMax) {
 		font-size: calc(0px + 10 * (100vw / 576));
 	}
@@ -98,12 +103,12 @@ ul {
 	text-transform: uppercase;
 	letter-spacing: 0.2rem
 }
-.screen {
+._screen {
 	@include flex(center, center);
 	width: 100vw;
 	height: 100vh;
 }
-.body {
+._body {
 	background-color: $transparentSecondaryColor;
 	width: 576px;
 	margin: 0 auto;
