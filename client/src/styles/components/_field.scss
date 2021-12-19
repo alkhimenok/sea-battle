@@ -1,0 +1,12 @@
+.field {
+  @include flex(center, flex-end, row, wrap);
+  @include size(240, 240);
+  margin: 0 auto;
+  background-color: $secondaryColor;
+  border: calc($base * 0.2) solid $transparentPrimaryColor;
+  box-sizing: content-box;
+  .field__cell {
+    @include size(24, 24);
+    border: calc($base * 0.1) solid $transparentPrimaryColor;
+  }
+}

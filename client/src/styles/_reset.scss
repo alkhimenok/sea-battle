@@ -1,0 +1,20 @@
+* {
+	box-sizing: border-box;
+}
+html,
+body {
+	font-family: 'Roboto-Regular';
+	font-size: 10px;
+	color: $defaultColor;
+	@media screen and (max-width: ($breackpointXSMax * 1px)) {
+		font-size: calc(0px + 10 * (100vw / $breackpointXSMax));
+	}
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}

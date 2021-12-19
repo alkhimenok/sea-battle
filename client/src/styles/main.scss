@@ -1,44 +1,36 @@
 $transparent: transparent;
-// $whiteColor: #ffffff;
-$balckColor: #000000;
+$defaultColor: #000000;
 $errorColor: #d04840;
 $primaryColor: #256696;
 $secondaryColor: #ffffff;
 $transparentPrimaryColor: #a8c6db;
-$transparentSecondaryColor: #eeeeee;
-// $transparentBackgroundPrimaryColor: #ffffff;
-// $textPrimaryColor: #1d2310;
-// $textSecondaryColor: #292b27;
-$backgroundPrimaryColor: #ffffff;
-// $backgroundSecondaryColor: #f5f8fe;
+$transparentSecondaryColor: #fafafa;
 
 $delay: 0.2s;
 $longDelay: 0.6s ease-in-out;
 
-$breackpointXSMin: 0px;
-$breackpointXSMax: 576px;
-$breackpointSMMin: $breackpointXSMax + 1px; // 577px
-$breackpointSMMax: 768px;
-$breackpointMDMin: $breackpointSMMax + 1px; // 769px
-$breackpointMDMax: 992px;
-$breackpointLGMin: $breackpointMDMax + 1px; // 993px
-$breackpointLGMax: 1200px;
-$breackpointXLMin: $breackpointLGMax + 1px; // 1201px
-$breackpointXLMax: 1400px;
-$breackpointXXLMin: $breackpointXLMax + 1; // 1401px
+$maxWidth: 800px;
 
-// @media screen and (hover: hover) {}
-// @media screen and (hover: none) {}
-// @media screen and (max-width: $breackpointXSMax) {}
-// @media screen and (min-width: $breackpointSMMin) {}
-// @media screen and (max-width: $breackpointSMMax) {}
-// @media screen and (min-width: $breackpointMDMin) {}
-// @media screen and (max-width: $breackpointMDMax) {}
-// @media screen and (min-width: $breackpointLGMin) {}
-// @media screen and (max-width: $breackpointLGMax) {}
-// @media screen and (min-width: $breackpointXLMin) {}
-// @media screen and (max-width: $breackpointXLMax) {}
-// @media screen and (min-width: $breackpointXXLMin) {}
+$base: 1rem;
+
+$sizeXS: $base * 1;
+$sizeSM: $base * 1.5;
+$sizeMD: $base * 2;
+$sizeLG: $base * 3;
+$sizeXL: $base * 4;
+$sizeXXL: $base * 5;
+
+$breackpointXSMin: 0;
+$breackpointXSMax: 576;
+$breackpointSMMin: $breackpointXSMax + 1; // 577
+$breackpointSMMax: 768;
+$breackpointMDMin: $breackpointSMMax + 1; // 769
+$breackpointMDMax: 992;
+$breackpointLGMin: $breackpointMDMax + 1; // 993
+$breackpointLGMax: 1200;
+$breackpointXLMin: $breackpointLGMax + 1; // 1201
+$breackpointXLMax: 1400;
+$breackpointXXLMin: $breackpointXLMax + 1; // 1401
 
 @mixin removeMB {
 	& > :last-child {
@@ -48,6 +40,56 @@ $breackpointXXLMin: $breackpointXLMax + 1; // 1401px
 @mixin removeMR {
 	& > :last-child {
 		margin-right: 0;
+	}
+}
+@mixin castomScrol {
+	&::-webkit-scrollbar {
+		height: calc($base * 0.4) !important;
+		width: calc($base * 0.4) !important;
+	}
+	&::-webkit-scrollbar-track {
+		background: $transparentPrimaryColor;
+		border-radius: $sizeXS;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: $primaryColor;
+		border-radius: $sizeXS;
+	}
+}
+@mixin castomRange {
+	& {
+		height: $sizeXS;
+		background-color: $transparentPrimaryColor;
+		border: calc($base * 0.2) solid $primaryColor;
+		border-radius: $sizeXS;
+		cursor: e-resize;
+		-webkit-appearance: none;
+	}
+	&::-webkit-slider-thumb {
+		@include size(15, 15);
+		background-color: $primaryColor;
+		border-radius: 50%;
+		-webkit-appearance: none;
+	}
+}
+@mixin size($width, $heigth, $breackpoint: 0, $lastWidth: $width, $lastHeigth: $heigth) {
+	@media screen and (min-width: calc($breackpointSMMin * 1px)) {
+		width: calc($width * 1px);
+		height: calc($heigth * 1px);
+	}
+	@if $breackpoint != 0 {
+		@media screen and (max-width: calc($breackpoint * 1px)) {
+			width: calc(
+				($lastWidth * 1px) + ($width - $lastWidth) * ((100vw - ($breackpointXSMax * 1px)) / ($breackpoint - $breackpointXSMax))
+			);
+			height: calc(
+				($lastHeigth * 1px) + ($heigth - $lastHeigth) * ((100vw - $breackpointXSMax * 1px) / ($breackpoint - $breackpointXSMax))
+			);
+		}
+	}
+	@media screen and (max-width: calc($breackpointXSMax * 1px)) {
+		width: calc(0px + $lastWidth * (100vw / $breackpointXSMax));
+		height: calc(0px + $lastHeigth * (100vw / $breackpointXSMax));
 	}
 }
 @mixin flex($align-items: center, $justify-content: center, $flex-direction: row, $flex-wrap: nowrap) {
@@ -66,6 +108,10 @@ $breackpointXXLMin: $breackpointXLMax + 1; // 1401px
 @import './icons';
 // icons ----- //
 
+// ----- reset //
+@import './reset';
+// reset ----- //
+
 // ----- nav //
 @import './components/nav';
 // nav ----- //
@@ -75,33 +121,19 @@ $breackpointXXLMin: $breackpointXLMax + 1; // 1401px
 // statistics ----- //
 
 // ----- size //
-@import './components/size'; 
+@import './components/size';
 // size ----- //
 
-html {
-	font-family: 'Roboto-Regular';
-	font-size: 10px;
-	color: $balckColor;
-	@media screen and (max-width: $breackpointXSMax) {
-		font-size: calc(0px + 10 * (100vw / 576));
-	}
-}
-body {
-	// overflow-y: hidden;
-}
-ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
+// ----- ships //
+@import './components/ships';
+// ships ----- //
+
+// ----- field //
+@import './components/field';
+// field ----- //
+
 .wrapper {
-}
-.title {
-	text-align: center;
-	font-family: 'Roboto-Thin';
-	font-size: 5rem;
-	text-transform: uppercase;
-	letter-spacing: 0.2rem
+	overflow: hidden;
 }
 ._screen {
 	@include flex(center, center);
@@ -109,8 +141,22 @@ ul {
 	height: 100vh;
 }
 ._body {
-	background-color: $transparentSecondaryColor;
-	width: 576px;
+	width: $maxWidth;
+	max-width: $maxWidth;
 	margin: 0 auto;
-	padding: 0 10px;
+	padding: $sizeLG $sizeXS;
+	background-color: $secondaryColor;
 }
+
+// @media screen and (hover: hover) {}
+// @media screen and (hover: none) {}
+// @media screen and (max-width: calc($breackpointXSMax * 1px)) {}
+// @media screen and (min-width: calc($breackpointSMMin * 1px)) {}
+// @media screen and (max-width: calc($breackpointSMMax * 1px)) {}
+// @media screen and (min-width: calc($breackpointMDMin * 1px)) {}
+// @media screen and (max-width: calc($breackpointMDMax * 1px)) {}
+// @media screen and (min-width: calc($breackpointLGMin * 1px)) {}
+// @media screen and (max-width: calc($breackpointLGMax * 1px)) {}
+// @media screen and (min-width: calc($breackpointXLMin * 1px)) {}
+// @media screen and (max-width: calc($breackpointXLMax * 1px)) {}
+// @media screen and (min-width: calc($breackpointXXLMin * 1px)) {}

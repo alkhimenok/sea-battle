@@ -1,0 +1,3 @@
+templates/partials/nav.ejs
+templates/partials/ships.ejs
+templates/partials/field.ejs

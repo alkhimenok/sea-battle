@@ -1,0 +1,24 @@
+<% 
+const getShipNav = (value) => {
+  return `
+    <nav class="ships__nav">
+      <span class="ships__value">${value}</span>
+      <button class="ships__btn">+</button>
+      <button class="ships__btn _red">-</button>
+    </nav>
+  `
+}
+%> 
+
+<ul class="ships__list">
+  <% ships.forEach(ship => { %>
+    <%- 
+      `
+      <li class="ships__item">
+        <span class="ships__icon ${ship.icon}"></span>
+        ${ship.value ? getShipNav(ship.value) : ''}
+      </li>
+      `
+    %>
+  <% }) %>
+</ul>

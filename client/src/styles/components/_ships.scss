@@ -1,0 +1,77 @@
+.ships {
+	// .ships__list {
+	// }
+	.ships__item {
+		user-select: none;
+	}
+	.ships__icon {
+    color: $primaryColor;
+    &::before {
+      font-size: $sizeXXL;
+    }
+		// &._icon-shipFour {
+		// }
+		// &._icon-shipThree {
+		// }
+		// &._icon-shipTwo {
+		// }
+		// &._icon-shipOne {
+		// }
+	}
+	.ships__nav {
+		@include flex(center, flex-start);
+		@include removeMR;
+	}
+	.ships__value {
+		margin: 0 $sizeLG 0 0;
+		font-size: $sizeMD;
+	}
+	.ships__btn {
+		@include size(50, 50);
+		margin: 0 $sizeXS 0 0;
+		font-size: $sizeXL;
+		color: $primaryColor;
+		background-color: $secondaryColor;
+		border: calc($base * 0.2) solid $primaryColor;
+		border-radius: calc($base * 0.4);
+		transition: $delay;
+		&._red {
+			color: $errorColor;
+			border-color: $errorColor;
+		}
+		@media screen and (hover: hover) {
+			&:hover {
+				border-radius: 50%;
+			}
+		}
+		&:active {
+			color: $secondaryColor;
+			background-color: $primaryColor;
+			&._red {
+				background-color: $errorColor;
+			}
+		}
+	}
+	&:not(._line) {
+		.ships__list {
+			@include removeMB;
+		}
+		.ships__item {
+			@include flex(center, space-between);
+			margin: 0 0 $sizeMD 0;
+		}
+	}
+	&._line {
+		.ships__list {
+			@include flex(center, space-between);
+			max-width: 100%;
+			padding: $sizeXS;
+			overflow: auto;
+			@include removeMR;
+			@include castomScrol;
+		}
+		.ships__item {
+			margin: 0 $sizeMD 0 0;
+		}
+	}
+}

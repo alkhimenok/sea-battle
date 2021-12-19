@@ -1,69 +1,73 @@
 @font-face {
-	font-family: 'icons';
-	src: url('../assets/icons/icons.eot?bqc37x');
-	src: url('../assets/icons/icons.eot?bqc37x#iefix') format('embedded-opentype'),
-		url('../assets/icons/icons.ttf?bqc37x') format('truetype'), url('../assets/icons/icons.woff?bqc37x') format('woff'),
-		url('../assets/icons/icons.svg?bqc37x#icons') format('svg');
-	font-weight: normal;
-	font-style: normal;
-	font-display: block;
+  font-family: 'icons';
+  src:  url('../assets/icons/icons.eot?9dewlz');
+  src:  url('../assets/icons/icons.eot?9dewlz#iefix') format('embedded-opentype'),
+    url('../assets/icons/icons.ttf?9dewlz') format('truetype'),
+    url('../assets/icons/icons.woff?9dewlz') format('woff'),
+    url('../assets/icons/icons.svg?9dewlz#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
 }
-
-[class^='_icon-']::before,
-[class*=' _icon-']::before {
-	font-family: 'icons' !important;
-	speak: never;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+[class^="_icon-"]::before, [class*=" _icon-"]::before {
+  font-family: 'icons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-
-._icon-statistics:before {
-	content: '\e900';
-}
-._icon-size:before {
-	content: '\e901';
-}
-._icon-save:before {
-	content: '\e906';
-}
-._icon-prev:before {
-	content: '\e907';
-}
-._icon-position:before {
-	content: '\e908';
-}
-._icon-out:before {
-	content: '\e909';
-}
-._icon-next:before {
-	content: '\e90a';
-}
-._icon-like:before {
-	content: '\e90b';
-}
-._icon-friend:before {
-	content: '\e90c';
-}
-._icon-dislike:before {
-	content: '\e90d';
-}
-._icon-bot:before {
-	content: '\e90e';
-}
-._icon-shipFour:before {
-	content: '\e905';
-}
-._icon-shipThree:before {
-	content: '\e903';
-}
-._icon-shipTwo:before {
-	content: '\e902';
+._icon-shipLogo:before {
+  content: "\e900";
 }
 ._icon-shipOne:before {
-	content: '\e904';
+  content: "\e901";
+}
+._icon-shipTwo:before {
+  content: "\e902";
+}
+._icon-shipThree:before {
+  content: "\e903";
+}
+._icon-shipFour:before {
+  content: "\e904";
+}
+._icon-save:before {
+  content: "\e905";
+}
+._icon-bot:before {
+  content: "\e906";
+}
+._icon-friend:before {
+  content: "\e907";
+}
+._icon-statistics:before {
+  content: "\e908";
+}
+._icon-leftArrow:before {
+  content: "\e909";
+}
+._icon-rightArrow:before {
+  content: "\e90a";
+}
+._icon-like:before {
+  content: "\e90b";
+}
+._icon-dislike:before {
+  content: "\e90c";
+}
+._icon-okMark:before {
+  content: "\e90d";
+}
+._icon-crossMarc:before {
+  content: "\e90e";
+}
+._icon-logOff:before {
+  content: "\e90f";
+}
+._icon-change:before {
+  content: "\e910";
 }
