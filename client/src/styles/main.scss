@@ -120,9 +120,9 @@ $breackpointXXLMin: $breackpointXLMax + 1; // 1401
 @import './components/statistics';
 // statistics ----- //
 
-// ----- size //
-@import './components/size';
-// size ----- //
+// ----- card //
+@import './components/card'; 
+// card ----- //
 
 // ----- ships //
 @import './components/ships';
@@ -132,9 +132,17 @@ $breackpointXXLMin: $breackpointXLMax + 1; // 1401
 @import './components/field';
 // field ----- //
 
+// ----- size //
+@import './components/size';
+// size ----- //
+
 // ----- position //
 @import './components/position'; 
 // position ----- //
+
+// ----- battle //
+@import './components/battle';
+// battle ----- //
 
 .wrapper {
 	overflow: hidden;

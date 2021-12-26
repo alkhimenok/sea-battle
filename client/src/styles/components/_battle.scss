@@ -1,0 +1,27 @@
+.battle {
+	.battle__body {
+		@media screen and (min-width: calc($breackpointMDMin * 1px)) {
+			position: relative;
+		}
+	}
+	// .battle__nav {
+	// }
+	// .battle__card {
+	// }
+	.battle__title {
+		margin: 0 0 $sizeMD 0;
+	}
+	.battle__cover {
+		padding: $sizeMD;
+		background-color: $transparentSecondaryColor;
+		@include removeMB;
+		@media screen and (max-width: calc($breackpointSMMax * 1px)) {
+			@include flex(center, space-between);
+		}
+	}
+	.battle__field {
+		@media screen and (min-width: calc($breackpointMDMin * 1px)) {
+			margin: 0 auto $sizeMD auto;
+		}
+	}
+}

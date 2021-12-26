@@ -22,6 +22,10 @@ const shipsSize = [
 	{ icon: '_icon-shipTwo', value: 3 }, 
 	{ icon: '_icon-shipOne', value: 4 }
 ]
+const positionLinks = [
+	{ icon: '_icon-leftArrow', label: 'back', isRed: true },
+	{ icon: '_icon-rightArrow', label: 'continue' }
+]
 const shipsPosition = [
 	{ icon: '_icon-shipFour' }, 
 	{ icon: '_icon-shipThree' },
@@ -33,6 +37,10 @@ const shipsPosition = [
 	{ icon: '_icon-shipOne' },
 	{ icon: '_icon-shipOne' },
 	{ icon: '_icon-shipOne' }
+]
+const battleLinks = [
+	{ icon: '_icon-logOff', label: 'log off', isRed: true },
+	{ icon: '_icon-change', label: 'change' }
 ]
 %>
 <!-- prettier-ignore -->
@@ -79,7 +87,7 @@ const shipsPosition = [
 					<nav class="size__nav nav">
 						<%- include('./partials/nav', { links: sizeLinks }) %>
 					</nav>
-					<div class="size__card">
+					<div class="size__card card">
 						<input class="size__range" type="range" value="10" min="10" max="30" />
 						<div class="size__cover">
 							<span class="size__label">10X10</span>
@@ -96,9 +104,9 @@ const shipsPosition = [
 			<section class="position _screen">
 				<div class="position__body _body">
 					<nav class="position__nav nav">
-						<%- include('./partials/nav', { links: sizeLinks }) %>
+						<%- include('./partials/nav', { links: positionLinks }) %>
 					</nav>
-					<div class="position__card">
+					<div class="position__card card">
 						<h2 class="position__title _title">
 							player-1
 						</h2>
@@ -109,6 +117,26 @@ const shipsPosition = [
 						</div>
 						<div class="position__ships ships _line">
 							<%- include('./partials/ships', { ships: shipsPosition }) %>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="battle _screen">
+				<div class="battle__body _body">
+					<nav class="battle__nav nav">
+						<%- include('./partials/nav', { links: battleLinks }) %>
+					</nav>
+					<div class="battle__card card">
+						<h2 class="battle__title _title">
+							player-1
+						</h2>
+						<div class="battle__cover">
+							<div class="battle__field field">
+								<%- include('./partials/field', { size: 100 }) %>
+							</div>
+							<div class="battle__field field">
+								<%- include('./partials/field', { size: 100 }) %>
+							</div>
 						</div>
 					</div>
 				</div>
