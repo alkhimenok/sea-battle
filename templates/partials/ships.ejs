@@ -1,10 +1,10 @@
 <% 
 const getShipNav = (value) => {
   return `
-    <nav class="ships__nav">
-      <span class="ships__value">${value}</span>
-      <button class="ships__btn">+</button>
-      <button class="ships__btn _red">-</button>
+    <nav class="ships__nav" data-nav="operators">
+      <span class="ships__value" data-operators="value">${value}</span>
+      <button class="ships__btn" data-operators="plus">+</button>
+      <button class="ships__btn _red" data-operators="minus">-</button>
     </nav>
   `
 }

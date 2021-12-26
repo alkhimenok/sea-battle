@@ -2,20 +2,20 @@
 <% 
 const fieldSize = 100
 const startLinks = [ 
-	{ icon: '_icon-bot', label: 'playing with a bot' }, 
-	{ icon: '_icon-friend', label: 'play with a friend' }, 
-	{ icon: '_icon-stats', label: 'stats'  }
+	{ icon: '_icon-bot', href: '#size', label: 'playing with a bot' }, 
+	{ icon: '_icon-friend', href: '#size', label: 'play with a friend' }, 
+	{ icon: '_icon-stats', href: '#stats', label: 'stats'  }
 ]
 const statsLinks = [ 
-	{ icon: '_icon-leftArrow', label: 'back', isRed: true }
+	{ icon: '_icon-leftArrow', href: '#start', label: 'back', isRed: true }
 ]
 const statsItems = [
 	{ icon: '_icon-like', label: 'wins', value: 1 }, 
 	{ icon: '_icon-dislike', label: 'losses', value: 1 }
 ]
 const sizeLinks = [
-	{ icon: '_icon-leftArrow', label: 'back', isRed: true },
-	{ icon: '_icon-rightArrow', label: 'continue' }
+	{ icon: '_icon-leftArrow', href: '#start', label: 'back', isRed: true },
+	{ icon: '_icon-rightArrow', href: '#position', label: 'continue' }
 ]
 const sizeShips = [
 	{ icon: '_icon-shipFour', value: 1 }, 
@@ -24,8 +24,8 @@ const sizeShips = [
 	{ icon: '_icon-shipOne', value: 4 }
 ]
 const positionLinks = [
-	{ icon: '_icon-leftArrow', label: 'back', isRed: true },
-	{ icon: '_icon-rightArrow', label: 'continue' }
+	{ icon: '_icon-leftArrow', href: '#size', label: 'back', isRed: true },
+	{ icon: '_icon-rightArrow',  href: '#battle', label: 'continue' }
 ]
 const positionShips = [
 	{ icon: '_icon-shipFour' }, 
@@ -40,7 +40,7 @@ const positionShips = [
 	{ icon: '_icon-shipOne' }
 ]
 const battleLinks = [
-	{ icon: '_icon-logOff', label: 'log off', isRed: true },
+	{ icon: '_icon-logOff', href: '#start', label: 'log off', isRed: true },
 	{ icon: '_icon-change', label: 'change' }
 ]
 %>
@@ -53,12 +53,12 @@ const battleLinks = [
 	</head>
 	<body>
 		<div class="wrapper">
-			<section class="start _screen">
+			<section class="start _screen" id="start" data-section="screen">
 				<div class="start__body _body">
 					<!-- prettier-ignore -->
-					<nav class="start__nav nav">
+					<nav class="start__nav nav" data-nav="transitions">
 						<% if(progress) { %> 
-							<% startLinks.unshift({ label: 'continue the game', icon: '_icon-save' }) %>
+							<% startLinks.unshift({ label: 'continue the game', href: '#battle', icon: '_icon-save' }) %>
 						<% } %> 
 						
 						<%- include('./partials/nav', { links: startLinks }) %>
@@ -66,10 +66,10 @@ const battleLinks = [
 					<!-- prettier-ignore -->
 				</div>
 			</section>
-			<section class="stats _screen">
+			<section class="stats _screen" id="stats" data-section="screen">
 				<div class="stats__body _body">
 					<!-- prettier-ignore -->
-					<nav class="stats__nav nav">
+					<nav class="stats__nav nav" data-nav="transitions">
 						<%- include('./partials/nav', { links: statsLinks }) %>
 					</nav>
 					<!-- prettier-ignore -->
@@ -89,10 +89,10 @@ const battleLinks = [
 					<!-- prettier-ignore -->
 				</div>
 			</section>
-			<section class="size _screen">
+			<section class="size _screen" id="size" data-section="screen">
 				<div class="size__body _body">
 					<!-- prettier-ignore -->
-					<nav class="size__nav nav">
+					<nav class="size__nav nav" data-nav="transitions">
 						<%- include('./partials/nav', { links: sizeLinks }) %>
 					</nav>
 					<!-- prettier-ignore -->
@@ -114,10 +114,10 @@ const battleLinks = [
 					</div>
 				</div>
 			</section>
-			<section class="position _screen">
+			<section class="position _screen" id="position" data-section="screen">
 				<div class="position__body _body">
 					<!-- prettier-ignore -->
-					<nav class="position__nav nav">
+					<nav class="position__nav nav" data-nav="transitions">
 						<%- include('./partials/nav', { links: positionLinks }) %>
 					</nav>
 					<!-- prettier-ignore -->
@@ -138,10 +138,10 @@ const battleLinks = [
 					</div>
 				</div>
 			</section>
-			<section class="battle _screen">
+			<section class="battle _screen" id="battle" data-section="screen">
 				<div class="battle__body _body">
 					<!-- prettier-ignore -->
-					<nav class="battle__nav nav">
+					<nav class="battle__nav nav" data-nav="transitions">
 						<%- include('./partials/nav', { links: battleLinks }) %>
 					</nav>
 					<!-- prettier-ignore -->

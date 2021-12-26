@@ -4,18 +4,21 @@
 	// .size__nav {
 	// }
 	.size__card {
-		position: relative;
 		padding: $sizeMD;
 		background-color: $transparentSecondaryColor;
 		.card__cover {
 			position: absolute;
 			left: 50%;
 			bottom: 0;
+			bottom: 0;
 			transform: translate(-50%, 0);
 			width: 100%;
 			opacity: 0;
 			transition: $delay;
 			pointer-events: none;
+		}
+		@media screen and (max-width: calc($breackpointSMMax * 1px)) {
+			position: relative;
 		}
 	}
 	&._resize {

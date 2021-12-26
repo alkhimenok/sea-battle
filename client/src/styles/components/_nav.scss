@@ -54,6 +54,7 @@
 		}
 	}
 	.nav__icon {
+		pointer-events: none;
 		&::before {
 			font-size: $sizeXL;
 		}
