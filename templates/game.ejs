@@ -16,18 +16,24 @@ const sizeLinks = [
 	{ icon: '_icon-leftArrow', label: 'back', isRed: true },
 	{ icon: '_icon-rightArrow', label: 'continue' }
 ]
-const ships = [
+const shipsSize = [
 	{ icon: '_icon-shipFour', value: 1 }, 
 	{ icon: '_icon-shipThree', value: 2 }, 
 	{ icon: '_icon-shipTwo', value: 3 }, 
 	{ icon: '_icon-shipOne', value: 4 }
 ]
-// const ships = [
-// 	{ icon: '_icon-shipFour' }, 
-// 	{ icon: '_icon-shipThree' }, 
-// 	{ icon: '_icon-shipTwo' }, 
-// 	{ icon: '_icon-shipOne' }
-// ]
+const shipsPosition = [
+	{ icon: '_icon-shipFour' }, 
+	{ icon: '_icon-shipThree' },
+	{ icon: '_icon-shipThree' }, 
+	{ icon: '_icon-shipTwo' }, 
+	{ icon: '_icon-shipTwo' }, 
+	{ icon: '_icon-shipTwo' }, 
+	{ icon: '_icon-shipOne' },
+	{ icon: '_icon-shipOne' },
+	{ icon: '_icon-shipOne' },
+	{ icon: '_icon-shipOne' }
+]
 %>
 <!-- prettier-ignore -->
 
@@ -82,7 +88,27 @@ const ships = [
 							</div>
 						</div>
 						<div class="size__ships ships">
-							<%- include('./partials/ships', { ships }) %>
+							<%- include('./partials/ships', { ships: shipsSize }) %>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="position _screen">
+				<div class="position__body _body">
+					<nav class="position__nav nav">
+						<%- include('./partials/nav', { links: sizeLinks }) %>
+					</nav>
+					<div class="position__card">
+						<h2 class="position__title _title">
+							player-1
+						</h2>
+						<div class="position__cover">
+							<div class="position__field field">
+								<%- include('./partials/field', { size: 100 }) %>
+							</div>
+						</div>
+						<div class="position__ships ships _line">
+							<%- include('./partials/ships', { ships: shipsPosition }) %>
 						</div>
 					</div>
 				</div>

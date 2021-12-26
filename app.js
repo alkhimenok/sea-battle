@@ -3,7 +3,7 @@ const exporess = require('express')
 
 const app = exporess()
 
-const PORT = process.env.PORT || 5001
+const PORT = process.env.PORT || 5000
 
 app.set('view engine', 'ejs')
 app.set('views', path.resolve(__dirname, 'templates'))

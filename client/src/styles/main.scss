@@ -132,6 +132,10 @@ $breackpointXXLMin: $breackpointXLMax + 1; // 1401
 @import './components/field';
 // field ----- //
 
+// ----- position //
+@import './components/position'; 
+// position ----- //
+
 .wrapper {
 	overflow: hidden;
 }
@@ -146,6 +150,13 @@ $breackpointXXLMin: $breackpointXLMax + 1; // 1401
 	margin: 0 auto;
 	padding: $sizeLG $sizeXS;
 	background-color: $secondaryColor;
+}
+._title {
+	font-size: $sizeXL;
+	text-align: center;
+	text-transform: uppercase;
+	color: $primaryColor;
+	margin: 0;
 }
 
 // @media screen and (hover: hover) {}
