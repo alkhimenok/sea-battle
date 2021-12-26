@@ -1,4 +1,5 @@
 .field {
+  position: relative;
   @include flex(center, flex-end, row, wrap);
   @include size(240, 240);
   margin: 0 auto;
@@ -9,4 +10,10 @@
     @include size(24, 24);
     border: calc($base * 0.1) solid $transparentPrimaryColor;
   }
+  .field__label {
+    @include center;
+		font-family: 'Roboto-Bold';
+		font-size: $sizeXL;
+		color: $primaryColor;
+	}
 }

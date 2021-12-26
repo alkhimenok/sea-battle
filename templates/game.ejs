@@ -1,14 +1,15 @@
 <!-- prettier-ignore -->
 <% 
+const fieldSize = 100
 const startLinks = [ 
 	{ icon: '_icon-bot', label: 'playing with a bot' }, 
 	{ icon: '_icon-friend', label: 'play with a friend' }, 
-	{ icon: '_icon-statistics', label: 'statistics'  }
+	{ icon: '_icon-stats', label: 'stats'  }
 ]
-const statisticsLinks = [ 
+const statsLinks = [ 
 	{ icon: '_icon-leftArrow', label: 'back', isRed: true }
 ]
-const statisticsItems = [
+const statsItems = [
 	{ icon: '_icon-like', label: 'wins', value: 1 }, 
 	{ icon: '_icon-dislike', label: 'losses', value: 1 }
 ]
@@ -16,7 +17,7 @@ const sizeLinks = [
 	{ icon: '_icon-leftArrow', label: 'back', isRed: true },
 	{ icon: '_icon-rightArrow', label: 'continue' }
 ]
-const shipsSize = [
+const sizeShips = [
 	{ icon: '_icon-shipFour', value: 1 }, 
 	{ icon: '_icon-shipThree', value: 2 }, 
 	{ icon: '_icon-shipTwo', value: 3 }, 
@@ -26,7 +27,7 @@ const positionLinks = [
 	{ icon: '_icon-leftArrow', label: 'back', isRed: true },
 	{ icon: '_icon-rightArrow', label: 'continue' }
 ]
-const shipsPosition = [
+const positionShips = [
 	{ icon: '_icon-shipFour' }, 
 	{ icon: '_icon-shipThree' },
 	{ icon: '_icon-shipThree' }, 
@@ -54,6 +55,7 @@ const battleLinks = [
 		<div class="wrapper">
 			<section class="start _screen">
 				<div class="start__body _body">
+					<!-- prettier-ignore -->
 					<nav class="start__nav nav">
 						<% if(progress) { %> 
 							<% startLinks.unshift({ label: 'continue the game', icon: '_icon-save' }) %>
@@ -61,82 +63,99 @@ const battleLinks = [
 						
 						<%- include('./partials/nav', { links: startLinks }) %>
 					</nav>
+					<!-- prettier-ignore -->
 				</div>
 			</section>
-			<section class="statistics _screen">
-				<div class="statistics__body _body">
-					<nav class="statistics__nav nav">
-						<%- include('./partials/nav', { links: statisticsLinks }) %>
+			<section class="stats _screen">
+				<div class="stats__body _body">
+					<!-- prettier-ignore -->
+					<nav class="stats__nav nav">
+						<%- include('./partials/nav', { links: statsLinks }) %>
 					</nav>
-					<ul class="statistics__list">
-						<% statisticsItems.forEach(item => { %>
+					<!-- prettier-ignore -->
+					<!-- prettier-ignore -->
+					<ul class="stats__list">
+						<% statsItems.forEach(item => { %>
 							<%-
 								`
-								<li class="statistics__item ${item.icon}">
-									<spna class="statistics__label">${item.label}:</spna>
-									<span class="statistics__value">${item.value}</span>
+								<li class="stats__item ${item.icon}">
+									<spna class="stats__label">${item.label}:</spna>
+									<span class="stats__value">${item.value}</span>
 								</li>
 								`
 							%>
 						<% }) %>
 					</ul>
+					<!-- prettier-ignore -->
 				</div>
 			</section>
 			<section class="size _screen">
 				<div class="size__body _body">
+					<!-- prettier-ignore -->
 					<nav class="size__nav nav">
 						<%- include('./partials/nav', { links: sizeLinks }) %>
 					</nav>
+					<!-- prettier-ignore -->
 					<div class="size__card card">
-						<input class="size__range" type="range" value="10" min="10" max="30" />
-						<div class="size__cover">
-							<span class="size__label">10X10</span>
-							<div class="size__field field">
-								<%- include('./partials/field', { size: 100 }) %>
+						<input class="card__range" type="range" value="10" min="10" max="30" />
+						<div class="card__cover">
+							<div class="card__field field">
+								<span class="field__label">10X10</span>
+								<!-- prettier-ignore -->
+								<%- include('./partials/field', { size: fieldSize }) %>
+								<!-- prettier-ignore -->
 							</div>
 						</div>
-						<div class="size__ships ships">
-							<%- include('./partials/ships', { ships: shipsSize }) %>
+						<!-- prettier-ignore -->
+						<div class="card__ships ships">
+							<%- include('./partials/ships', { ships: sizeShips }) %>
 						</div>
+						<!-- prettier-ignore -->
 					</div>
 				</div>
 			</section>
 			<section class="position _screen">
 				<div class="position__body _body">
+					<!-- prettier-ignore -->
 					<nav class="position__nav nav">
 						<%- include('./partials/nav', { links: positionLinks }) %>
 					</nav>
+					<!-- prettier-ignore -->
 					<div class="position__card card">
-						<h2 class="position__title _title">
-							player-1
-						</h2>
-						<div class="position__cover">
-							<div class="position__field field">
-								<%- include('./partials/field', { size: 100 }) %>
+						<h2 class="card__title">player-1</h2>
+						<div class="card__cover">
+							<!-- prettier-ignore -->
+							<div class="card__field field">
+								<%- include('./partials/field', { size: fieldSize }) %>
 							</div>
+							<!-- prettier-ignore -->
 						</div>
-						<div class="position__ships ships _line">
-							<%- include('./partials/ships', { ships: shipsPosition }) %>
+						<!-- prettier-ignore -->
+						<div class="card__ships ships _line">
+							<%- include('./partials/ships', { ships: positionShips }) %>
 						</div>
+						<!-- prettier-ignore -->
 					</div>
 				</div>
 			</section>
 			<section class="battle _screen">
 				<div class="battle__body _body">
+					<!-- prettier-ignore -->
 					<nav class="battle__nav nav">
 						<%- include('./partials/nav', { links: battleLinks }) %>
 					</nav>
+					<!-- prettier-ignore -->
 					<div class="battle__card card">
-						<h2 class="battle__title _title">
-							player-1
-						</h2>
-						<div class="battle__cover">
-							<div class="battle__field field">
-								<%- include('./partials/field', { size: 100 }) %>
+						<h2 class="card__title">player-1</h2>
+						<div class="card__cover">
+							<!-- prettier-ignore -->
+							<div class="card__field field">
+								<%- include('./partials/field', { size: fieldSize }) %>
 							</div>
-							<div class="battle__field field">
-								<%- include('./partials/field', { size: 100 }) %>
+							<div class="card__field field">
+								<%- include('./partials/field', { size: fieldSize }) %>
 							</div>
+							<!-- prettier-ignore -->
 						</div>
 					</div>
 				</div>
@@ -144,4 +163,3 @@ const battleLinks = [
 		</div>
 	</body>
 </html>
-

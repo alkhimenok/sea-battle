@@ -1,11 +1,13 @@
-.statistics {
-	.statistics__body {
+.stats {
+	.stats__body {
 		@include flex(center, space-between, row, wrap);
 	}
-	.statistics__list {
+	// .stats__nav {
+	// }
+	.stats__list {
 		@include removeMB;
 	}
-	.statistics__item {
+	.stats__item {
 		@include flex(center, space-between);
     margin: 0 0 $sizeMD 0;
 		font-size: $sizeXL;
@@ -16,12 +18,12 @@
 		// &._icon-dislike {
 		// }
 	}
-	.statistics__label {
+	.stats__label {
 		margin: 0 $sizeXXL;
 		font-size: $sizeMD;
 		text-transform: capitalize;
 		color: $defaultColor;
 	}
-	// .statistics__value {
+	// .stats__value {
 	// }
 }

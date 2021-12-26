@@ -44,7 +44,7 @@
 ._icon-friend:before {
   content: "\e907";
 }
-._icon-statistics:before {
+._icon-stats:before {
   content: "\e908";
 }
 ._icon-leftArrow:before {
@@ -52,6 +52,12 @@
 }
 ._icon-rightArrow:before {
   content: "\e90a";
+}
+._icon-logOff:before {
+  content: "\e90f";
+}
+._icon-change:before {
+  content: "\e910";
 }
 ._icon-like:before {
   content: "\e90b";
@@ -64,10 +70,4 @@
 }
 ._icon-crossMarc:before {
   content: "\e90e";
-}
-._icon-logOff:before {
-  content: "\e90f";
-}
-._icon-change:before {
-  content: "\e910";
 }

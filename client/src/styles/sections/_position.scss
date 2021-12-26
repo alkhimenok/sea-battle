@@ -1,0 +1,11 @@
+.position {
+  // .position__body {
+  // }
+  // .position__nav {
+  // }
+  .position__card {
+    @media screen and (max-width: calc($breackpointSMMax * 1px)) {
+      @include size(748, 358, $breackpointSMMax, 556);
+    }
+  }
+}

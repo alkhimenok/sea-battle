@@ -1,0 +1,27 @@
+.size {
+	// .size__body {
+	// }
+	// .size__nav {
+	// }
+	.size__card {
+		position: relative;
+		padding: $sizeMD;
+		background-color: $transparentSecondaryColor;
+		.card__cover {
+			position: absolute;
+			left: 50%;
+			bottom: $sizeXS;
+			transform: translate(-50%, 0);
+			width: 100%;
+			opacity: 0;
+			transition: $delay;
+			pointer-events: none;
+		}
+	}
+	&._resize {
+		.card__cover {
+			opacity: 1;
+			pointer-events: all;
+		}
+	}
+}

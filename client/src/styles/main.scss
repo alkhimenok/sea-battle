@@ -42,6 +42,12 @@ $breackpointXXLMin: $breackpointXLMax + 1; // 1401
 		margin-right: 0;
 	}
 }
+@mixin center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
 @mixin castomScrol {
 	&::-webkit-scrollbar {
 		height: calc($base * 0.4) !important;
@@ -112,60 +118,48 @@ $breackpointXXLMin: $breackpointXLMax + 1; // 1401
 @import './reset';
 // reset ----- //
 
+// ----- cammon //
+@import './cammon'; 
+// cammon ----- //
+
 // ----- nav //
 @import './components/nav';
 // nav ----- //
-
-// ----- statistics //
-@import './components/statistics';
-// statistics ----- //
 
 // ----- card //
 @import './components/card'; 
 // card ----- //
 
-// ----- ships //
-@import './components/ships';
-// ships ----- //
-
 // ----- field //
 @import './components/field';
 // field ----- //
 
+// ----- ships //
+@import './components/ships';
+// ships ----- //
+
+
+
+// // ----- start //
+// @import './sections/start';
+// // start ----- //
+
+// ----- stats //
+@import './sections/stats';
+// stats ----- //
+
 // ----- size //
-@import './components/size';
+@import './sections/size';
 // size ----- //
 
 // ----- position //
-@import './components/position'; 
+@import './sections/position'; 
 // position ----- //
 
 // ----- battle //
-@import './components/battle';
+@import './sections/battle';
 // battle ----- //
 
-.wrapper {
-	overflow: hidden;
-}
-._screen {
-	@include flex(center, center);
-	width: 100vw;
-	height: 100vh;
-}
-._body {
-	width: $maxWidth;
-	max-width: $maxWidth;
-	margin: 0 auto;
-	padding: $sizeLG $sizeXS;
-	background-color: $secondaryColor;
-}
-._title {
-	font-size: $sizeXL;
-	text-align: center;
-	text-transform: uppercase;
-	color: $primaryColor;
-	margin: 0;
-}
 
 // @media screen and (hover: hover) {}
 // @media screen and (hover: none) {}

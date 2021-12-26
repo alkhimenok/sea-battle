@@ -1,14 +1,30 @@
 .card {
 	border-radius: calc($base * 0.4);
+	.card__title {
+		margin: 0 0 $sizeMD 0;
+		font-size: $sizeXL;
+		text-align: center;
+		text-transform: uppercase;
+		color: $primaryColor;
+	}
+	.card__cover {
+		padding: $sizeMD;
+		background-color: $transparentSecondaryColor;
+	}
+	.card__range {
+		width: 100%;
+		margin: 0 0 $sizeLG 0;
+		@include castomRange;
+	}
+	// .card__field {
+	// }
+	// .card__ships {
+	// }
 	@media screen and (min-width: calc($breackpointMDMin * 1px)) {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
+		@include center;
 		width: 60%;
 	}
 	@media screen and (max-width: calc($breackpointSMMax * 1px)) {
-		@include size(748, 358, $breackpointSMMax, 556);
 		margin: $sizeLG 0 0 0;
 	}
 }
