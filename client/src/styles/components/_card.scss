@@ -2,10 +2,6 @@
 	border-radius: calc($base * 0.4);
 	.card__title {
 		margin: 0 0 $sizeMD 0;
-		font-size: $sizeXL;
-		text-align: center;
-		text-transform: uppercase;
-		color: $primaryColor;
 	}
 	.card__cover {
 		padding: $sizeMD;

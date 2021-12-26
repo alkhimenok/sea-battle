@@ -78,6 +78,13 @@ $breackpointXXLMin: $breackpointXLMax + 1; // 1401
 		-webkit-appearance: none;
 	}
 }
+@mixin flex($align-items: center, $justify-content: center, $flex-direction: row, $flex-wrap: nowrap) {
+	display: flex;
+	align-items: $align-items;
+	justify-content: $justify-content;
+	flex-direction: $flex-direction;
+	flex-wrap: $flex-wrap;
+}
 @mixin size($width, $heigth, $breackpoint: 0, $lastWidth: $width, $lastHeigth: $heigth) {
 	@media screen and (min-width: calc($breackpointSMMin * 1px)) {
 		width: calc($width * 1px);
@@ -97,13 +104,6 @@ $breackpointXXLMin: $breackpointXLMax + 1; // 1401
 		width: calc(0px + $lastWidth * (100vw / $breackpointXSMax));
 		height: calc(0px + $lastHeigth * (100vw / $breackpointXSMax));
 	}
-}
-@mixin flex($align-items: center, $justify-content: center, $flex-direction: row, $flex-wrap: nowrap) {
-	display: flex;
-	align-items: $align-items;
-	justify-content: $justify-content;
-	flex-direction: $flex-direction;
-	flex-wrap: $flex-wrap;
 }
 
 // ----- fonts //
@@ -138,11 +138,9 @@ $breackpointXXLMin: $breackpointXLMax + 1; // 1401
 @import './components/ships';
 // ships ----- //
 
-
-
-// // ----- start //
-// @import './sections/start';
-// // start ----- //
+// ----- start //
+@import './sections/start';
+// start ----- //
 
 // ----- stats //
 @import './sections/stats';
@@ -159,17 +157,3 @@ $breackpointXXLMin: $breackpointXLMax + 1; // 1401
 // ----- battle //
 @import './sections/battle';
 // battle ----- //
-
-
-// @media screen and (hover: hover) {}
-// @media screen and (hover: none) {}
-// @media screen and (max-width: calc($breackpointXSMax * 1px)) {}
-// @media screen and (min-width: calc($breackpointSMMin * 1px)) {}
-// @media screen and (max-width: calc($breackpointSMMax * 1px)) {}
-// @media screen and (min-width: calc($breackpointMDMin * 1px)) {}
-// @media screen and (max-width: calc($breackpointMDMax * 1px)) {}
-// @media screen and (min-width: calc($breackpointLGMin * 1px)) {}
-// @media screen and (max-width: calc($breackpointLGMax * 1px)) {}
-// @media screen and (min-width: calc($breackpointXLMin * 1px)) {}
-// @media screen and (max-width: calc($breackpointXLMax * 1px)) {}
-// @media screen and (min-width: calc($breackpointXXLMin * 1px)) {}

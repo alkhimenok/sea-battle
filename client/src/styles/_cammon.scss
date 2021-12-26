@@ -11,6 +11,13 @@
 	width: $maxWidth;
 	max-width: $maxWidth;
 	margin: 0 auto;
-	padding: $sizeLG $sizeXS;
+	padding: $sizeXS;
 	background-color: $secondaryColor;
+}
+._title {
+	font-family: 'Roboto-Bold';
+	font-size: $sizeXL;
+	text-align: center;
+	text-transform: uppercase;
+	color: $primaryColor;
 }

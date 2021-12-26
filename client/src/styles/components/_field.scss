@@ -12,8 +12,5 @@
   }
   .field__label {
     @include center;
-		font-family: 'Roboto-Bold';
-		font-size: $sizeXL;
-		color: $primaryColor;
 	}
 }
