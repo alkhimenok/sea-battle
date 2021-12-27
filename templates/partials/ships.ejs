@@ -1,14 +1,14 @@
 <% 
-const getShipNav = (value) => {
+const getShipNav = (id) => {
   return `
-    <nav class="ships__nav" data-nav="operators">
-      <span class="ships__value" data-operators="value">${value}</span>
-      <button class="ships__btn" data-operators="plus">+</button>
-      <button class="ships__btn _red" data-operators="minus">-</button>
-    </nav>
+    <form class="ships__form" data-form="ships" id="${id}">
+      <input class="ships__value" name="value" type="tel" value="1" readonly />
+      <button class="ships__btn" name="plus">+</button>
+      <button class="ships__btn _red" name="minus">-</button>
+    </form>
   `
 }
-%> 
+%>
 
 <ul class="ships__list">
   <% ships.forEach(ship => { %>
@@ -16,7 +16,7 @@ const getShipNav = (value) => {
       `
       <li class="ships__item">
         <span class="ships__icon ${ship.icon}"></span>
-        ${ship.value ? getShipNav(ship.value) : ''}
+        ${ship.id ? getShipNav(ship.id) : ''}
       </li>
       `
     %>

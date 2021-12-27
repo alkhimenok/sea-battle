@@ -10,6 +10,12 @@ export const addMoveHandler = (e) => {
 
   if (target.tagName !== 'A') return
 
+  if (target.id === 'bot') {
+    localStorage.setItem('mode', 'bot')
+  } else if (target.id === 'friend') {
+    localStorage.setItem('mode', 'friend')
+  }
+
   $body.classList.add('_hide')
 
   setTimeout(() => {

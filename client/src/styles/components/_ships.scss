@@ -5,10 +5,10 @@
 		user-select: none;
 	}
 	.ships__icon {
-    color: $primaryColor;
-    &::before {
-      font-size: $sizeXXL;
-    }
+		color: $primaryColor;
+		&::before {
+			font-size: $sizeXXL;
+		}
 		// &._icon-shipFour {
 		// }
 		// &._icon-shipThree {
@@ -18,13 +18,19 @@
 		// &._icon-shipOne {
 		// }
 	}
-	.ships__nav {
+	.ships__form {
 		@include flex(center, flex-start);
 		@include removeMR;
 	}
 	.ships__value {
+		@include size(50, 50);
 		margin: 0 $sizeLG 0 0;
 		font-size: $sizeMD;
+		text-align: center;
+		background-color: $transparent;
+		border: none;
+		outline: none;
+		cursor: default;
 	}
 	.ships__btn {
 		@include size(50, 50);
@@ -35,6 +41,7 @@
 		border: calc($base * 0.2) solid $primaryColor;
 		border-radius: calc($base * 0.4);
 		transition: $delay;
+		cursor: pointer;
 		&._red {
 			color: $errorColor;
 			border-color: $errorColor;

@@ -1,29 +1,28 @@
-const operatorsNav = document.querySelectorAll('[data-nav="operators"]')
+export const operatorsForm = document.querySelectorAll('[data-form="ships"]')
 
 const MAX_VALUE = 10
 
-operatorsNav.forEach($nav => {
-	const $value = $nav.querySelector('[data-operators="value"]')
-	const $plus = $nav.querySelector('[data-operators="plus"]')
-	const $minus = $nav.querySelector('[data-operators="minus"]')
+export const changeCountShipsHandler = (e) => {
+	const { target, currentTarget: $form } = e
+	const { id, value: $value, plus: $plus, minus: $minus } = $form
 
-	$nav.addEventListener('click', e => {
-		const currentValue = +$value.textContent
-		const { target } = e
+	if (target.tagName !== 'BUTTON' || target.classList.contains('_disable')) return
+	
+	$value.value = target === $plus ? +$value.value + 1 : +$value.value - 1
 
-    // if (target.tagName !== 'BUTTON') return
+	if (+$value.value === 0) { 
+		$minus.classList.add('_disable')
+	} else {
+		$minus.classList.remove('_disable')
+	}
 
-		// if (target === $plus && !target.classList.contains('_disable')) {
-		// 	$value.textContent = currentValue + 1
-		// } else if (target === $minus && !target.classList.contains('_disable')) {
-		// 	$value.textContent = currentValue - 1
-		// }
+	if (+$value.value === MAX_VALUE) {
+		$plus.classList.add('_disable')
+	} else {
+		$plus.classList.remove('_disable')
+	}
 
-    // if (currentValue === 1 || currentValue === MAX_VALUE) {
-		// 	target.classList.add('_disable')
-		// } else {
-		// 	$minus.classList.remove('_disable')
-		// 	$plus.classList.remove('_disable')
-		// }
-	})
-})
+	e.preventDefault()
+
+	localStorage.setItem(id, $value.value)
+}

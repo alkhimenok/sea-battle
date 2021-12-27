@@ -2,9 +2,9 @@
 <% 
 const fieldSize = 100
 const startLinks = [ 
-	{ icon: '_icon-bot', href: '#size', label: 'playing with a bot' }, 
-	{ icon: '_icon-friend', href: '#size', label: 'play with a friend' }, 
-	{ icon: '_icon-stats', href: '#stats', label: 'stats'  }
+	{ icon: '_icon-bot', href: '#size', label: 'playing with a bot', id: 'bot' }, 
+	{ icon: '_icon-friend', href: '#size', label: 'play with a friend', id: 'friend' }, 
+	{ icon: '_icon-stats', href: '#stats', label: 'stats' }
 ]
 const statsLinks = [ 
 	{ icon: '_icon-leftArrow', href: '#start', label: 'back', isRed: true }
@@ -18,10 +18,10 @@ const sizeLinks = [
 	{ icon: '_icon-rightArrow', href: '#position', label: 'continue' }
 ]
 const sizeShips = [
-	{ icon: '_icon-shipFour', value: 1 }, 
-	{ icon: '_icon-shipThree', value: 2 }, 
-	{ icon: '_icon-shipTwo', value: 3 }, 
-	{ icon: '_icon-shipOne', value: 4 }
+	{ icon: '_icon-shipFour', id: 'shipFour' }, 
+	{ icon: '_icon-shipThree', id: 'shipThree' }, 
+	{ icon: '_icon-shipTwo', id: 'shipTwo' }, 
+	{ icon: '_icon-shipOne', id: 'shipOne' }
 ]
 const positionLinks = [
 	{ icon: '_icon-leftArrow', href: '#size', label: 'back', isRed: true },
@@ -58,7 +58,7 @@ const battleLinks = [
 					<!-- prettier-ignore -->
 					<nav class="start__nav nav" data-nav="transitions">
 						<% if(progress) { %> 
-							<% startLinks.unshift({ label: 'continue the game', href: '#battle', icon: '_icon-save' }) %>
+							<% startLinks.unshift({ label: 'continue the game', href: '#battle', icon: '_icon-save', id: 'continue' }) %>
 						<% } %> 
 						
 						<%- include('./partials/nav', { links: startLinks }) %>
@@ -97,10 +97,10 @@ const battleLinks = [
 					</nav>
 					<!-- prettier-ignore -->
 					<div class="size__card card">
-						<input class="card__range" type="range" value="10" min="10" max="30" />
+						<input class="card__range" id="fieldRange" type="range" value="10" min="10" max="30" />
 						<div class="card__cover">
 							<div class="card__field field">
-								<span class="field__label _title">10X10</span>
+								<span class="field__label _title" id="fieldLabel">10X10</span>
 								<!-- prettier-ignore -->
 								<%- include('./partials/field', { size: fieldSize }) %>
 								<!-- prettier-ignore -->
