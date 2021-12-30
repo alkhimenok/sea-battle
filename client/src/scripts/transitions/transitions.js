@@ -1,3 +1,4 @@
+import { setStats } from '../stats'
 import { smoothTo } from './smoothTransition'
 
 export const transitionsNavList = document.querySelectorAll('[data-nav="transitions"]')
@@ -10,11 +11,7 @@ export const addTransitionHandler = e => {
 
 	if (target.tagName !== 'A') return
 
-	if (target.id === 'bot') {
-		localStorage.setItem('mode', 'bot')
-	} else if (target.id === 'friend') {
-		localStorage.setItem('mode', 'friend')
-	}
+	checkRoutes(target.id)
 
 	$body.classList.add('_hide')
 
@@ -25,4 +22,14 @@ export const addTransitionHandler = e => {
 	}, 400)
 
 	e.preventDefault()
+}
+
+const checkRoutes = (id) => {
+	if (id === 'bot') {
+		localStorage.setItem('mode', 'bot')
+	} else if (id === 'friend') {
+		localStorage.setItem('mode', 'friend')
+	} else if (id === 'toStats') {
+		setStats()
+	}
 }

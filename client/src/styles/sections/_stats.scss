@@ -24,6 +24,13 @@
 		text-transform: capitalize;
 		color: $defaultColor;
 	}
-	// .stats__value {
-	// }
+	.stats__value {
+		@include size(50, 50);
+		color: unset;
+		text-align: center;
+		background-color: $transparent;
+		border: none;
+		outline: none;
+		cursor: default;
+	}
 }

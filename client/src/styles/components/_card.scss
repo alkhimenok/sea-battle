@@ -4,6 +4,7 @@
 		margin: 0 0 $sizeMD 0;
 	}
 	.card__cover {
+		position: relative;
 		padding: $sizeMD;
 		background-color: $transparentSecondaryColor;
 	}
@@ -11,6 +12,10 @@
 		width: 100%;
 		margin: 0 0 $sizeLG 0;
 		@include castomRange;
+	}
+	.card__label {
+		@include center;
+		// z-index: ;
 	}
 	// .card__field {
 	// }

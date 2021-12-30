@@ -4,14 +4,14 @@ const fieldSize = 100
 const startLinks = [ 
 	{ icon: '_icon-bot', href: '#size', label: 'playing with a bot', id: 'bot' }, 
 	{ icon: '_icon-friend', href: '#size', label: 'play with a friend', id: 'friend' }, 
-	{ icon: '_icon-stats', href: '#stats', label: 'stats' }
+	{ icon: '_icon-stats', href: '#stats', label: 'stats', id: 'toStats' }
 ]
 const statsLinks = [ 
 	{ icon: '_icon-leftArrow', href: '#start', label: 'back', isRed: true }
 ]
 const statsItems = [
-	{ icon: '_icon-like', label: 'wins', value: 1 }, 
-	{ icon: '_icon-dislike', label: 'losses', value: 1 }
+	{ icon: '_icon-like', label: 'wins', id: 'totalWins' }, 
+	{ icon: '_icon-dislike', label: 'losses', id: 'totalLosses' }
 ]
 const sizeLinks = [
 	{ icon: '_icon-leftArrow', href: '#start', label: 'back', isRed: true },
@@ -80,7 +80,7 @@ const battleLinks = [
 								`
 								<li class="stats__item ${item.icon}">
 									<spna class="stats__label">${item.label}:</spna>
-									<span class="stats__value">${item.value}</span>
+									<input class="stats__value" id="${item.id}" data-input="statsValue" type="tel" value="0" readonly />
 								</li>
 								`
 							%>
@@ -104,12 +104,8 @@ const battleLinks = [
 							</div>
 							<!-- prettier-ignore -->
 						<div class="card__cover">
-							<div class="card__field field">
-								<span class="field__label _title" id="fieldLabel">10X10</span>
-								<!-- prettier-ignore -->
-								<%- include('./partials/field', { size: fieldSize }) %>
-								<!-- prettier-ignore -->
-							</div>
+							<canvas class="card__field field" id="canvasSize" data-canvas="field">field</canvas>
+							<span class="card__label _title" id="fieldLabel">10X10</span>
 						</div>
 					</div>
 				</div>
@@ -124,11 +120,7 @@ const battleLinks = [
 					<div class="position__card card">
 						<h2 class="card__title _title">player-1</h2>
 						<div class="card__cover">
-							<!-- prettier-ignore -->
-							<div class="card__field field">
-								<%- include('./partials/field', { size: fieldSize }) %>
-							</div>
-							<!-- prettier-ignore -->
+							<canvas class="card__field field" data-canvas="field">field</canvas>
 						</div>
 						<!-- prettier-ignore -->
 						<div class="card__ships ships _line">
@@ -148,14 +140,8 @@ const battleLinks = [
 					<div class="battle__card card">
 						<h2 class="card__title _title">player-1</h2>
 						<div class="card__cover">
-							<!-- prettier-ignore -->
-							<div class="card__field field">
-								<%- include('./partials/field', { size: fieldSize }) %>
-							</div>
-							<div class="card__field field">
-								<%- include('./partials/field', { size: fieldSize }) %>
-							</div>
-							<!-- prettier-ignore -->
+							<canvas class="card__field field" data-canvas="field">field</canvas>
+							<canvas class="card__field field" data-canvas="field">field</canvas>
 						</div>
 					</div>
 				</div>
