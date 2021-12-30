@@ -1,4 +1,5 @@
 import { setStats } from '../stats'
+import { setShips } from '../position/ships'
 import { smoothTo } from './smoothTransition'
 
 export const transitionsNavList = document.querySelectorAll('[data-nav="transitions"]')
@@ -31,5 +32,7 @@ const checkRoutes = (id) => {
 		localStorage.setItem('mode', 'friend')
 	} else if (id === 'toStats') {
 		setStats()
+	} else if (id === 'toPosition') {
+		setShips()
 	}
 }

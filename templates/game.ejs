@@ -15,7 +15,7 @@ const statsItems = [
 ]
 const sizeLinks = [
 	{ icon: '_icon-leftArrow', href: '#start', label: 'back', isRed: true },
-	{ icon: '_icon-rightArrow', href: '#position', label: 'continue' }
+	{ icon: '_icon-rightArrow', href: '#position', label: 'continue', id: 'toPosition' }
 ]
 const sizeShips = [
 	{ icon: '_icon-shipFour', id: 'shipFour' }, 
@@ -124,7 +124,10 @@ const battleLinks = [
 						</div>
 						<!-- prettier-ignore -->
 						<div class="card__ships ships _line">
-							<%- include('./partials/ships', { ships: positionShips }) %>
+							<ul class="ships__list"  id="shipList">
+
+								<!-- <%- include('./partials/ships', { ships: positionShips }) %> -->
+							</ul>
 						</div>
 						<!-- prettier-ignore -->
 					</div>

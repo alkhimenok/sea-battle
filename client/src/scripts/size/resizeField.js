@@ -14,7 +14,7 @@ export const changeFieldSize = e => {
 
 	localStorage.setItem(e.target.id, e.target.value)
 
-	drawField(document.querySelector('#canvasSize'))
+	drawField()
 }
 
 export const endFieldResize = e => $size.classList.remove('_resize')
