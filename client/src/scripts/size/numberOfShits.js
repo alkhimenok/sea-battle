@@ -43,7 +43,7 @@ export const checkLimitShips = (target, id, value, $plus, $minus) => {
 	doShips()
 }
 
-const getDiff = () => (localStorage.getItem('fieldSizeRange') ** 2 / 100) * 20 - takes
+const getDiff = () => Math.floor((localStorage.getItem('fieldSizeRange') ** 2 / 100) * 20 - takes)
 
 export const doShips = () => {
 	const diff = getDiff()
