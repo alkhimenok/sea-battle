@@ -25,7 +25,6 @@ export const changeCountShipsHandler = e => {
 }
 
 export const checkLimitShips = (target, id, value, $plus, $minus) => {
-	
 	if (target === $plus) {
 		takes += shipsTakes[id]
 	} else if (target === $minus) {
@@ -56,7 +55,10 @@ export const doShips = () => {
 		}
 	})
 
-	return (diff < 1 && diff >= 0) || [...shipsFormList].some($form => $form.plus.classList.contains('_disable'))
+
+	return (diff < 1 && diff >= 0) ||
+		[...shipsFormList].some($form => $form.plus.classList.contains('_disable')) ||
+		Math.floor(((localStorage.getItem('fieldSizeRange') - 1) ** 2 / 100) * 20 - takes) < 0
 		? localStorage.setItem('total', true)
 		: localStorage.setItem('total', false)
 }
