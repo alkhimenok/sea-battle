@@ -1,15 +1,27 @@
-export const $fieldRange = document.querySelector('#fieldRange')
-
-const $shipFourForm = document.querySelector('#shipFour')
-const $shipThreeForm = document.querySelector('#shipThree')
-const $shipTwoForm = document.querySelector('#shipTwo')
-const $shipOneForm = document.querySelector('#shipOne')
+import { shipsFormList, checkLimitShips } from './numberOfShits'
+import { $fieldSizeRange } from './resizeField'
 
 export const checkMemorySize = () => {
-	$fieldRange.value = localStorage.getItem($fieldRange.id) || 10
+	$fieldSizeRange.value = localStorage.getItem($fieldSizeRange.id) || 10
 
-	$shipFourForm.value.value = localStorage.getItem($shipFourForm.id) || 1
-	$shipThreeForm.value.value = localStorage.getItem($shipThreeForm.id) || 2
-	$shipTwoForm.value.value = localStorage.getItem($shipTwoForm.id) || 3
-	$shipOneForm.value.value = localStorage.getItem($shipOneForm.id) || 4
+	shipsFormList.forEach(setNumberOfShits)
+}
+
+const setNumberOfShits = $form => {
+	const { id, value: $value, plus: $plus, minus: $minus } = $form
+	let totlaShips = 0
+
+	if (id === 'shipFour') {
+		totlaShips = 1
+	} else if (id === 'shipThree') {
+		totlaShips = 2
+	} else if (id === 'shipTwo') {
+		totlaShips = 3
+	} else if (id === 'shipOne') {
+		totlaShips = 4
+	}
+
+	$value.value = localStorage.getItem(id) || totlaShips
+
+	checkLimitShips($value.value, $plus, $minus)
 }

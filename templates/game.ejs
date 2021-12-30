@@ -97,7 +97,12 @@ const battleLinks = [
 					</nav>
 					<!-- prettier-ignore -->
 					<div class="size__card card">
-						<input class="card__range" id="fieldRange" type="range" value="10" min="10" max="30" />
+						<input class="card__range" id="fieldSizeRange" type="range" value="10" min="10" max="30" />
+							<!-- prettier-ignore -->
+							<div class="card__ships ships">
+								<%- include('./partials/ships', { ships: sizeShips }) %>
+							</div>
+							<!-- prettier-ignore -->
 						<div class="card__cover">
 							<div class="card__field field">
 								<span class="field__label _title" id="fieldLabel">10X10</span>
@@ -106,11 +111,6 @@ const battleLinks = [
 								<!-- prettier-ignore -->
 							</div>
 						</div>
-						<!-- prettier-ignore -->
-						<div class="card__ships ships">
-							<%- include('./partials/ships', { ships: sizeShips }) %>
-						</div>
-						<!-- prettier-ignore -->
 					</div>
 				</div>
 			</section>
