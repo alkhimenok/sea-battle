@@ -1,8 +1,17 @@
-import { shipsFormList, checkLimitShips } from './numberOfShits'
+import { shipsFormList, doShips } from './numberOfShits'
 import { $fieldSizeRange } from './resizeField'
 
 export const checkMemorySize = () => {
-	$fieldSizeRange.value = localStorage.getItem($fieldSizeRange.id) || 10
+	const saved = localStorage.getItem($fieldSizeRange.id)
+	let value = 10
+
+	if (saved) {
+		value = saved
+	} else {
+		localStorage.setItem($fieldSizeRange.id, value)
+	}
+
+	$fieldSizeRange.value = value
 
 	shipsFormList.forEach(setNumberOfShits)
 }
@@ -21,7 +30,15 @@ const setNumberOfShits = $form => {
 		totlaShips = 4
 	}
 
-	$value.value = localStorage.getItem(id) || totlaShips
+	const saved = localStorage.getItem(id)
 
-	checkLimitShips($value.value, $plus, $minus)
+	if (saved) {
+		totlaShips = saved
+	} else {
+		localStorage.setItem(id, totlaShips)
+	}
+
+	$value.value = totlaShips
+
+	doShips()
 }
