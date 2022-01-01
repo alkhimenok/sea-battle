@@ -44,7 +44,7 @@ const battleLinkList = [
 		<div class="wrapper">
 			<section class="start _screen" id="start">
 				<div class="start__body _body">
-					<nav class="start__nav nav" data-nav="transitions">
+					<nav class="start__nav nav" data-nav="transition">
 						<% if(progress) { %> 
 							<% startLinkList.unshift({ id: 'continue', label: 'continue the game', icon: '_icon-save', href: '#battle' }) %>
 						<% } %>
@@ -55,7 +55,7 @@ const battleLinkList = [
 			</section>
 			<section class="stats _screen" id="stats">
 				<div class="stats__body _body">
-					<nav class="stats__nav nav" data-nav="transitions">
+					<nav class="stats__nav nav" data-nav="transition">
 						<%- include('./partials/nav', { links: statsLinkList }) %>
 					</nav>
 					<ul class="stats__list">
@@ -74,7 +74,7 @@ const battleLinkList = [
 			</section>
 			<section class="size _screen" id="size">
 				<div class="size__body _body">
-					<nav class="size__nav nav" data-nav="transitions">
+					<nav class="size__nav nav" data-nav="transition">
 						<%- include('./partials/nav', { links: sizeLinkList }) %>
 					</nav>
 					<div class="size__card card">
@@ -106,7 +106,7 @@ const battleLinkList = [
 			</section>
 			<section class="position _screen" id="position">
 				<div class="position__body _body">
-					<nav class="position__nav nav" data-nav="transitions">
+					<nav class="position__nav nav" data-nav="transition">
 						<%- include('./partials/nav', { links: positionLinkList }) %>
 					</nav>
 					<div class="position__card card">
@@ -115,7 +115,7 @@ const battleLinkList = [
 							<canvas class="card__field field" data-canvas="field">field</canvas>
 						</div>
 						<div class="card__ships ships _line">
-							<ul class="ships__list"  id="shipList">
+							<ul class="ships__list"  id="positionShipsList">
 								<!-- added dynamically -->
 							</ul>
 						</div>
@@ -124,7 +124,7 @@ const battleLinkList = [
 			</section>
 			<section class="battle _screen" id="battle">
 				<div class="battle__body _body">
-					<nav class="battle__nav nav" data-nav="transitions">
+					<nav class="battle__nav nav" data-nav="transition">
 						<%- include('./partials/nav', { links: battleLinkList }) %>
 					</nav>
 					<div class="battle__card card">

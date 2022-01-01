@@ -1,6 +1,14 @@
+const $body = document.body
+
 export const smoothTo = selector => {
 	const neededSection = document.querySelector(selector)
 	const indentTop = neededSection.getBoundingClientRect().top + scrollY
 
-	window.scrollTo({ top: indentTop }) //, behavior: 'smooth'
+	$body.classList.add('_hide')
+	
+	setTimeout(() => {
+		window.scrollTo({ top: indentTop })
+
+		$body.classList.remove('_hide')
+	}, 400)
 }

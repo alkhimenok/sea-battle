@@ -1,9 +1,9 @@
 import { shipsFormList } from '../size/numberOfShits'
 
-const $shipList = document.querySelector('#shipList')
+const $positionShipsList = document.querySelector('#positionShipsList')
 
-export const setShips = () => {
-  $shipList.innerHTML = ''
+export const fillpositionShipsList = () => {
+  $positionShipsList.innerHTML = ''
 
   shipsFormList.forEach($form => {
     const count = localStorage.getItem($form.id)
@@ -13,8 +13,10 @@ export const setShips = () => {
       </li>
     `
 
+    if (count > 100) return
+
     for (let i = 0; i < count; i++) {
-      $shipList.insertAdjacentHTML('beforeend', body)
+      $positionShipsList.insertAdjacentHTML('beforeend', body)
     }
   })
 }

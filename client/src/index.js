@@ -2,29 +2,25 @@ import 'normalize.css'
 import './styles/main.scss'
 
 import { setStats } from './scripts/stats'
-import { checkMemorySize } from './scripts/size/memory'
+import { setGameOptions } from './scripts/size/options'
 import { drawField } from './scripts/fiels/draw'
-import { setShips } from './scripts/position/ships'
-import { transitionsNavList, addTransitionHandler } from './scripts/transitions/transitions'
+import { fillpositionShipsList } from './scripts/position/totalShips'
+import { transitionNavList, addTransitionHandler } from './scripts/transition/transition'
 import { shipsFormList, changeCountShipsHandler } from './scripts/size/numberOfShits'
 import { $fieldSizeRange, startFieldResize, changeFieldSize, endFieldResize } from './scripts/size/resizeField'
 
 const start = () => {
 	setStats()
-	checkMemorySize()
+	setGameOptions()
 	drawField()
-	setShips()
+	fillpositionShipsList()
 
-	transitionsNavList.forEach($nav => $nav.addEventListener('click', addTransitionHandler))
+	transitionNavList.forEach($nav => $nav.addEventListener('click', addTransitionHandler))
 	shipsFormList.forEach($form => $form.addEventListener('click', changeCountShipsHandler))
 
 	$fieldSizeRange.addEventListener('pointerdown', startFieldResize)
 	$fieldSizeRange.addEventListener('input', changeFieldSize)
 	$fieldSizeRange.addEventListener('pointerup', endFieldResize)
-
-	// if (localStorage.getItem('progress')) {
-	// fetch
-	// }
 }
 
 window.addEventListener('load', start)

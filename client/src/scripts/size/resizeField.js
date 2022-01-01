@@ -1,35 +1,39 @@
+import { getItemFromDB, setItemToDB } from '../dataBase'
 import { drawField } from '../fiels/draw'
-import {doShips} from './numberOfShits'
+import { shipsFormList, checkLimitShips } from './numberOfShits'
 
 export const $fieldSizeRange = document.querySelector('#fieldSizeRange')
 
 const $size = document.querySelector('#size')
 const $fieldLabel = $size.querySelector('#fieldLabel')
 
-export const startFieldResize = (e) => {
-	$size.classList.add('_resize')
-	// if (localStorage.getItem('total') === 'true') {
-		
-	// 	// e.target.disabled = true
-	// } 
-	// else {
-	// 	e.target.disabled = false
-	// }
-}
+export const startFieldResize = () => $size.classList.add('_resize')
+
+export const endFieldResize = () => $size.classList.remove('_resize')
 
 export const changeFieldSize = e => {
 	const { value } = e.target
 
-	if (localStorage.getItem('total') === 'true' && value < +localStorage.getItem('fieldSizeRange')) {
-		e.target.value = +localStorage.getItem('fieldSizeRange')
+	if (checkMaxValue(value)) {
+		e.target.value = +getItemFromDB('fieldSizeRange')
 	} else {
-	$fieldLabel.textContent = `${value}x${value}`
+		$fieldLabel.textContent = `${value}x${value}`
 
-		localStorage.setItem(e.target.id, e.target.value)
-		doShips()
+		setItemToDB(e.target.id, e.target.value)
+		checkLimitShips()
 		drawField()
 	}
-
 }
 
-export const endFieldResize = e => $size.classList.remove('_resize')
+const checkMaxValue = value => {
+	const currentValue = +getItemFromDB('fieldSizeRange')
+	
+	return (
+		(
+			[...shipsFormList].some($form => $form.plus.classList.contains('_disable')) ||
+			Math.floor(((currentValue - 1) ** 2 / 100) * 20 - +getItemFromDB('takes')) < 0
+		)
+		&& value < currentValue
+	)
+}
+
