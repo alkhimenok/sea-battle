@@ -98,7 +98,9 @@ const battleLinkList = [
 							</ul>
 						</div>
 						<div class="card__cover">
-							<canvas class="card__field field" data-canvas="field">field</canvas>
+							<div class="card__field field">
+								<canvas class="field_draw" data-canvas="field">field</canvas>
+							</div>
 							<span class="card__label _title" id="fieldLabel"></span>
 						</div>
 					</div>
@@ -112,7 +114,9 @@ const battleLinkList = [
 					<div class="position__card card">
 						<h2 class="card__title _title">player-1</h2>
 						<div class="card__cover">
-							<canvas class="card__field field" data-canvas="field">field</canvas>
+							<div class="card__field field" id="positionField">
+								<canvas class="field_draw" data-canvas="field">field</canvas>
+							</div>
 						</div>
 						<div class="card__ships ships _line">
 							<ul class="ships__list"  id="positionShipsList">
@@ -130,8 +134,12 @@ const battleLinkList = [
 					<div class="battle__card card">
 						<h2 class="card__title _title">player-1</h2>
 						<div class="card__cover">
-							<canvas class="card__field field" data-canvas="field">field</canvas>
-							<canvas class="card__field field" data-canvas="field">field</canvas>
+							<div class="card__field field">
+								<canvas class="field_draw" data-canvas="field">field</canvas>
+							</div>
+							<div class="card__field field">
+								<canvas class="field_draw" data-canvas="field">field</canvas>
+							</div>
 						</div>
 					</div>
 				</div>

@@ -1,6 +1,10 @@
 .field {
-  position: relative;
-  @include flex(center, flex-end, row, wrap);
-  @include size(240, 240);
-  margin: 0 auto;
+	position: relative;
+	@include flex(center, flex-end, row, wrap);
+	@include size(240, 240);
+	margin: 0 auto;
+	.field_draw {
+    width: 100%;
+    height: 100%;
+	}
 }

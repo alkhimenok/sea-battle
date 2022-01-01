@@ -9,11 +9,14 @@ import { transitionNavList, addTransitionHandler } from './scripts/transition/tr
 import { shipsFormList, changeCountShipsHandler } from './scripts/size/numberOfShits'
 import { $fieldSizeRange, startFieldResize, changeFieldSize, endFieldResize } from './scripts/size/resizeField'
 
+import { dragShipStart } from './scripts/position/dragShips'
+
 const start = () => {
 	setStats()
 	setGameOptions()
 	drawField()
 	fillpositionShipsList()
+	dragShipStart()
 
 	transitionNavList.forEach($nav => $nav.addEventListener('click', addTransitionHandler))
 	shipsFormList.forEach($form => $form.addEventListener('click', changeCountShipsHandler))
@@ -21,6 +24,7 @@ const start = () => {
 	$fieldSizeRange.addEventListener('pointerdown', startFieldResize)
 	$fieldSizeRange.addEventListener('input', changeFieldSize)
 	$fieldSizeRange.addEventListener('pointerup', endFieldResize)
+
 }
 
 window.addEventListener('load', start)

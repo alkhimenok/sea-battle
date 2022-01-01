@@ -1,6 +1,6 @@
 import { getItemFromDB, setItemToDB } from '../dataBase'
 import { drawField } from '../fiels/draw'
-import { shipsFormList, checkLimitShips } from './numberOfShits'
+import { shipsFormList, checkLimitShips, takes } from './numberOfShits'
 
 export const $fieldSizeRange = document.querySelector('#fieldSizeRange')
 
@@ -31,7 +31,7 @@ const checkMaxValue = value => {
 	return (
 		(
 			[...shipsFormList].some($form => $form.plus.classList.contains('_disable')) ||
-			Math.floor(((currentValue - 1) ** 2 / 100) * 20 - +getItemFromDB('takes')) < 0
+			Math.floor(((currentValue - 1) ** 2 / 100) * 20 - takes) < 0
 		)
 		&& value < currentValue
 	)
