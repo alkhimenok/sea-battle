@@ -1,50 +1,39 @@
-<!-- prettier-ignore -->
-<% 
-const fieldSize = 100
-const startLinks = [ 
-	{ icon: '_icon-bot', href: '#size', label: 'playing with a bot', id: 'bot' }, 
-	{ icon: '_icon-friend', href: '#size', label: 'play with a friend', id: 'friend' }, 
-	{ icon: '_icon-stats', href: '#stats', label: 'stats', id: 'toStats' }
+<%
+const FIELD_SIZE = 10
+const MIN_FIELD_SIZE = 10
+const MAX_FIELD_SIZE = 30
+
+const startLinkList = [ 
+	{ id: 'botTransitionLink', label: 'playing with a bot', icon: '_icon-bot', href: '#size' },
+	{ id: 'friendTransitionLink', label: 'play with a friend', icon: '_icon-friend', href: '#size' },
+	{ id: 'statsTransitionLink', label: 'stats', icon: '_icon-stats', href: '#stats' }
 ]
-const statsLinks = [ 
-	{ icon: '_icon-leftArrow', href: '#start', label: 'back', isRed: true }
+const statsLinkList = [ 
+	{ label: 'back', icon: '_icon-leftArrow', href: '#start', isRed: true }
 ]
-const statsItems = [
-	{ icon: '_icon-like', label: 'wins', id: 'totalWins' }, 
-	{ icon: '_icon-dislike', label: 'losses', id: 'totalLosses' }
+const statsItemList = [
+	{ id: 'totalWins', label: 'wins', icon: '_icon-like' }, 
+	{ id: 'totalLosses', label: 'losses', icon: '_icon-dislike' }
 ]
-const sizeLinks = [
-	{ icon: '_icon-leftArrow', href: '#start', label: 'back', isRed: true },
-	{ icon: '_icon-rightArrow', href: '#position', label: 'continue', id: 'toPosition' }
+const sizeLinkList = [
+	{ label: 'back', icon: '_icon-leftArrow', href: '#start', isRed: true },
+	{ id: 'positionTransitionLink', label: 'continue', icon: '_icon-rightArrow', href: '#position' }
 ]
-const sizeShips = [
-	{ icon: '_icon-shipFour', id: 'shipFour' }, 
-	{ icon: '_icon-shipThree', id: 'shipThree' }, 
-	{ icon: '_icon-shipTwo', id: 'shipTwo' }, 
-	{ icon: '_icon-shipOne', id: 'shipOne' }
+const sizeShipList = [
+	{ id: 'shipFour', icon: '_icon-shipFour' }, 
+	{ id: 'shipThree', icon: '_icon-shipThree' }, 
+	{ id: 'shipTwo', icon: '_icon-shipTwo' }, 
+	{ id: 'shipOne', icon: '_icon-shipOne' }
 ]
-const positionLinks = [
-	{ icon: '_icon-leftArrow', href: '#size', label: 'back', isRed: true },
-	{ icon: '_icon-rightArrow',  href: '#battle', label: 'continue' }
+const positionLinkList = [
+	{ label: 'back', icon: '_icon-leftArrow', href: '#size', isRed: true },
+	{ id: 'battleTransitionLink', label: 'continue', icon: '_icon-rightArrow',  href: '#battle' }
 ]
-const positionShips = [
-	{ icon: '_icon-shipFour' }, 
-	{ icon: '_icon-shipThree' },
-	{ icon: '_icon-shipThree' }, 
-	{ icon: '_icon-shipTwo' }, 
-	{ icon: '_icon-shipTwo' }, 
-	{ icon: '_icon-shipTwo' }, 
-	{ icon: '_icon-shipOne' },
-	{ icon: '_icon-shipOne' },
-	{ icon: '_icon-shipOne' },
-	{ icon: '_icon-shipOne' }
-]
-const battleLinks = [
-	{ icon: '_icon-logOff', href: '#start', label: 'log off', isRed: true },
-	{ icon: '_icon-change', label: 'change' }
+const battleLinkList = [
+	{ id: 'logOffTransitionLink', label: 'log off', icon: '_icon-logOff', href: '#start', isRed: true },
+	{ id: 'changeTransitionLink', label: 'change', icon: '_icon-change' }
 ]
 %>
-<!-- prettier-ignore -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -53,93 +42,91 @@ const battleLinks = [
 	</head>
 	<body>
 		<div class="wrapper">
-			<section class="start _screen" id="start" data-section="screen">
+			<section class="start _screen" id="start">
 				<div class="start__body _body">
-					<!-- prettier-ignore -->
 					<nav class="start__nav nav" data-nav="transitions">
 						<% if(progress) { %> 
-							<% startLinks.unshift({ label: 'continue the game', href: '#battle', icon: '_icon-save', id: 'continue' }) %>
-						<% } %> 
+							<% startLinkList.unshift({ id: 'continue', label: 'continue the game', icon: '_icon-save', href: '#battle' }) %>
+						<% } %>
 						
-						<%- include('./partials/nav', { links: startLinks }) %>
+						<%- include('./partials/nav', { links: startLinkList }) %>
 					</nav>
-					<!-- prettier-ignore -->
 				</div>
 			</section>
-			<section class="stats _screen" id="stats" data-section="screen">
+			<section class="stats _screen" id="stats">
 				<div class="stats__body _body">
-					<!-- prettier-ignore -->
 					<nav class="stats__nav nav" data-nav="transitions">
-						<%- include('./partials/nav', { links: statsLinks }) %>
+						<%- include('./partials/nav', { links: statsLinkList }) %>
 					</nav>
-					<!-- prettier-ignore -->
-					<!-- prettier-ignore -->
 					<ul class="stats__list">
-						<% statsItems.forEach(item => { %>
+						<% statsItemList.forEach(item => { %>
 							<%-
 								`
 								<li class="stats__item ${item.icon}">
 									<spna class="stats__label">${item.label}:</spna>
-									<input class="stats__value" id="${item.id}" data-input="statsValue" type="tel" value="0" readonly />
+									<input class="stats__value" id="${item.id}" data-input="statsValue" type="tel" readonly />
 								</li>
 								`
 							%>
 						<% }) %>
 					</ul>
-					<!-- prettier-ignore -->
 				</div>
 			</section>
-			<section class="size _screen" id="size" data-section="screen">
+			<section class="size _screen" id="size">
 				<div class="size__body _body">
-					<!-- prettier-ignore -->
 					<nav class="size__nav nav" data-nav="transitions">
-						<%- include('./partials/nav', { links: sizeLinks }) %>
+						<%- include('./partials/nav', { links: sizeLinkList }) %>
 					</nav>
-					<!-- prettier-ignore -->
 					<div class="size__card card">
-						<input class="card__range" id="fieldSizeRange" type="range" value="10" min="10" max="30" />
-							<!-- prettier-ignore -->
-							<div class="card__ships ships">
-								<%- include('./partials/ships', { ships: sizeShips }) %>
-							</div>
-							<!-- prettier-ignore -->
+						<input class="card__range" id="fieldSizeRange" type="range" value="<%- FIELD_SIZE %> " min="<%- MIN_FIELD_SIZE %>" max="<%- MAX_FIELD_SIZE %>" />
+						<div class="card__ships ships">
+							<ul class="ships__list">
+								<% sizeShipList.forEach(ship => { %>
+									<%- 
+										`
+										<li class="ships__item">
+											<span class="ships__icon ${ship.icon}"></span>
+											<form class="ships__form" data-form="ships" id="${ship.id}">
+												<input class="ships__value" name="value" type="tel" readonly />
+												<button class="ships__btn" name="plus">+</button>
+												<button class="ships__btn _red" name="minus">-</button>
+											</form>
+										</li>
+										`
+									%>
+								<% }) %>
+							</ul>
+						</div>
 						<div class="card__cover">
-							<canvas class="card__field field" id="canvasSize" data-canvas="field">field</canvas>
-							<span class="card__label _title" id="fieldLabel">10X10</span>
+							<canvas class="card__field field" data-canvas="field">field</canvas>
+							<span class="card__label _title" id="fieldLabel"></span>
 						</div>
 					</div>
 				</div>
 			</section>
-			<section class="position _screen" id="position" data-section="screen">
+			<section class="position _screen" id="position">
 				<div class="position__body _body">
-					<!-- prettier-ignore -->
 					<nav class="position__nav nav" data-nav="transitions">
-						<%- include('./partials/nav', { links: positionLinks }) %>
+						<%- include('./partials/nav', { links: positionLinkList }) %>
 					</nav>
-					<!-- prettier-ignore -->
 					<div class="position__card card">
 						<h2 class="card__title _title">player-1</h2>
 						<div class="card__cover">
 							<canvas class="card__field field" data-canvas="field">field</canvas>
 						</div>
-						<!-- prettier-ignore -->
 						<div class="card__ships ships _line">
 							<ul class="ships__list"  id="shipList">
-
-								<!-- <%- include('./partials/ships', { ships: positionShips }) %> -->
+								<!-- added dynamically -->
 							</ul>
 						</div>
-						<!-- prettier-ignore -->
 					</div>
 				</div>
 			</section>
-			<section class="battle _screen" id="battle" data-section="screen">
+			<section class="battle _screen" id="battle">
 				<div class="battle__body _body">
-					<!-- prettier-ignore -->
 					<nav class="battle__nav nav" data-nav="transitions">
-						<%- include('./partials/nav', { links: battleLinks }) %>
+						<%- include('./partials/nav', { links: battleLinkList }) %>
 					</nav>
-					<!-- prettier-ignore -->
 					<div class="battle__card card">
 						<h2 class="card__title _title">player-1</h2>
 						<div class="card__cover">
