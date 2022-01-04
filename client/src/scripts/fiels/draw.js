@@ -11,32 +11,31 @@ export const drawField = () => {
 	canvasList.forEach($canvas => {
 		const ctx = $canvas.getContext('2d')
 
-		const VUEW_WIDTH = $canvas.clientWidth * 2
-		const VUEW_HEIGHT = $canvas.clientHeight * 2
-		const POSITION_WIDTH = VUEW_WIDTH / NUMBER_OF_POSITIONS_PER_LINE
-		const POSITION_HEIGHT = POSITION_WIDTH
+		const VUE_SIZE = $canvas.clientWidth * 2
+		const POSITION_SIZE = VUE_SIZE / NUMBER_OF_POSITIONS_PER_LINE
 
-		$canvas.width = VUEW_WIDTH
-		$canvas.height = VUEW_HEIGHT
+		$canvas.width = VUE_SIZE
+		$canvas.height = VUE_SIZE
+		$canvas.dataset.positionSize = POSITION_SIZE / 2
 
-		ctx.clearRect(0, 0, VUEW_WIDTH, VUEW_HEIGHT)
+		ctx.clearRect(0, 0, VUE_SIZE, VUE_SIZE)
 
 		ctx.beginPath()
 		ctx.strokeStyle = SECONDARY_COLOR
 		ctx.lineWidth = 1
 		for (let i = 0; i < NUMBER_OF_POSITIONS_PER_LINE; i++) {
-			ctx.moveTo(POSITION_WIDTH * i, 0)
-			ctx.lineTo(POSITION_WIDTH * i, VUEW_HEIGHT)
+			ctx.moveTo(POSITION_SIZE * i, 0)
+			ctx.lineTo(POSITION_SIZE * i, VUE_SIZE)
 
-			ctx.moveTo(0, POSITION_HEIGHT * i)
-			ctx.lineTo(VUEW_WIDTH, POSITION_HEIGHT * i)
+			ctx.moveTo(0, POSITION_SIZE * i)
+			ctx.lineTo(VUE_SIZE, POSITION_SIZE * i)
 		}
 		ctx.stroke()
 
 		ctx.beginPath()
 		ctx.strokeStyle = PRIMARY_COLOR
 		ctx.lineWidth = 2
-		ctx.rect(0, 0, VUEW_WIDTH, VUEW_HEIGHT)
+		ctx.rect(0, 0, VUE_SIZE, VUE_SIZE)
 		ctx.stroke()
 	})
 }

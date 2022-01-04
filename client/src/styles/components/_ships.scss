@@ -3,11 +3,20 @@
 	// }
 	.ships__item {
 		user-select: none;
+		&._drag {
+			.ships__icon {
+				&::before {
+					font-size: 0px;
+				}
+			}
+		}
 	}
 	.ships__icon {
 		color: $primaryColor;
+		pointer-events: none;
 		&::before {
 			font-size: $sizeXXL;
+			transition: $delay;
 		}
 		// &._icon-shipFour {
 		// }

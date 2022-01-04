@@ -1,27 +1,51 @@
 // import { $positionShipsList } from './totalShips'
 
-// const $positionField = document.querySelector('#positionField')
+const $positionField = document.querySelector('#positionField')
+const $positionCard = document.querySelector('#positionCard')
 
-// export const dragShipStart = () => {
-// 	const positionShips = document.querySelectorAll('[data-item="ship"]')
+export const dragShipStart = () => {
+	const positionShips = document.querySelectorAll('[data-item="ship"]')
 
-// 	positionShips.forEach($ship => $ship.addEventListener('dragstart', dragStart))
+	positionShips.forEach($ship => {
+		$ship.addEventListener('dragstart', dragStart)
+		// $ship.addEventListener('drag', drag)
+		$ship.addEventListener('dragend', dragEnd)
+	})
 
-// 	$positionShipsList.addEventListener('dragover', e => e.preventDefault())
-// 	$positionField.addEventListener('dragover', e => e.preventDefault())
+	$positionField.addEventListener('dragover', dragOver)
+	// $positionCard.addEventListener('dragover', dragOver)
+	// $positionCard.addEventListener('drop', drop)
+}
 
-// 	$positionShipsList.addEventListener('drop', drag)
-// 	$positionField.addEventListener('drop', drag)
-// }
+const dragStart = e => {
+	const { target, dataTransfer } = e
 
-// const dragStart = e => {
-// 	e.dataTransfer.setData('id', e.target.id)
-//   console.log('start');
-// }
+	dataTransfer.item = target
 
+	dataTransfer.item.classList.add('_drag')
+}
 // const drag = e => {
-// 	let id = e.dataTransfer.getData('id')
-//   console.log(e.target);
-//   console.log(document.querySelector(id));
-// 	e.target.append(document.querySelector(id))
+// 	console.log(e);
+	// const { target, dataTransfer } = e
+
+	// dataTransfer.item = target
+
+	// dataTransfer.item.classList.add('_drag')
+// }
+const dragEnd = e => {
+	const { dataTransfer } = e
+
+	dataTransfer.item.classList.remove('_drag')
+}
+const dragOver = (e) => {
+  e.preventDefault()
+
+	console.log(e.currentTarget.clientX);
+	console.log(e);
+}
+
+// const drop = (e) => {
+//   if (e.target === $positionField) {
+//     $positionField.append(e.dataTransfer.item)
+//   }
 // }

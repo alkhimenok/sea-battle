@@ -99,7 +99,7 @@ const battleLinkList = [
 						</div>
 						<div class="card__cover">
 							<div class="card__field field">
-								<canvas class="field_draw" data-canvas="field">field</canvas>
+								<canvas class="field__draw" data-canvas="field">field</canvas>
 							</div>
 							<span class="card__label _title" id="fieldLabel"></span>
 						</div>
@@ -111,11 +111,11 @@ const battleLinkList = [
 					<nav class="position__nav nav" data-nav="transition">
 						<%- include('./partials/nav', { links: positionLinkList }) %>
 					</nav>
-					<div class="position__card card">
+					<div class="position__card card" id="positionCard">
 						<h2 class="card__title _title">player-1</h2>
 						<div class="card__cover">
 							<div class="card__field field" id="positionField">
-								<canvas class="field_draw" data-canvas="field">field</canvas>
+								<canvas class="field__draw" id="positionConvas" data-canvas="field">field</canvas>
 							</div>
 						</div>
 						<div class="card__ships ships _line">
@@ -134,11 +134,11 @@ const battleLinkList = [
 					<div class="battle__card card">
 						<h2 class="card__title _title">player-1</h2>
 						<div class="card__cover">
-							<div class="card__field field">
-								<canvas class="field_draw" data-canvas="field">field</canvas>
+							<div class="card__field field" id="enemyField">
+								<canvas class="field__draw" data-canvas="field">field</canvas>
 							</div>
 							<div class="card__field field">
-								<canvas class="field_draw" data-canvas="field">field</canvas>
+								<canvas class="field__draw" data-canvas="field">field</canvas>
 							</div>
 						</div>
 					</div>
