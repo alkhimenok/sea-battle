@@ -31,7 +31,7 @@ const positionLinkList = [
 ]
 const battleLinkList = [
 	{ id: 'logOffTransitionLink', label: 'log off', icon: '_icon-logOff', href: '#start', isRed: true },
-	{ id: 'changeTransitionLink', label: 'change', icon: '_icon-change' }
+	{ id: 'changeTransitionLink', label: 'change', icon: '_icon-change', href: '#battle' }
 ]
 %>
 
@@ -137,7 +137,7 @@ const battleLinkList = [
 							<div class="card__field field" id="enemyField">
 								<canvas class="field__draw" data-canvas="field">field</canvas>
 							</div>
-							<div class="card__field field">
+							<div class="card__field field" id="myField">
 								<canvas class="field__draw" data-canvas="field">field</canvas>
 							</div>
 						</div>

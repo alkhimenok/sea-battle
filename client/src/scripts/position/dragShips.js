@@ -1,51 +1,146 @@
-// import { $positionShipsList } from './totalShips'
 
-const $positionField = document.querySelector('#positionField')
-const $positionCard = document.querySelector('#positionCard')
 
-export const dragShipStart = () => {
-	const positionShips = document.querySelectorAll('[data-item="ship"]')
 
-	positionShips.forEach($ship => {
-		$ship.addEventListener('dragstart', dragStart)
-		// $ship.addEventListener('drag', drag)
-		$ship.addEventListener('dragend', dragEnd)
-	})
 
-	$positionField.addEventListener('dragover', dragOver)
-	// $positionCard.addEventListener('dragover', dragOver)
-	// $positionCard.addEventListener('drop', drop)
-}
 
-const dragStart = e => {
-	const { target, dataTransfer } = e
 
-	dataTransfer.item = target
+// import { getItemFromDB } from '../dataBase'
 
-	dataTransfer.item.classList.add('_drag')
-}
-// const drag = e => {
-// 	console.log(e);
-	// const { target, dataTransfer } = e
+// const $positionField = document.querySelector('#positionField')
 
-	// dataTransfer.item = target
+// let positionSize = getItemFromDB('positionSize')
+// let vueSize = getItemFromDB('vueSize')
 
-	// dataTransfer.item.classList.add('_drag')
+// let $currentShip
+// let shipSize
+// let shipIcon
+// let shipX
+// let shipY
+
+// const coords = []
+// const ships = []
+
+// export const dragShipStart = () => {
+// 	const shipsList = document.querySelectorAll('[data-item="ship"]')
+
+// 	shipsList.forEach($ship => {
+// 		$ship.addEventListener('mousedown', setShipOption)
+// 		$ship.addEventListener('mousedown', setShipState)
+// 	})
+
+// 	$positionField.addEventListener('mouseover', handleCreateShip)
+// 	$positionField.addEventListener('mouseout', handleRemoveShip)
+// 	$positionField.addEventListener('mousemove', handlePositionShip)
+// 	$positionField.addEventListener('click', handlePlaceShip)
 // }
-const dragEnd = e => {
-	const { dataTransfer } = e
 
-	dataTransfer.item.classList.remove('_drag')
-}
-const dragOver = (e) => {
-  e.preventDefault()
+// const setShipOption = e => {
+// 	const { target } = e
+// 	const { size, icon } = target.dataset
 
-	console.log(e.currentTarget.clientX);
-	console.log(e);
-}
+// 	target.classList.add('_hide')
 
-// const drop = (e) => {
-//   if (e.target === $positionField) {
-//     $positionField.append(e.dataTransfer.item)
-//   }
+// 	shipSize = size
+// 	shipIcon = icon
+// }
+
+// const setShipState = () => {
+// 	if ($currentShip === undefined) {
+
+// 	}
+// }
+
+// const handleCreateShip = () => {
+// 	if (!(shipSize || shipIcon)) return
+
+// 	$currentShip = createShip(shipIcon)
+// }
+
+// const createShip = icon => {
+// 	const $ship = document.createElement('span')
+
+// 	$ship.classList.add('field__ship', icon, '_hide')
+
+// 	$positionField.insertAdjacentElement('beforeend', $ship)
+
+// 	setTimeout(() => $ship.classList.remove('_hide'), 0)
+
+// 	setShipSize($ship, positionSize, shipSize)
+
+// 	return $ship
+// }
+
+// const handleRemoveShip = () => {
+// 	if (!(shipSize || shipIcon)) return
+
+// 	$currentShip.classList.add('_hide')
+
+// 	setTimeout(() => $currentShip.remove(), 200)
+// }
+
+// export const handlePositionShip = e => {
+// 	if (!(shipSize || shipIcon)) return
+
+// 	const { offsetX, offsetY } = e
+
+// 	shipX = Math.floor(offsetX / positionSize) * positionSize
+// 	shipY = Math.floor(offsetY / positionSize) * positionSize
+// 	const v = shipX + $currentShip.clientWidth
+
+// 	if (v >= vueSize) {
+// 		shipX = vueSize - $currentShip.clientWidth
+// 	}
+
+// 	setMarkPosition($currentShip, shipX, shipY)
+// }
+
+
+// export const handlePlaceShip = () => {
+// 	if (!(shipSize || shipIcon)) return
+// 	if (coords.some(isCoordIncludes)) return
+
+// 	const classNames = []
+
+// 	// if (isPlaceToken()) {
+// 	// 	classNames.push('_icon-crossMark')
+// 	// 	player2Coords = player2Coords.filter(coord => !isCoordIncludes(coord))
+// 	// } else {
+// 	// 	classNames.push('_tagged')
+// 	// }
+
+// 	const $currentShip = createShip(shipIcon)
+
+// 	setMarkPosition($currentShip, shipX, shipY)
+
+// 	for (let i = 0; i < shipSize; i++) {
+// 		coords.push([shipX + (positionSize * i), shipY])
+// 	}
+
+// 	ships.push($currentShip)
+
+// 	clearShipData()
+// }
+
+// const setShipSize = ($ship,size, shipSize) => {
+// 	$ship.style.fontSize = ((size) / 3) * 2 + 'px'
+// 	$ship.style.width = size * shipSize + 'px'
+// 	$ship.style.height = size + 'px'
+// }
+
+// const setMarkPosition = ($mark, x, y) => {
+// 	$mark.style.left = x + 'px'
+// 	$mark.style.top = y + 'px'
+// }
+
+// // const isPlaceToken = () => player2Coords.some(isCoordIncludes)
+
+// const isCoordIncludes = coord => coord[0] === shipX && coord[1] === shipY
+
+
+// const clearShipData = () => {
+// 	$currentShip = undefined
+// 	shipSize = undefined
+// 	shipIcon = undefined
+// 	shipX = undefined
+// 	shipY = undefined
 // }

@@ -15,7 +15,7 @@
 		transition: $delay;
 		pointer-events: none;
 		&._icon-okMark {
-			color: $transparentPrimaryColor;
+			color: $lightPrimaryColor;
 		}
 		&._icon-crossMark {
 			color: $errorColor;
@@ -23,6 +23,25 @@
 		&._tagged {
 			color: $primaryColor;
 		}
+		&._hide {
+			transform: scale(0);
+		}
+	}
+	.field__ship {
+		position: absolute;
+		@include flex(center, center);
+		color: $primaryColor;
+		background-color: $transparentPrimaryColor;
+		transition: $delay;
+		pointer-events: none;
+		// &._icon-shipFour {
+		// }
+		// &._icon-shipThree {
+		// }
+		// &._icon-shipTwo {
+		// }
+		// &._icon-shipOne {
+		// }
 		&._hide {
 			transform: scale(0);
 		}

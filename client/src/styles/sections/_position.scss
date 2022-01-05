@@ -4,6 +4,7 @@
   // .position__nav {
   // }
   .position__card {
+    // position: relative;
     @media screen and (max-width: calc($breackpointSMMax * 1px)) {
       @include size(748, 358, $breackpointSMMax, 556);
     }

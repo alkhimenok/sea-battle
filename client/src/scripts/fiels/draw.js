@@ -1,4 +1,4 @@
-import { getItemFromDB } from "../dataBase"
+import { getItemFromDB, setItemToDB } from "../dataBase"
 
 const canvasList = document.querySelectorAll('[data-canvas="field"]')
 
@@ -16,8 +16,10 @@ export const drawField = () => {
 
 		$canvas.width = VUE_SIZE
 		$canvas.height = VUE_SIZE
-		$canvas.dataset.positionSize = POSITION_SIZE / 2
-
+		
+		setItemToDB('positionSize', POSITION_SIZE / 2)
+		setItemToDB('vueSize', VUE_SIZE / 2)
+		
 		ctx.clearRect(0, 0, VUE_SIZE, VUE_SIZE)
 
 		ctx.beginPath()

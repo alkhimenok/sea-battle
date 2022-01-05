@@ -1,17 +1,25 @@
 .ships {
 	// .ships__list {
 	// }
-	.ships__item {
+	&__item {
 		user-select: none;
-		&._drag {
+		&._hide {
 			.ships__icon {
 				&::before {
 					font-size: 0px;
 				}
 			}
 		}
+		&._drag {
+			position: absolute;
+			.ships__icon {
+				&::before {
+					// font-size: 24px;
+				}
+			}
+		}
 	}
-	.ships__icon {
+	&__icon {
 		color: $primaryColor;
 		pointer-events: none;
 		&::before {
