@@ -20,7 +20,7 @@ export const fillpositionShipsList = () => {
 
 const getShip = (id, i) => { // draggable="true"
 	return `
-    <li class="ships__item" id="${id + i}" data-item="ship" data-size="${shipSize[id]}" data-icon="_icon-${id}"> 
+    <li class="ships__item" id="${id + i}" data-item="ship" data-size="${shipSize[id]}" data-icon="_icon-${id}" draggable="true"> 
         <span class="ships__icon _icon-${id}"></span>
     </li>
   `

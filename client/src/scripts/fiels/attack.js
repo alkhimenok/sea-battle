@@ -9,11 +9,11 @@ let $dragMark
 
 const markds = []
 const coords = []
-let player2Coords = [
-	[0, 0],
-	[24, 24],
-	[48, 48],
-]
+// let player2Coords = [
+// 	[0, 0],
+// 	[24, 24],
+// 	[48, 48],
+// ]
 
 export const handleRenderDragMark = () => {
 	$dragMark = createMark(positionSize)
@@ -41,7 +41,7 @@ export const handlePlaceMark = () => {
 
 	if (isPlaceToken()) {
 		classNames.push('_icon-crossMark')
-		player2Coords = player2Coords.filter(coord => !isCoordIncludes(coord))
+		// player2Coords = player2Coords.filter(coord => !isCoordIncludes(coord))
 	} else {
 		classNames.push('_tagged')
 	}
@@ -81,6 +81,6 @@ const setMarkPosition = ($mark, x, y) => {
 	$mark.style.top = y + 'px'
 }
 
-const isPlaceToken = () => player2Coords.some(isCoordIncludes)
+const isPlaceToken = () => JSON.parse(getItemFromDB('palyer1Positions')).some(isCoordIncludes)
 
 const isCoordIncludes = coord => coord[0] === dragMarkX && coord[1] === dragMarkY

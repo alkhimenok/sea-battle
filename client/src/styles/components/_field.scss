@@ -30,10 +30,11 @@
 	.field__ship {
 		position: absolute;
 		@include flex(center, center);
-		color: $primaryColor;
+		color: $lightPrimaryColor;
 		background-color: $transparentPrimaryColor;
 		transition: $delay;
 		pointer-events: none;
+		// pointer-events: none;
 		// &._icon-shipFour {
 		// }
 		// &._icon-shipThree {
@@ -42,6 +43,10 @@
 		// }
 		// &._icon-shipOne {
 		// }
+		&._tagged {
+			pointer-events: all;
+			color: $primaryColor;
+		}
 		&._hide {
 			transform: scale(0);
 		}

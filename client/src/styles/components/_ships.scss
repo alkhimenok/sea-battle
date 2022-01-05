@@ -3,6 +3,7 @@
 	// }
 	&__item {
 		user-select: none;
+		transition: $delay;
 		&._hide {
 			.ships__icon {
 				&::before {
@@ -10,13 +11,18 @@
 				}
 			}
 		}
-		&._drag {
-			position: absolute;
-			.ships__icon {
-				&::before {
-					// font-size: 24px;
-				}
-			}
+		&._disable {
+			opacity: 0.2;
+			pointer-events: none;
+		}
+		&._selected {
+			background-color: $transparentPrimaryColor;
+			// position: absolute;
+			// .ships__icon {
+			// 	&::before {
+			// 		// font-size: 24px;
+			// 	}
+			// }
 		}
 	}
 	&__icon {
