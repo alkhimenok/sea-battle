@@ -34,14 +34,34 @@ export const handleRemoveDragMark = () => {
 	setTimeout(() => $dragMark.remove(), 200)
 }
 
-export const handlePlaceMark = () => {
-	if (coords.some(isCoordIncludes)) return
+// export const handlePlaceMark = () => {
+// 	if (coords.some(isCoordIncludes)) return
 
+// 	const classNames = []
+
+// 	if (isPlaceToken()) {
+// 		classNames.push('_icon-crossMark')
+// 		// player2Coords = player2Coords.filter(coord => !isCoordIncludes(coord))
+// 	} else {
+// 		classNames.push('_tagged')
+// 	}
+
+// 	const $currentMark = createMark(positionSize, classNames)
+
+// 	setMarkPosition($currentMark, dragMarkX, dragMarkY)
+
+// 	coords.push([dragMarkX, dragMarkY])
+// 	markds.push([$currentMark])
+// }
+
+export const handlePlaceMark = (player1, player2) => {
+	// if (player1.shots.some(isCoordIncludes)) return
+	console.log(player2.coords);
 	const classNames = []
 
-	if (isPlaceToken()) {
+	if (player2.coords.some(isCoordIncludes)) {
 		classNames.push('_icon-crossMark')
-		// player2Coords = player2Coords.filter(coord => !isCoordIncludes(coord))
+		player2.coords = player2.coords.filter(coord => !isCoordIncludes(coord))
 	} else {
 		classNames.push('_tagged')
 	}
@@ -50,8 +70,9 @@ export const handlePlaceMark = () => {
 
 	setMarkPosition($currentMark, dragMarkX, dragMarkY)
 
-	coords.push([dragMarkX, dragMarkY])
-	markds.push([$currentMark])
+	player1.shots.push($currentMark)
+
+	if (player2.coords.length === 0) alert('end')
 }
 
 const createMark = (size, classNames = []) => {

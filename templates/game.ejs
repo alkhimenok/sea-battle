@@ -112,7 +112,10 @@ const battleLinkList = [
 						<%- include('./partials/nav', { links: positionLinkList }) %>
 					</nav>
 					<div class="position__card card" id="positionCard">
-						<h2 class="card__title _title">player-1</h2>
+						<div class="card__header">
+							<h2 class="card__title _title" id="positionTitle">player-1</h2>
+							<button class="card__btn" id="changePlayer"><span class="_icon-change"></span></button>
+						</div>
 						<div class="card__cover">
 							<div class="card__field field" id="positionField">
 								<canvas class="field__draw" id="positionConvas" data-canvas="field">field</canvas>

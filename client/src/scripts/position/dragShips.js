@@ -1,8 +1,11 @@
 import { getItemFromDB, setItemToDB } from '../dataBase'
+import { setPlayer } from '../battle/player'
 
 const $positionField = document.querySelector('#positionField')
 const $positionCard = document.querySelector('#positionCard')
 const $positionShipsList = document.querySelector('#positionShipsList')
+const $battleTransitionLink = document.querySelector('#battleTransitionLink')
+const $changePlayer = document.querySelector('#changePlayer')
 
 const positionSize = getItemFromDB('positionSize')
 const vueSize = getItemFromDB('vueSize')
@@ -14,7 +17,19 @@ let shipSize
 let shipX
 let shipY
 
-let coords = []
+const player1 = {
+	coords: [],
+	ships: [],
+	shots: [],
+}
+const player2 = {
+	coords: [],
+	ships: [],
+	shots: [],
+}
+
+let coords = player1.coords
+let ships = player1.ships
 
 export const dragShipStart = () => {
 	$positionShipsList.addEventListener('click', handleSrartDragging)
@@ -24,6 +39,28 @@ export const dragShipStart = () => {
 	$positionField.addEventListener('mousemove', handlePositionShip)
 	$positionField.addEventListener('click', handlePlaceShip)
 	$positionField.addEventListener('dblclick', handleShipBack)
+
+	$changePlayer.addEventListener('click', (e) => {
+		console.log(ships);
+		const s = document.querySelectorAll('[data-item="ship"]')
+		ships.forEach($ship => $ship.remove())
+		s.forEach(ship => ship.classList.remove('_disable'))
+
+		document.querySelector('#positionTitle').textContent = 'PLAYER-2'
+
+		coords = player2.coords
+		ships = player2.ships
+
+		e.currentTarget.classList.add('_disable')
+		console.log(ships);
+	})
+	$battleTransitionLink.addEventListener('click', () => {
+		if (getItemFromDB('mode') === 'friend') {
+			setPlayer(player1, player2)
+		} else {
+			setPlayer(player1) // createbot
+		}
+	})
 }
 
 const handleSrartDragging = e => {
@@ -98,7 +135,9 @@ export const handlePlaceShip = e => {
 	$currentShip.classList.add('_disable')
 	$currentShip = null
 
-	setItemToDB('palyer1Positions', JSON.stringify(coords))
+	ships.push($ship)
+
+	// setItemToDB('palyer1Positions', JSON.stringify(coords))
 	// ships.map(i => i.coords).flat()
 	// ships.map(shipsData => shipData.item).forEach($ship => $ship.addEventListener('mousemove', (e) => e.stopPropagation()))
 }
@@ -168,9 +207,10 @@ const itCanFit = (size, shipX, shipY) => {
 }
 
 // import { getItemFromDB, setItemToDB } from '../dataBase'
+// import { setPosition } from './setPosition'
 
 // const $positionField = document.querySelector('#positionField')
-// const $positionCard = document.querySelector('#positionCard')
+// const $battleTransitionLink = document.querySelector('#battleTransitionLink')
 // const $positionShipsList = document.querySelector('#positionShipsList')
 
 // const positionSize = getItemFromDB('positionSize')
@@ -183,7 +223,10 @@ const itCanFit = (size, shipX, shipY) => {
 // let shipX
 // let shipY
 
-// const ships = []
+// const player1Ships = []
+// const player2Ships = []
+
+// let ships = []
 
 // export const dragShipStart = () => {
 // 	$positionShipsList.addEventListener('click', handleSrartDragging)
@@ -193,6 +236,13 @@ const itCanFit = (size, shipX, shipY) => {
 // 	$positionField.addEventListener('mousemove', handlePositionShip)
 // 	$positionField.addEventListener('click', handlePlaceShip)
 // 	$positionField.addEventListener('dblclick', handleShipBack)
+
+// 	$battleTransitionLink.addEventListener('click', () => {
+// 		if (getItemFromDB('mode') === 'friend') {
+
+// 		}
+// 		setPosition(ships)
+// 	})
 // }
 
 // const handleSrartDragging = e => {
@@ -266,7 +316,7 @@ const itCanFit = (size, shipX, shipY) => {
 // 	$currentShip.classList.add('_disable')
 // 	$currentShip = null
 
-// 	setItemToDB('palyer1Positions', JSON.stringify(ships.map(i => i.coords).flat()))
+// 	// setItemToDB('palyer1Positions', JSON.stringify(ships.map(i => i.coords).flat()))
 // 	// ships.map(i => i.coords).flat()
 // 	// ships.map(shipsData => shipData.item).forEach($ship => $ship.addEventListener('mousemove', (e) => e.stopPropagation()))
 // }
@@ -285,16 +335,20 @@ const itCanFit = (size, shipX, shipY) => {
 // 		.filter($ship => $ship.classList.contains('_disable'))[0]
 // 		.classList.remove('_disable')
 
-// 	for (let i = 0; i < parseInt(target.style.width) / positionSize; i++) {
+// 	ships = ships.filter(item => {
+// 		const { coords } = item
 
-// 	}
+// 		return !coords.every(
+// 			(coord, i) => coord[0] === parseInt(target.style.left) + positionSize * i && coord[1] === parseInt(target.style.top)
+// 		)
+// 	})
 
-// 	console.log(target.style.width);
+// 	// setItemToDB('palyer1Positions', JSON.stringify(ships.map(i => i.coords).flat()))
 
 // 	target.remove()
 // }
 
-// const createShip = ($parent, className = []) => {
+// export const createShip = ($parent, className = []) => {
 // 	const $ship = document.createElement('span')
 
 // 	$ship.classList.add('field__ship', '_hide')
@@ -329,7 +383,12 @@ const itCanFit = (size, shipX, shipY) => {
 // 	const res = []
 
 // 	for (let i = 0; i < +size; i++) {
-// 		res.push(ships.map(shipData => shipData.coords).flat().some(coords => (coords[0] ===  shipX + positionSize * i) && coords[1] === shipY))
+// 		res.push(
+// 			ships
+// 				.map(shipData => shipData.coords)
+// 				.flat()
+// 				.some(coords => coords[0] === shipX + positionSize * i && coords[1] === shipY)
+// 		)
 // 	}
 
 // 	return res.some(item => item)
