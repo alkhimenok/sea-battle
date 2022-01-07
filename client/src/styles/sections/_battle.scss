@@ -1,0 +1,21 @@
+.battle {
+	// &__body {
+		// &._body {
+		// }
+	// }
+	&__card {
+		.card__field {
+			@include removeMB;
+			@media screen and (max-width: calc($breackpointSMMax * 1px)) {
+				@include flex(center, space-between);
+			}
+    }
+    .field__picture {
+      @media screen and (min-width: calc($breackpointMDMin * 1px)) {
+        margin: 0 auto $sizeMD auto;
+      }
+		}
+	}
+	// &._screen {
+	// }
+}
