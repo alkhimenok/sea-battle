@@ -28,6 +28,18 @@
 @import './styles/components/nav';
 // nav ----- //
 
+// ----- card //
+@import './styles/components/card'; 
+// card ----- //
+
+// ----- ship //
+@import './styles/components/ship'; 
+// ship ----- //
+
+// ----- field //
+@import './styles/components/field';
+// field ----- //
+
 //
 
 // ----- start //
@@ -38,3 +50,6 @@
 @import './styles/sections/stats';
 // stats ----- //
 
+// ----- size //
+@import './styles/sections/size';
+// size ----- //

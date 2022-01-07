@@ -1,0 +1,41 @@
+.card {
+  border-radius: calc($base * 0.4);
+	&__header {
+    @include flex(center, space-between)
+	}
+	&__title {
+    padding: 0 0 $sizeMD 0;
+		// &._title {
+		// }
+	}
+	&__btn {
+		@include size(50, 50);
+		// &._square-btn {
+		// }
+		// &._disable {
+		// }
+	}
+	&__icon {
+    font-size: $sizeSM;
+		// &._icon-change {
+		// }
+		// &._icon {
+		// }
+	}
+	&__range_field {
+    width: 100%;
+		margin: 0 0 $sizeLG 0;
+		@include castomRange;
+	}
+	// &__ship {
+	// }
+	// &__field {
+	// }
+  @media screen and (min-width: calc($breackpointMDMin * 1px)) {
+		@include center;
+		width: 60%;
+	}
+	@media screen and (max-width: calc($breackpointSMMax * 1px)) {
+		margin: $sizeLG 0 0 0;
+	}
+}

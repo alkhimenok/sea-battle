@@ -77,15 +77,15 @@ const sizeShipList = [
     <section class="size _screen" id="size">
       <div class="size__body _body">
         <%- include('./partials/nav', { className: 'size__nav', navList: sizeNavList }) %>
-        <div class="size__card">
-          <input class="card__field-range" id="fieldRange" type="range" value="<%- FIELD_SIZE %> " min="<%- MIN_FIELD_SIZE %>" max="<%- MAX_FIELD_SIZE %>" />
+        <div class="size__card card">
+          <input class="card__range_field" id="fieldRange" type="range" value="<%- FIELD_SIZE %> " min="<%- MIN_FIELD_SIZE %>" max="<%- MAX_FIELD_SIZE %>" />
           <div class="card__ship ship">
             <ul class="ship__list">
               <% sizeShipList.forEach(ship => { %>
                 <%- 
                   `
                   <li class="ship__item">
-                    <span class="ship__icon ${ship.icon}"></span>
+                    <span class="ship__icon _icon ${ship.icon}"></span>
                     <form class="ship__form" data-form="ship" id="${ship.id}">
                       <input class="ship__value _value" name="value" type="tel" readonly />
                       <button class="ship__btn _square-btn" name="plus">+</button>
@@ -100,8 +100,8 @@ const sizeShipList = [
           <div class="card__field field">
             <div class="field__picture">
               <canvas class="field__canvas" data-canvas="field">field</canvas>
+              <span class="field__label _title" id="fieldSizeLabel"></span>
             </div>
-            <span class="card__label _title" id="fieldSizeLabel"></span>
           </div>
         </div>
       </div>
@@ -135,11 +135,9 @@ const sizeShipList = [
       <div class="battle__body _body">
         <%- include('./partials/nav', { className: 'battle__nav', navList: battleNavList }) %> 
         <div class="battle__card card">
-          <header class="card__header">
-            <h2 class="card__title _title">
-              player-1
-            </h2>
-          </header>
+          <h2 class="card__title _title">
+            player-1
+          </h2>
           <div class="card__field field">
             <div class="field__picture">
               <canvas class="field__canvas" data-canvas="field">field</canvas>

@@ -1,0 +1,32 @@
+.size {
+  // &__body {
+  //   // &._body {
+  //   // }
+  // }
+  &__card {
+    padding: $sizeMD;
+		background-color: $lightSecondaryColor;
+    .card__field {
+      position: absolute;
+			left: 50%;
+			bottom: $sizeXS;
+			transform: translate(-50%, 0);
+			width: 100%;
+			opacity: 0;
+			transition: $delay;
+      pointer-events: none;
+    }
+    @media screen and (max-width: calc($breackpointSMMax * 1px)) {
+			position: relative;
+		}
+  }
+  &._resize {
+    .size__card {
+      .card__field {
+        opacity: 1;
+      }
+    }
+  }
+  // &._screen {
+  // }
+}

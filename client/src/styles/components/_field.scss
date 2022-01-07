@@ -1,0 +1,59 @@
+.field {
+	padding: $sizeMD;
+	background-color: $lightSecondaryColor;
+	&__picture {
+		position: relative;
+		@include flex(center, flex-end, row, wrap);
+		@include size(240, 240);
+		margin: 0 auto;
+		cursor: pointer;
+	}
+	&__canvas {
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		background-color: green;
+	}
+	&__label {
+		@include center;
+		// &._title {
+		// }
+	}
+	&__mark {
+		&:not(._mobile) {
+			&._icon-okMark {
+				color: $primaryColor;
+			}
+			&._icon-crossMark {
+				color: $errorColor;
+			}
+		}
+		// &._icon {
+		// }
+		// &._mobile {
+		// }
+		// &._hide {
+		// }
+	}
+	&__ship {
+		background-color: $transparentPrimaryColor;
+		&:not(._mobile) {
+			color: $primaryColor;
+			pointer-events: all;
+		}
+		// &._icon-shipFour {
+		// }
+		// &._icon-shipThree {
+		// }
+		// &._icon-shipTwo {
+		// }
+		// &._icon-shipOne {
+		// }
+		// &._icon {
+		// }
+		// &._mobile {
+		// }
+		// &._hide {
+		// }
+	}
+}

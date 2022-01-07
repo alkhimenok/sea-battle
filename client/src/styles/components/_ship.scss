@@ -1,0 +1,70 @@
+.ship {
+	// &__list {
+	// }
+	&__item {
+		user-select: none;
+		transition: $delay;
+		// &._selected {
+		// }
+		// &._disable {
+		// }
+	}
+	&__icon {
+		font-size: $sizeXXL;
+		color: $primaryColor;
+		// &._icon-shipFour {
+		// }
+		// &._icon-shipThree {
+		// }
+		// &._icon-shipTwo {
+		// }
+		// &._icon-shipOne {
+		// }
+		// &._icon {
+		// }
+	}
+	&__form {
+    @include flex(center, flex-start);
+		@include removeMR;
+	}
+	&__value {
+    @include size(50, 50);
+		margin: 0 $sizeLG 0 0;
+		font-size: $sizeMD;
+		// &._value {
+		// }
+	}
+	&__btn {
+    @include size(50, 50);
+		margin: 0 $sizeXS 0 0;
+		font-size: $sizeXL;
+		// &._square-btn {
+		// }
+		// &._red {
+		// }
+		// &._disable {
+		// }
+	}
+  &:not(._line) {
+		.ship__list {
+			@include removeMB;
+		}
+		.ship__item {
+			@include flex(center, space-between);
+			margin: 0 0 $sizeMD 0;
+		}
+	}
+  &._line {
+		.ship__list {
+			@include flex(center, space-between);
+			max-width: 100%;
+			padding: $sizeMD 0;
+			overflow: auto;
+			@include removeMR;
+			@include castomScrol;
+		}
+		.ship__item {
+			margin: 0 $sizeMD 0 0;
+		}
+	}
+}
