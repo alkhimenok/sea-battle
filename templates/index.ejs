@@ -106,7 +106,7 @@ const sizeShipList = [
         </div>
       </div>
     </section>
-    <section class="postion _screen" id="position">
+    <section class="position _screen" id="position">
       <div class="position__body _body">
         <%- include('./partials/nav', { className: 'position__nav', navList: positionNavList }) %> 
         <div class="position__card card">
@@ -123,8 +123,21 @@ const sizeShipList = [
               <canvas class="field__canvas" data-canvas="field">field</canvas>
             </div>
           </div>
-          <div class="card__ship ship">
+          <div class="card__ship ship _line">
             <ul class="ship__list" id="positionShipList">
+                <li class="ship__item" id="shipFour0" data-item="ship" data-size="4" data-icon="_icon-shipFour" draggable="true"> 
+                    <span class="ship__icon _icon-shipFour"></span>
+                </li>
+                <li class="ship__item" id="shipFour0" data-item="ship" data-size="4" data-icon="_icon-shipFour" draggable="true"> 
+                  <span class="ship__icon _icon-shipFour"></span>
+              </li>
+              <li class="ship__item" id="shipFour0" data-item="ship" data-size="4" data-icon="_icon-shipFour" draggable="true"> 
+                <span class="ship__icon _icon-shipFour"></span>
+            </li>
+            <li class="ship__item" id="shipFour0" data-item="ship" data-size="4" data-icon="_icon-shipFour" draggable="true"> 
+              <span class="ship__icon _icon-shipFour"></span>
+          </li>
+              
               <!-- added dynamically -->
             </ul>
           </div>
