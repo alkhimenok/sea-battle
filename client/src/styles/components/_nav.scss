@@ -1,0 +1,65 @@
+.nav {
+	&__list {
+		@include flex(center, space-between, row, wrap);
+	}
+	&__item {
+		position: relative;
+		@media screen and (hover: hover) {
+			&:hover {
+				.nav__label {
+					opacity: 1;
+				}
+			}
+		}
+		// &._square-btn {
+		// }
+		// &._red {
+		// }
+		// &._disable {
+		// }
+	}
+	&__link {
+		@include size(120, 120);
+	}
+	&__icon {
+		font-size: $sizeXL;
+    pointer-events: none;
+		// &._icon {
+		// }
+		// &._icon-save {
+		// }
+		// &._icon-bot {
+		// }
+		// &.__icon-friend {
+		// }
+		// &._icon-stats {
+		// }
+		// &._icon-leftArrow {
+		// }
+		// &.__icon-rightArrow {
+		// }
+		// &.__icon-logOff {
+		// }
+		// &._icon-change {
+		// }
+	}
+	&__label {
+		position: absolute;
+		top: calc(100% + ($base * 1));
+		left: 50%;
+		transform: translate(-50%, 0);
+		width: 90%;
+		margin: 0 auto;
+		text-align: center;
+		font-size: $sizeSM;
+		text-transform: uppercase;
+		transition: $delay;
+		pointer-events: none;
+		@media screen and (hover: hover) {
+			opacity: 0;
+		}
+		@media screen and (hover: none) {
+			opacity: 1;
+		}
+	}
+}

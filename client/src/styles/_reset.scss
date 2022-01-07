@@ -3,7 +3,7 @@
 }
 html,
 body {
-	font-family: 'Roboto-Regular';
+	font-family: $primaryFont;
 	font-size: 10px;
 	color: $defaultColor;
 	@media screen and (max-width: ($breackpointXSMax * 1px)) {

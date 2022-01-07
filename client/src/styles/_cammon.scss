@@ -1,9 +1,6 @@
 body {
-	overflow: hidden;
+	// overflow: hidden;
 	transition: $longDelay;
-	&._hide {
-		opacity: 0;
-	}
 }
 .wrapper {
 	overflow: hidden;
@@ -14,23 +11,60 @@ body {
 	height: 100vh;
 }
 ._body {
-  position: relative;
+	position: relative;
 	width: $maxWidth;
-	max-width: $maxWidth;
-	margin: 0 auto;
+	margin: 0 auto;	
 	padding: $sizeXS;
 	background-color: $secondaryColor;
 }
 ._title {
-	font-family: 'Roboto-Bold';
+	font-family: $secondaryFont;
 	font-size: $sizeXL;
 	text-align: center;
 	text-transform: uppercase;
 	color: $primaryColor;
 }
-
-._icon {}
-._square-btn {}
-._red {}
-._disable {}
-._hide {}
+._value {
+	text-align: center;
+	background-color: $transparent;
+	border: none;
+	outline: none;
+	cursor: default;
+}
+._icon {
+	line-height: 0;
+	&::before {
+		font-size: inherit;
+	}
+}
+._square-btn {
+	@include flex(center, center);
+	color: $primaryColor;
+	border: $thinBorder $primaryColor;
+	border-radius: $base * 0.4;
+	transition: $delay;
+	@media screen and (hover: hover) {
+		&:hover {
+			border-radius: 50%;
+		}
+	}
+	&:active {
+		color: $secondaryColor;
+		background-color: $primaryColor;
+	}
+}
+._red {
+	color: $errorColor;
+	border: $thinBorder $errorColor;
+	&:active {
+		background-color: $errorColor;
+	}
+}
+._disable {
+	opacity: 0.2;
+	pointer-events: none;
+	cursor: not-allowed;
+}
+._hide {
+	opacity: 0;
+}

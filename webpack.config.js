@@ -60,6 +60,10 @@ module.exports = {
 			},
 		],
 	},
-	plugins: [new MiniCssExtractPlugin(), new CleanWebpackPlugin(), new CopyWebpackPlugin({ patterns: [{ from: 'assets/images' }] })],
-	output: { path: path.resolve(__dirname, 'client', 'dist') },
+	plugins: [
+		new CleanWebpackPlugin(),
+		new MiniCssExtractPlugin(/* { filename: 'index.css' } */),
+		new CopyWebpackPlugin({ patterns: [{ from: 'assets/images' }] }),
+	],
+	output: { /* filename: 'index.js', */ path: path.resolve(__dirname, 'client', 'dist') },
 }

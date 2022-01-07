@@ -1,39 +1,3 @@
-$transparent: transparent;
-
-$defaultColor: #000000;
-$errorColor: #d04840;
-$primaryColor: #256696;
-$secondaryColor: #ffffff;
-$lightPrimaryColor: #a8c6db;
-$transparentPrimaryColor: #a8c6db30;
-$lightSecondaryColor: #fafafa;
-
-$delay: 0.2s;
-$longDelay: 0.4s ease-in-out;
-
-$maxWidth: 800px;
-
-$base: 1rem;
-
-$sizeXS: $base * 1;
-$sizeSM: $base * 1.5;
-$sizeMD: $base * 2;
-$sizeLG: $base * 3;
-$sizeXL: $base * 4;
-$sizeXXL: $base * 5;
-
-$breackpointXSMin: 0;
-$breackpointXSMax: 576;
-$breackpointSMMin: $breackpointXSMax + 1; // 577
-$breackpointSMMax: 768;
-$breackpointMDMin: $breackpointSMMax + 1; // 769
-$breackpointMDMax: 992;
-$breackpointLGMin: $breackpointMDMax + 1; // 993
-$breackpointLGMax: 1200;
-$breackpointXLMin: $breackpointLGMax + 1; // 1201
-$breackpointXLMax: 1400;
-$breackpointXXLMin: $breackpointXLMax + 1; // 1401
-
 @mixin removeMB {
 	& > :last-child {
 		margin-bottom: 0;
@@ -107,19 +71,3 @@ $breackpointXXLMin: $breackpointXLMax + 1; // 1401
 		height: calc(0px + $lastHeigth * (100vw / $breackpointXSMax));
 	}
 }
-
-// ----- fonts //
-@import './fonts';
-// fonts ----- //
-
-// ----- icons //
-@import './icons';
-// icons ----- //
-
-// ----- reset //
-@import './reset';
-// reset ----- //
-
-// // ----- cammon //
-// @import './cammon'; 
-// // cammon ----- //

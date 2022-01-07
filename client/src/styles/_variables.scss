@@ -1,0 +1,39 @@
+$base: 1rem;
+
+$sizeXS: $base * 1;
+$sizeSM: $base * 1.5;
+$sizeMD: $base * 2;
+$sizeLG: $base * 3;
+$sizeXL: $base * 4;
+$sizeXXL: $base * 5;
+
+$maxWidth: 800px;
+
+$primaryFont: 'Roboto-Regular';
+$secondaryFont: 'Roboto-Bold';
+
+$transparent: transparent;
+$defaultColor: #000000;
+$errorColor: #d04840;
+$primaryColor: #256696;
+$secondaryColor: #ffffff;
+$lightPrimaryColor: #a8c6db;
+$lightSecondaryColor: #fafafa;
+$transparentPrimaryColor: #a8c6db30;
+
+$thinBorder: $base * 0.2 solid;
+
+$delay: 0.2s;
+$longDelay: 0.4s ease-in-out;
+
+$breackpointXSMin: 0;
+$breackpointXSMax: 576;
+$breackpointSMMin: $breackpointXSMax + 1; // 577
+$breackpointSMMax: 768;
+$breackpointMDMin: $breackpointSMMax + 1; // 769
+$breackpointMDMax: 992;
+$breackpointLGMin: $breackpointMDMax + 1; // 993
+$breackpointLGMax: 1200;
+$breackpointXLMin: $breackpointLGMax + 1; // 1201
+$breackpointXLMax: 1400;
+$breackpointXXLMin: $breackpointXLMax + 1; // 1401

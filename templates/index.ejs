@@ -65,7 +65,7 @@ const sizeShipList = [
                 `
                 <li class="stats__item ${progressItem.icon}">
                   <spna class="stats__label">${progressItem.label}:</spna>
-                  <input class="stats__value" id="${progressItem.id}" type="tel" readonly />
+                  <input class="stats__value _value" id="${progressItem.id}" type="tel" readonly />
                 </li>
                 `
               %> 
@@ -87,7 +87,7 @@ const sizeShipList = [
                   <li class="ship__item">
                     <span class="ship__icon ${ship.icon}"></span>
                     <form class="ship__form" data-form="ship" id="${ship.id}">
-                      <input class="ship__value" name="value" type="tel" readonly />
+                      <input class="ship__value _value" name="value" type="tel" readonly />
                       <button class="ship__btn _square-btn" name="plus">+</button>
                       <button class="ship__btn _square-btn _red" name="minus">-</button>
                     </form>
@@ -101,6 +101,7 @@ const sizeShipList = [
             <div class="field__picture">
               <canvas class="field__canvas" data-canvas="field">field</canvas>
             </div>
+            <span class="card__label _title" id="fieldSizeLabel"></span>
           </div>
         </div>
       </div>
@@ -110,7 +111,7 @@ const sizeShipList = [
         <%- include('./partials/nav', { className: 'position__nav', navList: positionNavList }) %> 
         <div class="position__card card">
           <header class="card__header">
-            <h2 class="card__title">
+            <h2 class="card__title _title">
               player-1
             </h2>
             <button class="card__btn _square-btn">
@@ -133,19 +134,19 @@ const sizeShipList = [
     <section class="battle _screen" id="battle">
       <div class="battle__body _body">
         <%- include('./partials/nav', { className: 'battle__nav', navList: battleNavList }) %> 
-      </div>
-      <div class="battle__card card">
-        <header class="card__header">
-          <h2 class="card__title">
-            player-1
-          </h2>
-        </header>
-        <div class="card__field field">
-          <div class="field__picture">
-            <canvas class="field__canvas" data-canvas="field">field</canvas>
-          </div>
-          <div class="field__picture">
-            <canvas class="field__canvas" data-canvas="field">field</canvas>
+        <div class="battle__card card">
+          <header class="card__header">
+            <h2 class="card__title _title">
+              player-1
+            </h2>
+          </header>
+          <div class="card__field field">
+            <div class="field__picture">
+              <canvas class="field__canvas" data-canvas="field">field</canvas>
+            </div>
+            <div class="field__picture">
+              <canvas class="field__canvas" data-canvas="field">field</canvas>
+            </div>
           </div>
         </div>
       </div>
