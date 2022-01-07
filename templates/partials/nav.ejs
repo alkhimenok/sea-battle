@@ -1,14 +1,16 @@
-<ul class="nav__list">
-	<% links.forEach(link => { %>
-		<%- 
-			`
-			<li class="nav__item">
-				<a class="nav__link ${link.isRed ? '_red' : ''}" id="${link.id || ''}" href="${link.href}"  data-href="${link.href}">
-					<span class="nav__icon ${link.icon}"></span>
-					<span class="nav__label">${link.label}</span>
-				</a>
-			</li>
-			`
-		%>
-	<% }) %>
-</ul>
+<nav class="<%= className %>  nav" data-nav="transition">
+  <ul class="nav__list">
+    <% navList.forEach(link => { %>
+      <%- 
+        `
+        <li class="nav__item">
+          <a class="nav__link _square-btn ${link.isRed ? '_red' : ''} ${link.isDisable ? '_disable' : ''}" id="${link.id || ''}" href="${link.href}"  data-href="${link.href}">
+            <span class="nav__icon ${link.icon}"></span>
+            <span class="nav__label">${link.label}</span>
+          </a>
+        </li>
+        `
+      %>
+    <% }) %>
+  </ul>
+</nav>
