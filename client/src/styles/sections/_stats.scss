@@ -1,0 +1,39 @@
+.stats {
+  &__body {
+    @include flex(center, space-between, row, wrap);
+    // &._body {
+    // }
+  }
+  // &__nav{
+  // }
+  // &__progress {
+  // }
+  &__list {
+    @include removeMB;
+  }
+  &__item {
+    @include flex(center, space-between);
+    margin: 0 0 $sizeMD 0;
+		font-size: $sizeXL;
+		color: $primaryColor;
+		user-select: none;
+		// &._icon-like {
+		// }
+		// &._icon-dislike {
+		// }
+  }
+  &__label {
+    margin: 0 $sizeXXL;
+		font-size: $sizeMD;
+		text-transform: capitalize;
+		color: $defaultColor;
+  }
+  &__value {
+    @include size(50, 50);
+    color: $primaryColor;
+    // &._value {
+    // }
+  }
+  // &._screen {
+  // }
+}
