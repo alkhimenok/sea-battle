@@ -2,7 +2,7 @@
 
 **[Demo]()**
 
-**[Web-Desing]()**
+**[Web-Desing](https://www.figma.com/file/ApeaWdNoGTtZtzwxxbouK5/sea-battel?node-id=0%3A1)**
 
 ### Getting started:
 
