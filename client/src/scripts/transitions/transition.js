@@ -1,25 +1,14 @@
 import { smoothTo } from './smoothTransition'
+import { checkRoutes } from './routes'
 
 export const handlePageTransition = e => {
 	const { target } = e
-	const { dataset } = target
+	const { id, tagName, dataset } = target
 
-	if (target.tagName !== 'A') return
+	if (tagName !== 'A') return
 
 	smoothTo(dataset.href)
-	checkRoutes(target.id)
+	checkRoutes(id)
 
 	e.preventDefault()
-}
-
-const checkRoutes = id => {
-	// if (id === 'botTransitionLink') {
-	// 	setItemToDB('mode', 'bot')
-	// } else if (id === 'friendTransitionLink') {
-	// 	setItemToDB('mode', 'friend')
-	// } else if (id === 'statsTransitionLink') {
-	// 	setStats()
-	// } else if (id === 'positionTransitionLink') {
-	// 	fillpositionShipsList()
-	// }
 }

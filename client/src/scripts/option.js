@@ -18,11 +18,17 @@ const checkGameOptions = () => {
 	if (!isDatabaseConatains()) return
 
 	setItemToDB('takes', 20)
+	setItemToDB('mode', 'bot')
 	setItemToDB($fieldRange.id, 10)
 
 	shipFormList.forEach($form => setItemToDB($form.id, shipSize[$form.id]))
 }
 
 const isDatabaseConatains = () => {
-	return !(isItemInDB('takes') && isItemInDB($fieldRange.id) && [...shipFormList].every($form => isItemInDB($form.id)))
+	return !(
+		isItemInDB('takes') &&
+		isItemInDB('mode') &&
+		isItemInDB($fieldRange.id) &&
+		[...shipFormList].every($form => isItemInDB($form.id))
+	)
 }
