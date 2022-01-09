@@ -1,24 +1,24 @@
 <% 
 
 // navs
-const startNavList = [
+const startlinkList = [
   { id: 'continueLink', label: 'continue the game', icon: '_icon-save', href: '#battle', isDisable: true },
   { id: 'botLink', label: 'playing with a bot', icon: '_icon-bot', href: '#size' },
 	{ id: 'friendLink', label: 'play with a friend', icon: '_icon-friend', href: '#size' },
 	{ id: 'statsLink', label: 'stats', icon: '_icon-stats', href: '#stats' }
 ]
-const statsNavList = [
+const statslinkList = [
 	{ label: 'back', icon: '_icon-leftArrow', href: '#start', isRed: true }
 ]
-const sizeNavList = [
+const sizelinkList = [
   { label: 'back', icon: '_icon-leftArrow', href: '#start', isRed: true },
 	{ id: 'positionLink', label: 'continue', icon: '_icon-rightArrow', href: '#position', isDisable: true }
 ]
-const positionNavList = [
+const positionlinkList = [
 	{ label: 'back', icon: '_icon-leftArrow', href: '#size', isRed: true },
 	{ id: 'battleLink', label: 'continue', icon: '_icon-rightArrow',  href: '#battle', isDisable: true }
 ]
-const battleNavList = [
+const battlelinkList = [
 	{ id: 'logOffLink', label: 'log off', icon: '_icon-logOff', href: '#start', isRed: true },
 	{ id: 'changeLink', label: 'change', icon: '_icon-change', href: '#battle', isDisable: true }
 ]
@@ -52,20 +52,20 @@ const sizeShipList = [
   <div class="wrapper">
     <section class="start _screen" id="start">
       <div class="start__body _body">
-        <%- include('./partials/nav', { className: 'start__nav', navList: startNavList }) %> 
+        <%- include('./partials/nav', { className: 'start__nav', linkList: startlinkList }) %> 
       </div>
     </section>
     <section class="stats _screen" id="stats">
       <div class="stats__body _body">
-        <%- include('./partials/nav', { className: 'stats__nav', navList: statsNavList }) %> 
+        <%- include('./partials/nav', { className: 'stats__nav', linkList: statslinkList }) %> 
         <div class="stats__progress">
-          <ul class="stat__list">
+          <ul class="stats__list">
             <% statsProgressList.forEach(progressItem => { %>
               <%- 
                 `
                 <li class="stats__item ${progressItem.icon}">
                   <spna class="stats__label">${progressItem.label}:</spna>
-                  <input class="stats__value _value" id="${progressItem.id}" type="tel" value="0" readonly />
+                  <input class="stats__value _value" id="${progressItem.id}" data-input="stats" type="tel" readonly />
                 </li>
                 `
               %> 
@@ -76,7 +76,7 @@ const sizeShipList = [
     </section>
     <section class="size _screen" id="size">
       <div class="size__body _body">
-        <%- include('./partials/nav', { className: 'size__nav', navList: sizeNavList }) %>
+        <%- include('./partials/nav', { className: 'size__nav', linkList: sizelinkList }) %>
         <div class="size__card card">
           <input class="card__range_field" id="fieldRange" type="range" value="<%- FIELD_SIZE %> " min="<%- MIN_FIELD_SIZE %>" max="<%- MAX_FIELD_SIZE %>" />
           <div class="card__ship ship">
@@ -108,7 +108,7 @@ const sizeShipList = [
     </section>
     <section class="position _screen" id="position">
       <div class="position__body _body">
-        <%- include('./partials/nav', { className: 'position__nav', navList: positionNavList }) %> 
+        <%- include('./partials/nav', { className: 'position__nav', linkList: positionlinkList }) %> 
         <div class="position__card card">
           <header class="card__header">
             <h2 class="card__title _title">
@@ -133,17 +133,17 @@ const sizeShipList = [
     </section>
     <section class="battle _screen" id="battle">
       <div class="battle__body _body">
-        <%- include('./partials/nav', { className: 'battle__nav', navList: battleNavList }) %> 
+        <%- include('./partials/nav', { className: 'battle__nav', linkList: battlelinkList }) %> 
         <div class="battle__card card">
           <h2 class="card__title _title">
             player-1
           </h2>
           <div class="card__field field">
             <div class="field__picture">
-              <canvas class="field__canvas" data-canvas="field">field</canvas>
+              <canvas class="field__canvas" id="enemyField" data-canvas="field">field</canvas>
             </div>
             <div class="field__picture">
-              <canvas class="field__canvas" data-canvas="field">field</canvas>
+              <canvas class="field__canvas" id="friendlyField" data-canvas="field">field</canvas>
             </div>
           </div>
         </div>
