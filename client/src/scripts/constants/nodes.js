@@ -1,3 +1,4 @@
+export const $body = document.body
 // start
 export const $start = document.querySelector('#start')
 // stats
