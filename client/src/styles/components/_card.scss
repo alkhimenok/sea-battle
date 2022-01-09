@@ -1,14 +1,20 @@
 .card {
-  border-radius: calc($base * 0.4);
+	border-radius: calc($base * 0.4);
 	&__header {
-    @include flex(center, space-between);
-    padding: 0 0 $sizeMD 0;
+		@include flex(center, space-between);
+		padding: 0 0 $sizeMD 0;
 		.card__title {
-			padding: 0;			
+			width: 100%;
+			padding: 0;
+			text-align: start;
+		}
+		.card__btn {
+			flex: 0 0 10%;
 		}
 	}
 	&__title {
-    padding: 0 0 $sizeMD 0;
+		padding: 0 0 $sizeMD 0;
+		transition: $delay;
 		// &._title {
 		// }
 	}
@@ -18,16 +24,18 @@
 		// }
 		// &._disable {
 		// }
+		// &._remove {
+		// }
 	}
 	&__icon {
-    font-size: $sizeSM;
+		font-size: $sizeSM;
 		// &._icon-change {
 		// }
 		// &._icon {
 		// }
 	}
 	&__range_field {
-    width: 100%;
+		width: 100%;
 		margin: 0 0 $sizeLG 0;
 		@include castomRange;
 	}
@@ -35,7 +43,7 @@
 	// }
 	// &__field {
 	// }
-  @media screen and (min-width: calc($breackpointMDMin * 1px)) {
+	@media screen and (min-width: calc($breackpointMDMin * 1px)) {
 		@include center;
 		width: 60%;
 	}

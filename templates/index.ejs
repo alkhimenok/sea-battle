@@ -111,10 +111,8 @@ const sizeShipList = [
         <%- include('./partials/nav', { className: 'position__nav', linkList: positionlinkList }) %> 
         <div class="position__card card">
           <header class="card__header">
-            <h2 class="card__title _title">
-              player-1
-            </h2>
-            <button class="card__btn _square-btn">
+            <input class="card__title _title _value" id="playerName" data-input="playerName" data-player="playerOne" type="text">
+            <button class="card__btn _square-btn _disable" id="changePlayerPosition">
               <span class="card__icon _icon _icon-change"></span>
             </button>
           </header>
@@ -135,9 +133,7 @@ const sizeShipList = [
       <div class="battle__body _body">
         <%- include('./partials/nav', { className: 'battle__nav', linkList: battlelinkList }) %> 
         <div class="battle__card card">
-          <h2 class="card__title _title">
-            player-1
-          </h2>
+          <input class="card__title _title _value" data-input="playerName" data-player="playerOne" type="text" readonly>
           <div class="card__field field">
             <div class="field__picture">
               <canvas class="field__canvas" id="enemyField" data-canvas="field">field</canvas>

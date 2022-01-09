@@ -23,6 +23,8 @@ export const $shipOne = document.querySelector('#shipOne')
 export const $position = document.querySelector('#position')
 export const $battleLink = document.querySelector('#battleLink')
 export const $positionShipList = document.querySelector('#positionShipList')
+export const $playerName = document.querySelector('#playerName')
+export const $changePlayerPosition = document.querySelector('#changePlayerPosition')
 // battle
 export const $battle = document.querySelector('#battle')
 export const $logOffLink = document.querySelector('#logOffLink')
