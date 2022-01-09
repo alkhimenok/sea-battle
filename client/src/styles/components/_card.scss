@@ -1,7 +1,11 @@
 .card {
   border-radius: calc($base * 0.4);
 	&__header {
-    @include flex(center, space-between)
+    @include flex(center, space-between);
+    padding: 0 0 $sizeMD 0;
+		.card__title {
+			padding: 0;			
+		}
 	}
 	&__title {
     padding: 0 0 $sizeMD 0;

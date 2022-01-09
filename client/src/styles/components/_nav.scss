@@ -59,10 +59,10 @@
 		@media screen and (hover: none) {
 			opacity: 1;
 		}
-		@media screen and (min-width: ($breackpointSMMin * 1px)) {
+		@media screen and (min-width: ($breackpointMDMin * 1px)) {
 			top: calc(100% + ($base * 1));
 		}
-		@media screen and (max-width: ($breackpointXSMax * 1px)) {
+		@media screen and (max-width: ($breackpointSMMax * 1px)) {
 			bottom: calc(100% + ($base * 1));
 		}
 	}
