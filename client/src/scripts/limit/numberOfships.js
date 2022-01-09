@@ -1,4 +1,5 @@
 import { getItemFromDB, replaceItemInDB } from '../database'
+import { $positionLink } from '../constants/nodes'
 import { shipFormList } from '../constants/nodeLists'
 import { shipTakes } from '../constants/constants'
 
@@ -30,8 +31,14 @@ export const checkShipsLimit = takes => {
 
 		shipTakes[id] > rest ? $plus.classList.add('_disable') : $plus.classList.remove('_disable')
 	})
+
+	checkCompletenessField(rest)
 }
+
+export const getFreeSpaceOnField = (fieldRange, takes) => Math.floor((fieldRange ** 2 / 100) * 20 - takes)
 
 const isValidTarget = target => target.tagName === 'BUTTON' && !target.classList.contains('_disable')
 
-const getFreeSpaceOnField = (fieldRange, takes) => Math.floor((fieldRange ** 2 / 100) * 20 - takes)
+const checkCompletenessField = rest => {
+	return rest === 0 ? $positionLink.classList.remove('_disable') : $positionLink.classList.add('_disable')
+}

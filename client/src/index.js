@@ -13,13 +13,19 @@ import { setStats } from './scripts/stats'
 import { handlePageTransition } from './scripts/transitions/transition'
 import { handleChangeNumberOfShips } from './scripts/limit/numberOfships'
 
+import { handleStartFieldResize, handleEndFieldResize, handleChangeFieldSize } from './scripts/limit/fieldResize'
+
 const start = () => {
-	drawField(getItemFromDB($fieldRange.id), ...fieldList)
 	setGameOptions()
+	drawField(getItemFromDB($fieldRange.id), ...fieldList)
 	setStats()
 
 	navList.forEach($nav => $nav.addEventListener('click', handlePageTransition))
 	shipFormList.forEach($form => $form.addEventListener('click', handleChangeNumberOfShips))
+
+	$fieldRange.addEventListener('pointerdown', handleStartFieldResize)
+	$fieldRange.addEventListener('input', handleChangeFieldSize)
+	$fieldRange.addEventListener('pointerup', handleEndFieldResize)
 }
 
 window.addEventListener('load', start)
