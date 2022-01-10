@@ -2,7 +2,7 @@ import 'normalize.css'
 import './index.scss'
 
 import { navList, fieldList, shipFormList } from './scripts/constants/nodeLists'
-import { $fieldRange, $fieldOnPositionSection, $positionShipList, $playerName } from './scripts/constants/nodes'
+import { $fieldRange, $fieldOnPositionSection, $positionShipList, $playerChangeName, $enemyField } from './scripts/constants/nodes'
 
 import { getItemFromDB } from './scripts/database'
 
@@ -25,8 +25,14 @@ import {
 	handlePositionShipOnField,
 	handleRemoveShipOnField,
 	handlePlaceShipOnField,
-	handleShipBackFromField
+	handleShipBackFromField,
 } from './scripts/field/placementShips'
+import {
+	handleCreateMarkOnField,
+	handlePositionMarkOnField,
+	handleRemoveMarkOnField,
+	handlePlaceMarkOnField,
+} from './scripts/field/atack'
 
 const start = () => {
 	setGameOptions()
@@ -39,7 +45,7 @@ const start = () => {
 	navList.forEach($nav => $nav.addEventListener('click', handlePageTransition))
 	shipFormList.forEach($form => $form.addEventListener('click', handleChangeNumberOfShips))
 
-	$playerName.addEventListener('change', handleChangePlayerName)
+	$playerChangeName.addEventListener('change', handleChangePlayerName)
 
 	$fieldRange.addEventListener('pointerdown', handleStartFieldResize)
 	$fieldRange.addEventListener('input', handleChangeFieldSize)
@@ -52,6 +58,11 @@ const start = () => {
 	$fieldOnPositionSection.addEventListener('mouseout', handleRemoveShipOnField)
 	$fieldOnPositionSection.addEventListener('click', handlePlaceShipOnField)
 	$fieldOnPositionSection.addEventListener('dblclick', handleShipBackFromField)
+
+	$enemyField.addEventListener('mouseover', handleCreateMarkOnField)
+	$enemyField.addEventListener('mousemove', handlePositionMarkOnField)
+	$enemyField.addEventListener('mouseout', handleRemoveMarkOnField)
+	$enemyField.addEventListener('click', handlePlaceMarkOnField)
 }
 
 window.addEventListener('load', start)

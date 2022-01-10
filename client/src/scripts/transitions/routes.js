@@ -4,6 +4,8 @@ import { fieldList } from '../constants/nodeLists'
 import { drawField } from '../field/draw'
 import { fillPositionShipList } from '../ship/totalShips'
 import { checkMode } from '../player/mode'
+import { toggleChangeCurrentPlayer } from '../player/mode'
+import { fillField } from '../player/swich'
 
 export const checkRoutes = id => {
 	if (id === 'botLink') {
@@ -14,5 +16,8 @@ export const checkRoutes = id => {
 		drawField(getItemFromDB($fieldRange.id), ...[...fieldList].filter($field => $field !== $canvasOnSizeSection))
 		fillPositionShipList()
 		checkMode()
+	} else if (id === 'battleLink') {
+		toggleChangeCurrentPlayer()
+		fillField()
 	}
 }

@@ -23,8 +23,14 @@ export const setElementPosition = ($element, top, left) => {
 	$element.style.left = left + 'px'
 }
 
-export const removeElementOnField = ($element) => {
-  $element.classList.add('_hide')
+export const showElementOnField = ($parent, $element) => {
+	$parent.insertAdjacentElement('beforeend', $element)
+	
+	setTimeout(() => $element.classList.remove('_hide'))
+}
+
+export const removeElementOnField = $element => {
+	$element.classList.add('_hide')
 
 	setTimeout(() => $element.remove(), 200)
 }

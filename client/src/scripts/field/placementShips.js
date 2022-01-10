@@ -95,7 +95,7 @@ export const handleShipBackFromField = e => {
 	removeElementOnField($ship)
 }
 
-export const changePlayer = () => {
+export const changePlayerPosition = () => {
 	;[...$positionShipList.children].forEach($ship => $ship.classList.remove('_disable'))
 
 	ships.forEach($ship => removeElementOnField($ship))

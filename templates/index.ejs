@@ -25,7 +25,7 @@ const battlelinkList = [
 
 // constants
 const FIELD_SIZE = 10
-const MIN_FIELD_SIZE = 10
+const MIN_FIELD_SIZE = 4
 const MAX_FIELD_SIZE = 30
 
 // other
@@ -111,7 +111,7 @@ const sizeShipList = [
         <%- include('./partials/nav', { className: 'position__nav', linkList: positionlinkList }) %> 
         <div class="position__card card">
           <header class="card__header">
-            <input class="card__title _title _value" id="playerName" data-input="playerName" data-player="playerOne" type="text">
+            <input class="card__title _title _value" id="playerChangeName" data-input="playerName" data-player="playerOne" type="text">
             <button class="card__btn _square-btn _disable" id="changePlayerPosition">
               <span class="card__icon _icon _icon-change"></span>
             </button>
@@ -133,13 +133,13 @@ const sizeShipList = [
       <div class="battle__body _body">
         <%- include('./partials/nav', { className: 'battle__nav', linkList: battlelinkList }) %> 
         <div class="battle__card card">
-          <input class="card__title _title _value" data-input="playerName" data-player="playerOne" type="text" readonly>
+          <input class="card__title _title _value" id="playerSavedName" data-input="playerName" data-player="playerOne" type="text" readonly>
           <div class="card__field field">
-            <div class="field__picture">
-              <canvas class="field__canvas" id="enemyField" data-canvas="field">field</canvas>
+            <div class="field__picture"  id="enemyField">
+              <canvas class="field__canvas" data-canvas="field">field</canvas>
             </div>
-            <div class="field__picture">
-              <canvas class="field__canvas" id="friendlyField" data-canvas="field">field</canvas>
+            <div class="field__picture" id="unionField">
+              <canvas class="field__canvas" data-canvas="field">field</canvas>
             </div>
           </div>
         </div>

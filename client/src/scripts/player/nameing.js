@@ -6,9 +6,9 @@ export const setPlayerNames = () => {
 }
 
 export const handleChangePlayerName = e => {
+	console.log(playerNameList);
 	const { target } = e
 	const { value, dataset } = target
-
 
 	if (target.value.length <= 0) return
 

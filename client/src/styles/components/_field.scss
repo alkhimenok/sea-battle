@@ -7,6 +7,9 @@
 		@include size(240, 240);
 		margin: 0 auto;
 		cursor: pointer;
+		&.no-move {
+			pointer-events: none;
+		}
 	}
 	&__canvas {
 		width: 100%;
