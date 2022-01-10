@@ -2,6 +2,7 @@ import { getItemFromDB } from '../database'
 import { $changeLink, $enemyField } from '../constants/nodes'
 import { playerOne, playerTwo } from '../constants/constants'
 import { createElementOnField, setElementSize, setElementPosition, removeElementOnField } from './elementOnField'
+import { isWinningMove } from '../gameOver/winningMove'
 
 const positionSize = getItemFromDB('positionSize')
 
@@ -52,6 +53,7 @@ export const handlePlaceMarkOnField = e => {
 	$enemyField.classList.add('_no-move')
 
 	removeElementOnField($dragMark)
+	isWinningMove(enemyCoords, markTop, markLeft)
 }
 
 export const togglechangePlayerData = () => {
