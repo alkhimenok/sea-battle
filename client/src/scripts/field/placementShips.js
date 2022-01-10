@@ -93,13 +93,23 @@ export const handleShipBackFromField = e => {
 
 	const currentShipIcon = [...$ship.classList].filter(className => className.startsWith('_icon-')).join('')
 
-	$positionShipList.querySelector(`.${currentShipIcon}`).closest('li').classList.remove('_disable')
+	ships.forEach(($shipItem, i) => ($shipItem === $ship ? ships.splice(i, 1) : null))
+
+	Array.from($positionShipList.querySelectorAll(`.${currentShipIcon}`))
+		.map($icon => $icon.closest('li'))
+		.filter($ship => $ship.classList.contains('_disable'))[0]
+		.classList.remove('_disable')
 
 	for (let i = 0; i < parseInt(width) / positionSize; i++) {
-		coords = coords.filter(coord => !(coord[0] === parseInt(top) && coord[1] === parseInt(left) + positionSize * i))
+		coords.forEach((coord, j) => {
+			if (coord[0] === parseInt(top) && coord[1] === parseInt(left) + positionSize * i) {
+				coords.splice(j, 1)
+			}
+		})
 	}
 
 	removeElementOnField($ship)
+	checkCompletionField()
 }
 
 export const changePlayerPosition = () => {
@@ -122,7 +132,7 @@ export const resetShipPosition = () => {
 
 	$battleLink.classList.add('_disable')
 	$changePlayerPosition.classList.add('_disable')
-	
+
 	resetShipList()
 	setVariablesForPlacemnt()
 }
@@ -158,7 +168,12 @@ const resetCurrentShip = () => {
 }
 
 const checkCompletionField = () => {
-	if (!isCompletionField()) return
+	if (!isCompletionField()) {
+		$battleLink.classList.add('_disable')
+		$changePlayerPosition.classList.add('_disable')
+
+		return
+	}
 
 	if (mode === 'bot' || $changePlayerPosition.classList.contains('_hide')) {
 		$battleLink.classList.remove('_disable')
