@@ -113,22 +113,12 @@ const isShipWillFit = () => {
 
 	for (let i = 0; i < shipSize; i++) {
 		res.push(coords.some(coords => coords[0] === shipTop && coords[1] === shipLeft + positionSize * i))
-	}
-	for (let i = 0; i < shipSize; i++) {
 		res.push(coords.some(coords => coords[0] === shipTop + +positionSize && coords[1] === shipLeft + positionSize * i))
-	}
-	for (let i = 0; i < shipSize; i++) {
 		res.push(coords.some(coords => coords[0] === shipTop - positionSize && coords[1] === shipLeft + positionSize * i))
 	}
 	for (let i = 0; i < 3; i++) {
 		res.push(coords.some(coords => coords[0] === shipTop - positionSize + positionSize * i && coords[1] === shipLeft - positionSize))
-	}
-	for (let i = 0; i < 3; i++) {
-		res.push(
-			coords.some(
-				coords => coords[0] === shipTop - positionSize + positionSize * i && coords[1] === shipLeft + shipSize * positionSize
-			)
-		)
+		res.push(coords.some(coords => coords[0] === shipTop - positionSize + positionSize * i && coords[1] === shipLeft + shipSize * positionSize))
 	}
 
 	return !res.some(item => item)
