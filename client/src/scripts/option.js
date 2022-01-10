@@ -1,7 +1,7 @@
 import { getItemFromDB, setItemToDB, isItemInDB } from './database'
 import { $fieldRange } from './constants/nodes'
 import { shipFormList } from './constants/nodeLists'
-import { shipSize } from './constants/constants'
+import { defaultNumberOfShips } from './constants/constants'
 import { checkShipsLimit } from './limit/numberOfships'
 
 export const setGameOptions = () => {
@@ -23,7 +23,7 @@ const checkGameOptions = () => {
 	setItemToDB('playerTwo', 'player-2')
 	setItemToDB($fieldRange.id, 10)
 
-	shipFormList.forEach($form => setItemToDB($form.id, shipSize[$form.id]))
+	shipFormList.forEach($form => setItemToDB($form.id, defaultNumberOfShips[$form.id]))
 }
 
 const isDatabaseConatains = () => {

@@ -19,6 +19,8 @@
 		// }
 	}
 	&__mark {
+		position: absolute;
+		@include flex(center, center);
 		&:not(._mobile) {
 			&._icon-okMark {
 				color: $primaryColor;
@@ -35,6 +37,8 @@
 		// }
 	}
 	&__ship {
+		position: absolute;
+		@include flex(center, center);
 		background-color: $transparentPrimaryColor;
 		&:not(._mobile) {
 			color: $primaryColor;

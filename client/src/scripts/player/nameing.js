@@ -9,5 +9,8 @@ export const handleChangePlayerName = e => {
 	const { target } = e
 	const { value, dataset } = target
 
+
+	if (target.value.length <= 0) return
+
   replaceItemInDB(dataset.player, value)
 }

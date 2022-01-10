@@ -67,8 +67,6 @@ body {
 	background-color: $transparentPrimaryColor;
 }
 ._mobile {
-	position: absolute;
-	@include flex(center, center);
 	color: $lightPrimaryColor;
 }
 ._disable {

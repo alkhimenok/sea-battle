@@ -1,7 +1,7 @@
 import { getItemFromDB } from '../database'
 import { $positionShipList } from '../constants/nodes'
 import { shipFormList } from '../constants/nodeLists'
-import { shipSize } from '../constants/constants'
+import { shipTakes } from '../constants/constants'
 
 export const fillPositionShipList = () => {
 	$positionShipList.innerHTML = ''
@@ -13,7 +13,7 @@ export const fillPositionShipList = () => {
 		if (numberOfships > 60) return
 
 		for (let i = 0; i < numberOfships; i++) {
-			$positionShipList.insertAdjacentHTML('beforeend', getShip(id, shipSize[id]))
+			$positionShipList.insertAdjacentHTML('beforeend', getShip(id, shipTakes[id]))
 		}
 	})
 }

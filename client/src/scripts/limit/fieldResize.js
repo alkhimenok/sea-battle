@@ -1,5 +1,5 @@
 import { getItemFromDB, replaceItemInDB } from '../database'
-import { $size, $fieldOnSizeSection, $fieldSizeLabel } from '../constants/nodes'
+import { $size, $canvasOnSizeSection, $fieldSizeLabel } from '../constants/nodes'
 import { shipFormList } from '../constants/nodeLists'
 import { drawField } from '../field/draw'
 import { checkShipsLimit, getFreeSpaceOnField } from './numberOfships'
@@ -22,7 +22,7 @@ export const handleChangeFieldSize = e => {
 		$fieldRange.value = assignedValue
 	} else {
 		$fieldSizeLabel.textContent = `${value}x${value}`
-		drawField(value, $fieldOnSizeSection)
+		drawField(value, $canvasOnSizeSection)
 		replaceItemInDB(id, value)
 		checkShipsLimit(getItemFromDB('takes'))
 	}

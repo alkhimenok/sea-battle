@@ -1,3 +1,4 @@
+import { setItemToDB } from '../database'
 import { PRIMARY_COLOR, SECONDARY_COLOR } from '../constants/constants'
 
 export const drawField = (numberOfPositionsPerLine, ...canvasList) => {
@@ -6,6 +7,9 @@ export const drawField = (numberOfPositionsPerLine, ...canvasList) => {
 
 		const VUE_SIZE = $canvas.clientWidth * 2
 		const POSITION_SIZE = VUE_SIZE / numberOfPositionsPerLine
+
+		setItemToDB('positionSize', POSITION_SIZE / 2)
+		setItemToDB('vueSize', VUE_SIZE / 2)
 
 		$canvas.width = VUE_SIZE
 		$canvas.height = VUE_SIZE
