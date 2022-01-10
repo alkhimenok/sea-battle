@@ -6,6 +6,7 @@ import { fillPositionShipList } from '../ship/totalShips'
 import { checkMode } from '../player/mode'
 import { resetPlayerNaming } from '../player/nameing'
 import { setVariablesForPlacemnt, resetShipPosition } from '../field/placementShips'
+import { resetGame } from '../gameOver/resetGame'
 import { toggleChangeCurrentPlayer } from '../player/mode'
 import { fillField } from '../player/swich'
 import { setVarieblesForAttack } from '../field/attack'
@@ -23,6 +24,8 @@ export const checkRoutes = id => {
 		fillPositionShipList()
 		checkMode()
 		setVariablesForPlacemnt()
+	} else if (id === 'logOffLink') {
+		resetGame()
 	} else if (id === 'battleLink') {
 		toggleChangeCurrentPlayer()
 		setVarieblesForAttack()
