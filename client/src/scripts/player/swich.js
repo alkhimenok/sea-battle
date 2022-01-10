@@ -2,7 +2,7 @@ import { getItemFromDB } from '../database'
 import { $changeLink, $enemyField, $unionField, $playerSavedName } from '../constants/nodes'
 import { playerOne, playerTwo } from '../constants/constants'
 import { toggleChangeCurrentPlayer } from './mode'
-import { togglechangePlayerData } from '../field/atack'
+import { togglechangePlayerData } from '../field/attack'
 import { showElementOnField, removeElementOnField } from '../field/elementOnField'
 
 export const handleSwichPlayer = () => {
@@ -15,7 +15,6 @@ export const handleSwichPlayer = () => {
 }
 
 export const fillField = () => {
-
 	let unionPlayer
 	let enemyPlayer
 

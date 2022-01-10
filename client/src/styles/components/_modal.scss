@@ -1,0 +1,63 @@
+.modal {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 3;
+	transition: $longDelay;
+	&__body {
+		position: absolute;
+		top: -100%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		display: block;
+		padding: $sizeMD $sizeXXL;
+		background-color: $secondaryColor;
+		border-radius: $base * 0.4;
+		transition: $longDelay;
+		@media screen and (min-width: ($breackpointSMMin * 1px)) {
+			width: 500px;
+		}
+		@media screen and (max-width: ($breackpointXSMax * 1px)) {
+			width: 90%;
+		}
+	}
+	&__title {
+		margin: 0 0 $sizeMD 0;
+		// &._title {
+		// }
+	}
+	&__description {
+		margin: 0 0 $sizeXXL 0;
+		font-size: $sizeSM;
+		text-align: center;
+	}
+	&__nav {
+		@include flex(center, center);
+		@include removeMR;
+	}
+	&__btn {
+		@include size(50, 50);
+		margin: 0 $sizeMD 0 0;
+		// &._square-btn {
+		// }
+		// &._red {
+		// }
+	}
+	&__icon {
+		font-size: $sizeMD;
+		// &._icon-logOff {
+		// }
+		// &._icon-change {
+		// }
+		// &._icon {
+		// }
+	}
+	&._show {
+		background-color: $transparentPrimaryColor;
+		.modal__body {
+			top: 50%;
+		}
+	}
+}

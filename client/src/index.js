@@ -12,6 +12,8 @@ import { setStats } from './scripts/stats'
 import { fillPositionShipList } from './scripts/ship/totalShips'
 import { checkMode } from './scripts/player/mode'
 import { setPlayerNames } from './scripts/player/nameing'
+import { setVariablesForPlacemnt } from './scripts/field/placementShips'
+import { setVarieblesForAttack } from './scripts/field/attack'
 
 import { handlePageTransition } from './scripts/transitions/transition'
 import { handleChangeNumberOfShips } from './scripts/limit/numberOfships'
@@ -32,7 +34,7 @@ import {
 	handlePositionMarkOnField,
 	handleRemoveMarkOnField,
 	handlePlaceMarkOnField,
-} from './scripts/field/atack'
+} from './scripts/field/attack'
 
 const start = () => {
 	setGameOptions()
@@ -41,6 +43,8 @@ const start = () => {
 	fillPositionShipList()
 	checkMode()
 	setPlayerNames()
+	setVariablesForPlacemnt()
+	setVarieblesForAttack()
 
 	navList.forEach($nav => $nav.addEventListener('click', handlePageTransition))
 	shipFormList.forEach($form => $form.addEventListener('click', handleChangeNumberOfShips))

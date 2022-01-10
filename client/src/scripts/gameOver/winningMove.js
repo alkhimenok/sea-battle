@@ -1,5 +1,7 @@
-export const isWinningMove = (coords, top, left) => {
-  coords.forEach((coord, i, arr) => coord[0] === top && coord[1] === left ? coords.splice(i, 1) : coord)
+import { showCongratulation } from './congratulation'
 
-  if (coords.length === 0) alert('endGame')
+export const isWinningMove = (coords, top, left) => {
+	coords.forEach((coord, i) => (coord[0] === top && coord[1] === left ? coords.splice(i, 1) : coord))
+
+	if (coords.length === 0) showCongratulation()
 }

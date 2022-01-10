@@ -4,14 +4,20 @@ import { playerOne, playerTwo } from '../constants/constants'
 import { createElementOnField, setElementSize, setElementPosition, removeElementOnField } from './elementOnField'
 import { isWinningMove } from '../gameOver/winningMove'
 
-const positionSize = getItemFromDB('positionSize')
-
-let enemyCoords = playerTwo.coords
-let shots = playerOne.shots
-let marks = playerOne.marks
+let enemyCoords
+let shots
+let marks
 let $dragMark
 let markTop
 let markLeft
+let positionSize
+
+export const setVarieblesForAttack = () => {
+	enemyCoords = playerTwo.coords
+	shots = playerOne.shots
+	marks = playerOne.marks
+	positionSize = getItemFromDB('positionSize')
+}
 
 export const handleCreateMarkOnField = e => {
 	if (!checkForPlacement(e.target)) return
@@ -66,6 +72,20 @@ export const togglechangePlayerData = () => {
 		shots = playerOne.shots
 		marks = playerOne.marks
 	}
+}
+
+export const resetMarkPosition = () => {
+	playerOne.marks.forEach($mark => removeElementOnField($mark))
+	playerOne.marks.length = 0
+	playerOne.shots.length = 0
+
+	playerTwo.marks.forEach($mark => removeElementOnField($mark))
+	playerTwo.marks.length = 0
+	playerTwo.shots.length = 0
+
+	$enemyField.classList.remove('_no-move')
+
+	setVarieblesForAttack()
 }
 
 const checkForPlacement = target => target === $enemyField && !$enemyField.classList.contains('_no-move')

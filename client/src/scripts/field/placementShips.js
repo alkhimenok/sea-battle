@@ -3,18 +3,25 @@ import { $battleLink, $fieldOnPositionSection, $positionShipList, $changePlayerP
 import { playerOne, playerTwo } from '../constants/constants'
 import { createElementOnField, setElementSize, setElementPosition, removeElementOnField } from './elementOnField'
 
-const positionSize = getItemFromDB('positionSize')
-const vueSize = getItemFromDB('vueSize')
-const mode = getItemFromDB('mode')
-
-let coords = playerOne.coords
-let ships = playerOne.ships
+let coords
+let ships
 let $currentShip
 let $dragShip
 let shipIcon
 let shipSize
 let shipTop
 let shipLeft
+let positionSize
+let vueSize
+let mode
+
+export const setVariablesForPlacemnt = () => {
+	coords = playerOne.coords
+	ships = playerOne.ships
+	positionSize = getItemFromDB('positionSize')
+	vueSize = getItemFromDB('vueSize')
+	mode = getItemFromDB('mode')
+}
 
 export const handleShipSelectionForPlacement = e => {
 	const { target } = e
@@ -96,12 +103,28 @@ export const handleShipBackFromField = e => {
 }
 
 export const changePlayerPosition = () => {
-	;[...$positionShipList.children].forEach($ship => $ship.classList.remove('_disable'))
+	resetShipList()
 
 	ships.forEach($ship => removeElementOnField($ship))
 
 	coords = playerTwo.coords
 	ships = playerTwo.ships
+}
+
+export const resetShipPosition = () => {
+	playerOne.ships.forEach($ship => removeElementOnField($ship))
+	playerOne.ships.length = 0
+	playerOne.coords.length = 0
+
+	playerTwo.ships.forEach($ship => removeElementOnField($ship))
+	playerTwo.ships.length = 0
+	playerTwo.coords.length = 0
+
+	$battleLink.classList.add('_disable')
+	$changePlayerPosition.classList.add('_disable')
+	
+	resetShipList()
+	setVariablesForPlacemnt()
 }
 
 const checkForPlacement = target => !!$currentShip && target === $fieldOnPositionSection
@@ -118,7 +141,11 @@ const isShipWillFit = () => {
 	}
 	for (let i = 0; i < 3; i++) {
 		res.push(coords.some(coords => coords[0] === shipTop - positionSize + positionSize * i && coords[1] === shipLeft - positionSize))
-		res.push(coords.some(coords => coords[0] === shipTop - positionSize + positionSize * i && coords[1] === shipLeft + shipSize * positionSize))
+		res.push(
+			coords.some(
+				coords => coords[0] === shipTop - positionSize + positionSize * i && coords[1] === shipLeft + shipSize * positionSize
+			)
+		)
 	}
 
 	return !res.some(item => item)
@@ -141,3 +168,5 @@ const checkCompletionField = () => {
 }
 
 const isCompletionField = () => [...$positionShipList.children].every($ship => $ship.classList.contains('_disable'))
+
+const resetShipList = () => [...$positionShipList.children].forEach($ship => $ship.classList.remove('_disable'))

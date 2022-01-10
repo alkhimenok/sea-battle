@@ -4,20 +4,28 @@ import { fieldList } from '../constants/nodeLists'
 import { drawField } from '../field/draw'
 import { fillPositionShipList } from '../ship/totalShips'
 import { checkMode } from '../player/mode'
+import { resetPlayerNaming } from '../player/nameing'
+import { setVariablesForPlacemnt, resetShipPosition } from '../field/placementShips'
 import { toggleChangeCurrentPlayer } from '../player/mode'
 import { fillField } from '../player/swich'
+import { setVarieblesForAttack } from '../field/attack'
 
 export const checkRoutes = id => {
 	if (id === 'botLink') {
 		replaceItemInDB('mode', 'bot')
 	} else if (id === 'friendLink') {
 		replaceItemInDB('mode', 'friend')
+	} else if (id === 'baskSizeLink') {
+		resetPlayerNaming()
+		resetShipPosition()
 	} else if (id === 'positionLink') {
 		drawField(getItemFromDB($fieldRange.id), ...[...fieldList].filter($field => $field !== $canvasOnSizeSection))
 		fillPositionShipList()
 		checkMode()
+		setVariablesForPlacemnt()
 	} else if (id === 'battleLink') {
 		toggleChangeCurrentPlayer()
+		setVarieblesForAttack()
 		fillField()
 	}
 }

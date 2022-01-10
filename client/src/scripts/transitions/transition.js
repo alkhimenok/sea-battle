@@ -2,10 +2,10 @@ import { smoothTo } from './smoothTransition'
 import { checkRoutes } from './routes'
 
 export const handlePageTransition = e => {
-	const { target } = e
-	const { id, tagName, dataset } = target
+	if (e.target.tagName !== 'A') return
 
-	if (tagName !== 'A') return
+	const { target } = e
+	const { id, dataset } = target
 
 	smoothTo(dataset.href)
 	checkRoutes(id)
