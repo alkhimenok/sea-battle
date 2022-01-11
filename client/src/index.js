@@ -5,6 +5,7 @@ import { navList, fieldList, shipFormList } from './scripts/constants/nodeLists'
 import { $fieldRange, $fieldOnPositionSection, $positionShipList, $playerChangeName, $enemyField } from './scripts/constants/nodes'
 import { getItemFromDB } from './scripts/database'
 import { setGameOptions } from './scripts/option'
+import { checkContinueGame } from './scripts/save/continue'
 import { drawField } from './scripts/field/draw'
 import { setStats } from './scripts/stats'
 import { fillPositionShipList } from './scripts/ship/totalShips'
@@ -33,6 +34,7 @@ import {
 
 const start = () => {
 	setGameOptions()
+	checkContinueGame()
 	drawField(getItemFromDB($fieldRange.id), ...fieldList)
 	setStats()
 	fillPositionShipList()
@@ -43,7 +45,7 @@ const start = () => {
 
 	navList.forEach($nav => $nav.addEventListener('click', handlePageTransition))
 	shipFormList.forEach($form => $form.addEventListener('click', handleChangeNumberOfShips))
-	
+
 	$fieldRange.addEventListener('pointerdown', handleStartFieldResize)
 	$fieldRange.addEventListener('input', handleChangeFieldSize)
 	$fieldRange.addEventListener('pointerup', handleEndFieldResize)

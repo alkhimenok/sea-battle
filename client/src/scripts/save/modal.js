@@ -21,13 +21,14 @@ export const showSaveModal = () => {
 			$modal.classList.remove('_show')
 
 			setTimeout(() => $modal.remove(), LONG_DELAY)
+			
+			resetGame()
 
 			$modalNav.onclick = null
 		}
 
 		$saveProgress.onclick = () => {
 			saveGameData()
-			resetGame()
 
 			$saveProgress.onclick = null
 		}

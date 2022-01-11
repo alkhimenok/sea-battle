@@ -30,9 +30,11 @@ export const checkRoutes = id => {
 		checkMode()
 		setVariablesForPlacemnt()
 	} else if (id === 'logOffLink') {
-		setTimeout(showSaveModal, LONG_DELAY)
+		if (getItemFromDB('mode') !== 'bot') {
+			setTimeout(showSaveModal, LONG_DELAY)
+		}
 	} else if (id === 'battleLink') {
-		if (getItemFromDB('mode') === 'friend') {
+		if (getItemFromDB('mode') !== 'bot') {
 			toggleChangeCurrentPlayer()
 		}
 		setVarieblesForAttack()
