@@ -9,31 +9,31 @@
 - To start you can use `command console`
 
 ### Scripts: 
-1. To build a project in the client-side development mode
+- To build a project in the client-side development mode
 
    ```
    npm run build
    ```
 
-3. To run only the server side
+- To run only the server side
 
    ```
    npm run start
    ```
 
-4. To automatically update the server side
+- To automatically update the server side
 
    ```
    npm run server
    ```
 
-5. To run the entire project in development mode
+- To run the entire project in development mode
 
    ```
    npm run dev
    ```
 
-6. To run the entire project in production mode
+- To run the entire project in production mode
 
    ```
    npm run prod
