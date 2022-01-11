@@ -1,4 +1,5 @@
 import { getItemFromDB, replaceItemInDB } from '../database'
+import { createBot } from '../player/bot'
 import { $canvasOnSizeSection, $fieldRange } from '../constants/nodes'
 import { fieldList } from '../constants/nodeLists'
 import { drawField } from '../field/draw'
@@ -20,14 +21,19 @@ export const checkRoutes = id => {
 		resetPlayerNaming()
 		resetShipPosition()
 	} else if (id === 'positionLink') {
-		drawField(getItemFromDB($fieldRange.id), ...[...fieldList].filter($field => $field !== $canvasOnSizeSection))
+		if (getItemFromDB('mode') === 'mode') {
+			createBot()
+		}
+		drawField(getItemFromDB($fieldRange.id), ...fieldList.filter($field => $field !== $canvasOnSizeSection))
 		fillPositionShipList()
 		checkMode()
 		setVariablesForPlacemnt()
 	} else if (id === 'logOffLink') {
 		resetGame()
 	} else if (id === 'battleLink') {
-		toggleChangeCurrentPlayer()
+		if (getItemFromDB('mode') === 'friend') {
+			toggleChangeCurrentPlayer()
+		}
 		setVarieblesForAttack()
 		fillField()
 	}

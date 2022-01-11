@@ -34,4 +34,4 @@ const checkMaxValue = (value, assignedValue) => (isNoRemainder(assignedValue) ||
 
 const isNoRemainder = (assignedValue) => getFreeSpaceOnField(assignedValue - 1, getItemFromDB('takes')) < 0
 
-const isPlusDisabled = () => [...shipFormList].some($form => $form.plus.classList.contains('_disable'))
+const isPlusDisabled = () => shipFormList.some($form => $form.plus.classList.contains('_disable'))

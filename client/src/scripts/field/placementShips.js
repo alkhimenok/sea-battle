@@ -67,7 +67,7 @@ export const handleRemoveShipOnField = e => {
 }
 
 export const handlePlaceShipOnField = e => {
-	if (!checkForPlacement(e.target) || idCoordsToken() || !isShipWillFit()) return
+	if (!checkForPlacement(e.target) || isCoordsToken() || !isShipWillFit(coords, shipTop, shipLeft, shipSize, positionSize)) return
 
 	const $ship = createElementOnField($fieldOnPositionSection, ['field__ship', shipIcon])
 
@@ -137,11 +137,7 @@ export const resetShipPosition = () => {
 	setVariablesForPlacemnt()
 }
 
-const checkForPlacement = target => !!$currentShip && target === $fieldOnPositionSection
-
-const idCoordsToken = () => coords.some(coord => coord[0] === shipTop && coord[1] === shipLeft)
-
-const isShipWillFit = () => {
+export const isShipWillFit = (coords, shipTop, shipLeft, shipSize, positionSize) => {
 	const res = []
 
 	for (let i = 0; i < shipSize; i++) {
@@ -181,3 +177,7 @@ const checkCompletionField = () => {
 const isCompletionField = () => [...$positionShipList.children].every($ship => $ship.classList.contains('_disable'))
 
 const resetShipList = () => [...$positionShipList.children].forEach($ship => $ship.classList.remove('_disable'))
+
+const checkForPlacement = target => !!$currentShip && target === $fieldOnPositionSection
+
+const isCoordsToken = () => coords.some(coord => coord[0] === shipTop && coord[1] === shipLeft)

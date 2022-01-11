@@ -45,9 +45,9 @@ export const handleRemoveMarkOnField = e => {
 }
 
 export const handlePlaceMarkOnField = e => {
-	if (!checkForPlacement(e.target) || idCoordsToken(shots)) return
+	if (!checkForPlacement(e.target) || isCoordsToken(shots)) return
 
-	const $mark = createElementOnField($enemyField, ['field__mark', idCoordsToken(enemyCoords) ? '_icon-crossMark' : '_icon-okMark'])
+	const $mark = createElementOnField($enemyField, ['field__mark', isCoordsToken(enemyCoords) ? '_icon-crossMark' : '_icon-okMark'])
 
 	setElementSize($mark, positionSize, positionSize)
 	setElementPosition($mark, markTop, markLeft)
@@ -90,4 +90,4 @@ export const resetMarkPosition = () => {
 
 const checkForPlacement = target => target === $enemyField && !$enemyField.classList.contains('_no-move')
 
-const idCoordsToken = coords => coords.some(coord => coord[0] === markTop && coord[1] === markLeft)
+const isCoordsToken = coords => coords.some(coord => coord[0] === markTop && coord[1] === markLeft)

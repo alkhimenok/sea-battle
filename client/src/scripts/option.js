@@ -33,6 +33,6 @@ const isDatabaseConatains = () => {
 		isItemInDB('playerOne') &&
 		isItemInDB('playerTwo') &&
 		isItemInDB($fieldRange.id) &&
-		[...shipFormList].every($form => isItemInDB($form.id))
+		shipFormList.every($form => isItemInDB($form.id))
 	)
 }

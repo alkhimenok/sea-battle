@@ -3,7 +3,7 @@ import { handlePageTransition } from '../transitions/transition'
 import { resetGame } from './resetGame'
 
 export const showCongratulation = () => {
-	const congratulationModal = getcongratulationModal($playerSavedName.value + ', you won!', 'Great game! again?')
+	const congratulationModal = getcongratulationModal($playerSavedName.value + ', you won!', 'Great game! Again?')
 
 	$body.insertAdjacentHTML('afterbegin', congratulationModal)
 
