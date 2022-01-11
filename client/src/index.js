@@ -43,10 +43,11 @@ const start = () => {
 
 	navList.forEach($nav => $nav.addEventListener('click', handlePageTransition))
 	shipFormList.forEach($form => $form.addEventListener('click', handleChangeNumberOfShips))
-	$playerChangeName.addEventListener('change', handleChangePlayerName)
+	
 	$fieldRange.addEventListener('pointerdown', handleStartFieldResize)
 	$fieldRange.addEventListener('input', handleChangeFieldSize)
 	$fieldRange.addEventListener('pointerup', handleEndFieldResize)
+	$playerChangeName.addEventListener('change', handleChangePlayerName)
 	$positionShipList.addEventListener('click', handleShipSelectionForPlacement)
 	$fieldOnPositionSection.addEventListener('mouseover', handleCreateShipOnField)
 	$fieldOnPositionSection.addEventListener('mousemove', handlePositionShipOnField)

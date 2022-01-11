@@ -8,6 +8,6 @@ export const changeValueIfNotInDB = (key, value) => (!isItemInDB(key) ? setItemT
 
 export const replaceItemInDB = (key, value) => localStorage.setItem(key, value)
 
-export const replaceEachItemsInDB = (keyList, value) => keyList.forEach((key, i) => {
-  localStorage.setItem(key, Array.isArray(value) ? value[i] : value)
-})
+export const replaceEachItemsInDB = (keyList, value) => {
+	keyList.forEach((key, i) => localStorage.setItem(key, Array.isArray(value) ? value[i] : value))
+}

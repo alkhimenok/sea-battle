@@ -151,11 +151,7 @@ const isShipWillFit = () => {
 	}
 	for (let i = 0; i < 3; i++) {
 		res.push(coords.some(coords => coords[0] === shipTop - positionSize + positionSize * i && coords[1] === shipLeft - positionSize))
-		res.push(
-			coords.some(
-				coords => coords[0] === shipTop - positionSize + positionSize * i && coords[1] === shipLeft + shipSize * positionSize
-			)
-		)
+		res.push(coords.some(coords => coords[0] === shipTop - positionSize + positionSize * i && coords[1] === shipLeft + shipSize * positionSize))
 	}
 
 	return !res.some(item => item)

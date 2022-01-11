@@ -17,7 +17,7 @@ export const showCongratulation = () => {
 		$modalNav.addEventListener('click', () => {
 			$modal.classList.remove('_show')
 
-      resetGame()
+			resetGame()
 
 			setTimeout(() => $modal.remove(), 600)
 		})

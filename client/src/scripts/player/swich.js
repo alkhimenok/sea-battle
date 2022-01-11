@@ -9,8 +9,8 @@ export const handleSwichPlayer = () => {
 	$changeLink.classList.add('_disable')
 	$enemyField.classList.remove('_no-move')
 
-  toggleChangeCurrentPlayer() 
-  togglechangePlayerData()
+	toggleChangeCurrentPlayer()
+	togglechangePlayerData()
 	fillField()
 }
 

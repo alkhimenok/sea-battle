@@ -3,7 +3,7 @@ import { $playerChangeName, $playerSavedName } from '../constants/nodes'
 import { playerNameList } from '../constants/nodeLists'
 
 export const setPlayerNames = () => {
-	playerNameList.forEach($input => $input.value = getItemFromDB($input.dataset.player))
+	playerNameList.forEach($input => ($input.value = getItemFromDB($input.dataset.player)))
 }
 
 export const handleChangePlayerName = e => {
@@ -12,7 +12,7 @@ export const handleChangePlayerName = e => {
 
 	if (target.value.length <= 0) return
 
-  replaceItemInDB(dataset.player, value)
+	replaceItemInDB(dataset.player, value)
 }
 
 export const resetPlayerNaming = () => {
