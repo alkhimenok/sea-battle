@@ -26,7 +26,7 @@ export const setElementPosition = ($element, top, left) => {
 export const showElementOnField = ($parent, $element) => {
 	$parent.insertAdjacentElement('beforeend', $element)
 	
-	setTimeout(() => $element.classList.remove('_hide'))
+	setTimeout(() => $element.classList.remove('_hide'), 200)
 }
 
 export const removeElementOnField = $element => {
