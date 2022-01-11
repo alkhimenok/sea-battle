@@ -56,15 +56,16 @@ export const handlePlaceMarkOnField = e => {
 	shots.push([markTop, markLeft])
 	marks.push($mark)
 
-	if (getItemFromDB('mode') === 'bot') {
-		setTimeout(makeBotMove, 200)
-	} else {
-		$changeLink.classList.remove('_disable')
-		$enemyField.classList.add('_no-move')
+	if (!isWinningMove(enemyCoords, markTop, markLeft)) {
+		if (getItemFromDB('mode') === 'bot') {
+			setTimeout(makeBotMove, 200)
+		} else {
+			$changeLink.classList.remove('_disable')
+			$enemyField.classList.add('_no-move')
+		}
 	}
 
 	removeElementOnField($dragMark)
-	isWinningMove(enemyCoords, markTop, markLeft)
 }
 
 export const togglechangePlayerData = () => {
