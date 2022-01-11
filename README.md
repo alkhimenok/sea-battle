@@ -1,6 +1,6 @@
 # sea-battle
 
-<!-- **[Demo]()** -->
+**[Demo](https://warm-reef-13896.herokuapp.com/)**
 
 **[Web-Desing](https://www.figma.com/file/ApeaWdNoGTtZtzwxxbouK5/sea-battel?node-id=0%3A1)**
 
