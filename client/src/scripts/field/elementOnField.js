@@ -1,3 +1,5 @@
+import { LITTLE_DELAY, DELAY } from '../constants/constants'
+
 export const createElementOnField = ($parent, classNameList = []) => {
 	const $element = document.createElement('span')
 
@@ -7,7 +9,7 @@ export const createElementOnField = ($parent, classNameList = []) => {
 
 	$parent.insertAdjacentElement('beforeend', $element)
 
-	setTimeout(() => $element.classList.remove('_hide'), 0)
+	setTimeout(() => $element.classList.remove('_hide'), LITTLE_DELAY)
 
 	return $element
 }
@@ -26,11 +28,11 @@ export const setElementPosition = ($element, top, left) => {
 export const showElementOnField = ($parent, $element) => {
 	$parent.insertAdjacentElement('beforeend', $element)
 
-	setTimeout(() => $element.classList.remove('_hide'), 200)
+	setTimeout(() => $element.classList.remove('_hide'), DELAY)
 }
 
 export const removeElementOnField = $element => {
 	$element.classList.add('_hide')
 
-	setTimeout(() => $element.remove(), 200)
+	setTimeout(() => $element.remove(), DELAY)
 }

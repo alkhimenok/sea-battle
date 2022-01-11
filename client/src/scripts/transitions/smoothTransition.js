@@ -1,4 +1,5 @@
 import { $body } from '../constants/nodes'
+import { LONG_DELAY } from '../constants/constants'
 
 export const smoothTo = selector => {
 	const $neededSection = document.querySelector(selector)
@@ -10,5 +11,5 @@ export const smoothTo = selector => {
 		window.scrollTo({ top: indentTop })
 
 		$body.classList.remove('_hide')
-	}, 400)
+	}, LONG_DELAY)
 }

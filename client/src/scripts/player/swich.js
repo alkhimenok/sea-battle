@@ -1,6 +1,6 @@
 import { getItemFromDB } from '../database'
 import { $changeLink, $enemyField, $unionField, $playerSavedName } from '../constants/nodes'
-import { playerOne, playerTwo } from '../constants/constants'
+import { LONG_DELAY, playerOne, playerTwo } from '../constants/constants'
 import { toggleChangeCurrentPlayer } from './mode'
 import { togglechangePlayerData } from '../field/attack'
 import { showElementOnField, removeElementOnField } from '../field/elementOnField'
@@ -34,5 +34,5 @@ export const fillField = () => {
 		unionPlayer.ships.forEach($ship => showElementOnField($unionField, $ship))
 		unionPlayer.marks.forEach($mark => showElementOnField($enemyField, $mark))
 		enemyPlayer.marks.forEach($mark => showElementOnField($unionField, $mark))
-	}, 600)
+	}, LONG_DELAY)
 }

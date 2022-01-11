@@ -1,4 +1,5 @@
 import { getItemFromDB, replaceItemInDB } from '../database'
+import { LONG_DELAY } from '../constants/constants'
 import { createBot } from '../player/bot'
 import { $canvasOnSizeSection, $fieldRange } from '../constants/nodes'
 import { fieldList } from '../constants/nodeLists'
@@ -7,7 +8,7 @@ import { fillPositionShipList } from '../ship/totalShips'
 import { checkMode } from '../player/mode'
 import { resetPlayerNaming } from '../player/nameing'
 import { setVariablesForPlacemnt, resetShipPosition } from '../field/placementShips'
-import { resetGame } from '../gameOver/resetGame'
+import { showSaveModal } from '../save/modal'
 import { toggleChangeCurrentPlayer } from '../player/mode'
 import { fillField } from '../player/swich'
 import { setVarieblesForAttack } from '../field/attack'
@@ -29,7 +30,7 @@ export const checkRoutes = id => {
 		checkMode()
 		setVariablesForPlacemnt()
 	} else if (id === 'logOffLink') {
-		resetGame()
+		setTimeout(showSaveModal, LONG_DELAY)
 	} else if (id === 'battleLink') {
 		if (getItemFromDB('mode') === 'friend') {
 			toggleChangeCurrentPlayer()
