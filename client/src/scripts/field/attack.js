@@ -2,6 +2,7 @@ import { getItemFromDB } from '../database'
 import { $changeLink, $enemyField } from '../constants/nodes'
 import { playerOne, playerTwo } from '../constants/constants'
 import { createElementOnField, setElementSize, setElementPosition, removeElementOnField } from './elementOnField'
+import { makeBotMove } from '../player/bot'
 import { isWinningMove } from '../gameOver/winningMove'
 
 let enemyCoords
@@ -55,8 +56,12 @@ export const handlePlaceMarkOnField = e => {
 	shots.push([markTop, markLeft])
 	marks.push($mark)
 
-	$changeLink.classList.remove('_disable')
-	$enemyField.classList.add('_no-move')
+	if (getItemFromDB('mode') === 'bot') {
+		setTimeout(makeBotMove, 200)
+	} else {
+		$changeLink.classList.remove('_disable')
+		$enemyField.classList.add('_no-move')
+	}
 
 	removeElementOnField($dragMark)
 	isWinningMove(enemyCoords, markTop, markLeft)

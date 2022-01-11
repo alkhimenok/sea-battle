@@ -21,7 +21,7 @@ export const checkRoutes = id => {
 		resetPlayerNaming()
 		resetShipPosition()
 	} else if (id === 'positionLink') {
-		if (getItemFromDB('mode') === 'mode') {
+		if (getItemFromDB('mode') === 'bot') {
 			createBot()
 		}
 		drawField(getItemFromDB($fieldRange.id), ...fieldList.filter($field => $field !== $canvasOnSizeSection))

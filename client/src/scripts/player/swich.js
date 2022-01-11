@@ -26,6 +26,9 @@ export const fillField = () => {
 		enemyPlayer = playerOne
 	}
 
+	console.log(unionPlayer, playerOne);
+	console.log(enemyPlayer, playerTwo);
+	
 	enemyPlayer.ships.forEach($ship => removeElementOnField($ship))
 	enemyPlayer.marks.forEach($mark => removeElementOnField($mark))
 	unionPlayer.marks.forEach($mark => removeElementOnField($mark))

@@ -1,9 +1,9 @@
-import { $body, $playerSavedName } from '../constants/nodes'
+import { $body } from '../constants/nodes'
 import { handlePageTransition } from '../transitions/transition'
 import { resetGame } from './resetGame'
 
-export const showCongratulation = () => {
-	const congratulationModal = getcongratulationModal($playerSavedName.value + ', you won!', 'Great game! Again?')
+export const showCongratulation = (name, message) => {
+	const congratulationModal = getcongratulationModal(name, message)
 
 	$body.insertAdjacentHTML('afterbegin', congratulationModal)
 
