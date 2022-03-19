@@ -9,7 +9,6 @@ app.set('view engine', 'ejs')
 app.set('views', path.resolve(__dirname, 'templates'))
 
 app.use(express.static(path.resolve(__dirname, 'client', 'dist')))
-
 app.use('/', require('./routes/game'))
 
 const start = () => {
